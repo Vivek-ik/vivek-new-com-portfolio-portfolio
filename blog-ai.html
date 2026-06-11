@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--- basic page needs
+    ================================================== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivek</title>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    document.documentElement.classList.add("js");
+  </script>
+
+  <!-- CSS
+    ================================================== -->
+  <link rel="stylesheet" href="css/vendor.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- favicons
+    ================================================== -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="s-header">
+    <div class="row s-header__inner width-sixteen-col">
+      <div class="s-header__block">
+        <div class="s-header__logo">
+          <a class="logo" href="index.html">
+            <img src="/images/logo.jpg" alt="Homepage" />
+          </a>
+        </div>
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+      </div>
+
+      <nav class="s-header__nav">
+        <ul class="s-header__menu-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Journal</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="current"><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+        <div class="s-header__contact">
+          <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog Content -->
+  <section class="s-journal">
+    <div class="row row-x-center text-center">
+      <div class="column xl-12">
+        <h1 style="color: white;">Integrating ChatGPT into Web Apps</h1>
+        <p class="lead">
+          Explore how to integrate OpenAI’s ChatGPT API into your apps for conversational experiences. Covers prompts,
+          context management, and secure backend setup with Node.js.
+        </p>
+        <div class="blog-meta">
+          <span>Author: Vivek Lodhi</span> |
+          <span>Date: October 4, 2025</span> |
+          <span>Category: AI & Web Development</span>
+        </div>
+      </div>
+    </div>
+    <div class="row s-journal__content width-sixteen-col">
+      <div class="column xl-8 lg-12">
+        <article class="blog-article">
+          <p>
+            Conversational AI is rapidly becoming an essential feature in modern applications. From customer support
+            bots to AI-driven assistants,
+            OpenAI’s <strong class="text-pretitle">ChatGPT</strong> provides developers with the tools to bring natural,
+            human-like conversations into their web and mobile apps.
+            In this article, we’ll explore how to integrate ChatGPT using the OpenAI API, manage prompts effectively,
+            and build a secure backend with Node.js.
+          </p>
+
+          <h2 class="text-display-title">Why Integrate ChatGPT?</h2>
+          <ul>
+            <li><strong class="text-pretitle">Enhanced User Experience:</strong> Provide conversational UIs for customer
+              support, FAQs, or interactive onboarding.</li>
+            <li><strong class="text-pretitle">Context-Aware Interactions:</strong> Maintain user session context for
+              personalized responses.</li>
+            <li><strong class="text-pretitle">Productivity:</strong> Automate repetitive tasks such as content
+              generation or summarization.</li>
+            <li><strong class="text-pretitle">Scalable:</strong> The API handles millions of requests while scaling with
+              your app.</li>
+          </ul>
+
+          <h2 class="text-display-title">Setting Up OpenAI in Your Project</h2>
+          <p>First, install the OpenAI SDK:</p>
+          <pre><code>npm install openai</code></pre>
+
+          <p>Then create a secure backend using Node.js + Express:</p>
+          <pre><code>// server.js
+import express from "express";
+import bodyParser from "body-parser";
+import OpenAI from "openai";
+
+const app = express();
+app.use(bodyParser.json());
+
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY, // Store in .env
+});
+
+app.post("/api/chat", async (req, res) => {
+  const { message, context } = req.body;
+
+  try {
+    const response = await client.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: "You are a helpful assistant." },
+        ...(context || []),
+        { role: "user", content: message },
+      ],
+    });
+
+    res.json({ reply: response.choices[0].message.content });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.listen(4000, () => console.log("Server running on http://localhost:4000"));
+</code></pre>
+
+          <h2 class="text-display-title">Frontend Integration (React Example)</h2>
+          <p>On the frontend, call your backend endpoint securely:</p>
+          <pre><code>// ChatBox.tsx
+import { useState } from "react";
+
+export default function ChatBox() {
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+
+  const sendMessage = async () => {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: input, context: messages }),
+    });
+
+    const data = await response.json();
+    setMessages([...messages, { role: "user", content: input }, { role: "assistant", content: data.reply }]);
+    setInput("");
+  };
+
+  return (
+    &lt;div className="chat-box"&gt;
+      {messages.map((m, i) =&gt; (
+        &lt;div key={i} className={`msg ${m.role}`}&gt;{m.content}&lt;/div&gt;
+      ))}
+      &lt;input value={input} onChange={e =&gt; setInput(e.target.value)} placeholder="Type a message..." /&gt;
+      &lt;button onClick={sendMessage}&gt;Send&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+          <h2 class="text-display-title">Managing Context</h2>
+          <p>
+            One of the challenges of ChatGPT integration is maintaining context across multiple user messages.
+            This can be done by storing past messages in the frontend state and sending them back with each request.
+            For production systems, consider:
+          </p>
+          <ul>
+            <li>Storing conversations in a database for persistence.</li>
+            <li>Using session tokens to track conversations per user.</li>
+            <li>Limiting message history to avoid large API payloads.</li>
+          </ul>
+
+          <h2 class="text-display-title">Security Best Practices</h2>
+          <ul>
+            <li>Never expose your OpenAI API key in frontend code.</li>
+            <li>Use a backend proxy (like Express) to handle API calls securely.</li>
+            <li>Rate-limit your endpoints to prevent abuse.</li>
+            <li>Log errors for debugging but avoid logging sensitive user inputs.</li>
+          </ul>
+
+          <h2 class="text-display-title">Advanced Features</h2>
+          <ul>
+            <li><strong class="text-pretitle">Streaming Responses:</strong> Improve UX by streaming ChatGPT’s replies in
+              real-time.</li>
+            <li><strong class="text-pretitle">Role-based Prompts:</strong> Use system messages to enforce tone and
+              behavior (e.g., polite, technical, casual).</li>
+            <li><strong class="text-pretitle">RAG (Retrieval-Augmented Generation):</strong> Combine ChatGPT with a
+              vector database like Pinecone or Weaviate to answer domain-specific queries.</li>
+            <li><strong class="text-pretitle">Voice Integration:</strong> Use Web Speech API or Twilio to add speech
+              input/output.</li>
+          </ul>
+
+          <h2 class="text-display-title">Conclusion</h2>
+          <p>
+            Integrating ChatGPT into your web applications can transform user interactions, making them smarter,
+            more engaging, and context-aware. By leveraging a secure backend with Node.js, managing context effectively,
+            and following best practices, you can build reliable AI-powered apps ready for production.
+          </p>
+          <p>Experiment with prompts, test different models, and take your web apps to the next level with ChatGPT!</p>
+        </article>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="column xl-4 lg-12">
+        <aside class="blog-sidebar">
+          <h3>Recent Articles</h3>
+          <ul>
+            <li><a href="blog-nestjs.html">Building Scalable APIs with NestJS</a></li>
+            <li><a href="blog-postgres.html">Mastering PostgreSQL for Modern Apps</a></li>
+            <li><a href="blog-firebase.html">Firebase for Full-Stack Developers</a></li>
+            <li><a href="blog-ts.html">TypeScript for Large-Scale Apps</a></li>
+            <li><a href="blog-microservices.html">Microservices with Node.js</a></li>
+          </ul>
+
+          <h3>Tags</h3>
+          <div class="blog-tags">
+            <a href="#">ChatGPT</a>
+            <a href="#">AI</a>
+            <a href="#">OpenAI</a>
+            <a href="#">Node.js</a>
+            <a href="#">React</a>
+            <a href="#">Full-Stack</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="s-footer">
+    <div class="row s-footer__content">
+
+      <!-- About -->
+      <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+        <h3>About Me</h3>
+        <p>
+          I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL,
+          Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and
+          performant web applications. My passion is turning ideas into modern, responsive digital experiences that
+          deliver real value to clients.
+        </p>
+      </div>
+
+      <!-- Site Links -->
+      <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+        <h3>Site Links</h3>
+        <ul class="link-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
+        <div class="subscribe-form">
+          <form id="mc-form" class="mc-form">
+            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+              placeholder="Your Email Address" required />
+            <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth" />
+            <div class="mc-status"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Social & Copyright -->
+    <div class="row s-footer__bottom">
+      <div class="column xl-6 lg-12">
+        <ul class="s-footer__social social-list">
+          <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+          <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+          <li><a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a></li>
+        </ul>
+      </div>
+
+      <!-- <div class="column xl-6 lg-12">
+      <p class="ss-copyright">
+        <span>© Copyright 2025 Your Name</span>
+        <span>Design inspired by 
+          <a href="https://www.styleshout.com/">StyleShout</a>, Distributed by 
+          <a href="https://themewagon.com">ThemeWagon</a>
+        </span>
+      </p>
+    </div> -->
+
+      <!-- Back to top -->
+      <div class="ss-go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="17 11 12 6 7 11"></polyline>
+            <line x1="12" y1="18" x2="12" y2="6"></line>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+</body>
+
+</html>

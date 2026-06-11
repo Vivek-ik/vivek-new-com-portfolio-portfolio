@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--- basic page needs
+    ================================================== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivek</title>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    document.documentElement.classList.add("js");
+  </script>
+
+  <!-- CSS
+    ================================================== -->
+  <link rel="stylesheet" href="css/vendor.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- favicons
+    ================================================== -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="s-header">
+    <div class="row s-header__inner width-sixteen-col">
+      <div class="s-header__block">
+        <div class="s-header__logo">
+          <a class="logo" href="index.html">
+            <img src="/images/logo.jpg" alt="Homepage" />
+          </a>
+        </div>
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+      </div>
+
+      <nav class="s-header__nav">
+        <ul class="s-header__menu-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Journal</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="current"><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+        <div class="s-header__contact">
+          <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- Blog Content -->
+  <section class="s-journal">
+    <div class="row row-x-center text-center">
+      <div class="column xl-12">
+        <h1 style="color: white;">Why TypeScript is a Game Changer</h1>
+        <p class="lead">
+          From type safety to better tooling, TypeScript enhances the development workflow.
+          This post dives into advanced typing, generics, and integrating TypeScript with React and Node.js.
+        </p>
+        <div class="blog-meta">
+          <span>Author: Vivek Lodhi</span> |
+          <span>Date: October 4, 2025</span> |
+          <span>Category: Programming</span>
+        </div>
+      </div>
+    </div>
+    <div class="row s-journal__content width-sixteen-col">
+      <div class="column xl-8 lg-12">
+        <article class="blog-article">
+
+          <p>
+            JavaScript has been the backbone of web development for decades, but as applications grew larger, so did the
+            complexity. Enter <strong class="text-pretitle">TypeScript</strong> — a superset of JavaScript that brings
+            type safety, advanced tooling, and better developer experience without losing JavaScript’s flexibility.
+          </p>
+
+          <h2 class="text-display-title">Why Developers Choose TypeScript</h2>
+          <ul>
+            <li><strong class="text-pretitle">Type Safety:</strong> Catch errors at compile-time instead of runtime.
+            </li>
+            <li><strong class="text-pretitle">Better Tooling:</strong> Enhanced IntelliSense, autocompletion, and
+              navigation in IDEs.</li>
+            <li><strong class="text-pretitle">Scalability:</strong> Perfect for large codebases and enterprise apps.
+            </li>
+            <li><strong class="text-pretitle">Compatibility:</strong> Works seamlessly with existing JavaScript code.
+            </li>
+          </ul>
+
+          <h2 class="text-display-title">Advanced Typing in TypeScript</h2>
+          <p>TypeScript supports advanced types like unions, intersections, and generics, making it powerful for
+            building flexible yet safe APIs.</p>
+          <pre><code>
+// Union & Intersection Types
+type UserRole = "admin" | "editor" | "viewer";
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Employee {
+  company: string;
+}
+
+type Staff = Person & Employee;
+
+const user: Staff = {
+  name: "Alice",
+  age: 25,
+  company: "TechCorp",
+};
+
+// Generics Example
+function identity<T>(value: T): T {
+  return value;
+}
+
+let result = identity<string>("Hello TypeScript");
+          </code></pre>
+
+          <h2 class="text-display-title">TypeScript with React</h2>
+          <p>React and TypeScript work hand-in-hand to provide better DX (Developer Experience) and safer components.
+          </p>
+          <pre><code>
+import React, { useState } from "react";
+
+interface User {
+  id: number;
+  name: string;
+}
+
+const UserCard: React.FC<{ user: User }> = ({ user }) => {
+  return &lt;div&gt;{user.name}&lt;/div&gt;;
+};
+
+export default function App() {
+  const [users, setUsers] = useState&lt;User[]&gt;([
+    { id: 1, name: "Alice" },
+    { id: 2, name: "Bob" },
+  ]);
+
+  return (
+    &lt;div&gt;
+      {users.map((u) =&gt; (
+        &lt;UserCard key={u.id} user={u} /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}
+          </code></pre>
+
+          <h2 class="text-display-title">TypeScript with Node.js</h2>
+          <p>Node.js projects can benefit from TypeScript by adding strict contracts for APIs and services.</p>
+          <pre><code>
+import express, { Request, Response } from "express";
+
+const app = express();
+
+interface User {
+  id: number;
+  name: string;
+}
+
+app.get("/users", (req: Request, res: Response) =&gt; {
+  const users: User[] = [
+    { id: 1, name: "Alice" },
+    { id: 2, name: "Bob" },
+  ];
+  res.json(users);
+});
+
+app.listen(3000, () =&gt; {
+  console.log("Server running on port 3000");
+});
+          </code></pre>
+
+          <h2 class="text-display-title">Best Practices with TypeScript</h2>
+          <ul>
+            <li>Use <strong class="text-pretitle">strict mode</strong> for maximum safety.</li>
+            <li>Organize code using <strong class="text-pretitle">interfaces and types</strong>.</li>
+            <li>Adopt <strong class="text-pretitle">path aliases</strong> for cleaner imports.</li>
+            <li>Leverage <strong class="text-pretitle">tsconfig.json</strong> to configure build options.</li>
+            <li>Always define <strong class="text-pretitle">return types</strong> for functions.</li>
+          </ul>
+
+          <h2 class="text-display-title">Conclusion</h2>
+          <p>
+            TypeScript is more than just “JavaScript with types.” It empowers developers to build safer, more
+            maintainable, and scalable applications.
+            With its deep integration into modern frameworks like React and Node.js, TypeScript has become a must-have
+            tool for professional developers.
+          </p>
+          <p>
+            If you’re still on plain JavaScript, now is the time to upgrade your workflow with TypeScript and experience
+            its game-changing benefits!
+          </p>
+
+        </article>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="column xl-4 lg-12">
+        <aside class="blog-sidebar">
+          <h3>Recent Articles</h3>
+          <ul>
+            <li><a href="blog-nestjs.html">Building Scalable APIs with NestJS</a></li>
+            <li><a href="blog-postgres.html">Mastering PostgreSQL for Modern Apps</a></li>
+            <li><a href="blog-ai.html">Integrating ChatGPT into Web Apps</a></li>
+            <li><a href="blog-microservices.html">Microservices Best Practices</a></li>
+            <li><a href="blog-css.html">Modern Styling with CSS3 & SCSS</a></li>
+          </ul>
+
+          <h3>Tags</h3>
+          <div class="blog-tags">
+            <a href="#">TypeScript</a>
+            <a href="#">JavaScript</a>
+            <a href="#">React</a>
+            <a href="#">Node.js</a>
+            <a href="#">Programming</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="s-footer">
+    <div class="row s-footer__content">
+
+      <!-- About -->
+      <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+        <h3>About Me</h3>
+        <p>
+          I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL,
+          Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and
+          performant web applications. My passion is turning ideas into modern, responsive digital experiences that
+          deliver real value to clients.
+        </p>
+      </div>
+
+      <!-- Site Links -->
+      <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+        <h3>Site Links</h3>
+        <ul class="link-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
+        <div class="subscribe-form">
+          <form id="mc-form" class="mc-form">
+            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+              placeholder="Your Email Address" required />
+            <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth" />
+            <div class="mc-status"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Social & Copyright -->
+    <div class="row s-footer__bottom">
+      <div class="column xl-6 lg-12">
+        <ul class="s-footer__social social-list">
+          <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+          <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+          <li><a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a></li>
+        </ul>
+      </div>
+
+      <!-- <div class="column xl-6 lg-12">
+      <p class="ss-copyright">
+        <span>© Copyright 2025 Your Name</span>
+        <span>Design inspired by 
+          <a href="https://www.styleshout.com/">StyleShout</a>, Distributed by 
+          <a href="https://themewagon.com">ThemeWagon</a>
+        </span>
+      </p>
+    </div> -->
+
+      <!-- Back to top -->
+      <div class="ss-go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="17 11 12 6 7 11"></polyline>
+            <line x1="12" y1="18" x2="12" y2="6"></line>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+</body>
+
+</html>

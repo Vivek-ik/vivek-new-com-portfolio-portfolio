@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Dining Assistant — Case Study | Vivek Lodhi</title>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    document.documentElement.classList.add("js");
+  </script>
+
+  <link rel="stylesheet" href="css/vendor.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+</head>
+<style>
+  /* Reset some basics */
+
+  /* .page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.5rem;
+  } */
+
+  .page-subtitle {
+    font-size: 1.8rem;
+    color: #666;
+  }
+
+  /* Page content */
+  .pagecontent {
+    padding: 60px 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .pageintro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .pageintro .column {
+    flex: 1;
+    padding: 15px;
+  }
+
+  /* 
+  .text-display-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 1rem;
+  } */
+
+  /* .lead {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+  } */
+
+  ul.disc {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  blockquote {
+    border-left: 4px solid #007bff;
+    padding-left: 15px;
+    font-style: italic;
+    color: #555;
+    margin: 20px 0;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  /* Page media images */
+  .pagemedia {
+    margin: 40px 0;
+    text-align: center;
+  }
+
+  .pagemedia img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Pagemain layout */
+  .pagemain {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .pagemain .column {
+    flex: 1;
+    padding: 15px;
+  }
+
+  /* Sidebar */
+  .project-sidebar {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .project-sidebar h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .project-sidebar ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .project-sidebar li {
+    margin-bottom: 10px;
+    color: #555;
+  }
+
+  /* CTA section */
+  .s-cta {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 60px 15px;
+    margin-top: 50px;
+    border-radius: 12px;
+  }
+
+  .s-cta h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+
+  .s-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 991px) {
+    .pageintro {
+      flex-direction: column;
+    }
+
+    .pagemain {
+      flex-direction: column;
+    }
+
+    .project-sidebar {
+      margin-top: 30px;
+    }
+  }
+
+  /* Case study — senior / product-doc styling */
+  .case-study .lead {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: #333;
+    max-width: 52rem;
+  }
+
+  .cs-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+  }
+
+  .cs-section {
+    margin-top: 2.75rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e8e8e8;
+  }
+
+  .cs-section:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .cs-section h3 {
+    font-size: 3.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #111;
+    margin-bottom: 1rem;
+  }
+
+  .cs-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+    margin: 1.25rem 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .cs-two-col {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cs-panel {
+    background: #f6f8fb;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1.25rem 1.35rem;
+  }
+
+  .cs-panel h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.65rem;
+    color: #1a1a1a;
+  }
+
+  .cs-panel p:last-child,
+  .cs-panel ul:last-child {
+    margin-bottom: 0;
+  }
+
+  .cs-list-tight {
+    margin: 0;
+    padding-left: 1.15rem;
+    line-height: 1.65;
+    color: #444;
+  }
+
+  .cs-list-tight li {
+    margin-bottom: 0.4rem;
+  }
+
+  .cs-arch {
+    background: #1e293b;
+    /* color: #e2e8f0; */
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    font-family: ui-monospace, SFMono-Regular, "Cascadia Mono", Consolas, monospace;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    overflow-x: auto;
+    margin: 1rem 0 1.5rem;
+    border: 1px solid #334155;
+  }
+
+  .cs-arch pre {
+    margin: 0;
+    white-space: pre;
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  .cs-dl dt {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #111;
+    margin-top: 0.85rem;
+  }
+
+  .cs-dl dt:first-child {
+    margin-top: 0;
+  }
+
+  .cs-dl dd {
+    margin: 0.35rem 0 0 0;
+    padding-left: 0;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .cs-inline-note {
+    font-size: 0.9rem;
+    color: #555;
+    border-left: 3px solid #007bff;
+    padding-left: 1rem;
+    margin: 1rem 0;
+  }
+
+  .case-study h2 {
+    margin-top: 0;
+  }
+
+  .case-study h4.cs-feature-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.5rem;
+    color: #111;
+  }
+
+  .case-study h4.cs-feature-title:first-of-type {
+    margin-top: 0.5rem;
+  }
+</style>
+
+<body id="top">     
+  <!-- <div id="preloader">
+    <div id="loader" class="dots-fade">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div> -->
+  <!-- Header (reuse your existing one) -->
+  <header class="s-header">
+    <div class="row s-header__inner width-sixteen-col">
+      <div class="s-header__block">
+        <div class="s-header__logo">
+          <a class="logo" href="index.html">
+            <img src="../images/logo.jpg" alt="Homepage" />
+          </a>
+        </div>
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+      </div>
+
+      <nav class="s-header__nav">
+        <ul class="s-header__menu-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Journal</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="current"><a href="../portfolio.html">Portfolio</a></li>
+        </ul>
+        <div class="s-header__contact">
+          <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="page">
+
+    <section id="content" class="s-content">
+      <section class="s-pageheader pageheader">
+        <div class="row">
+          <div class="column xl-12">
+            <h1 class="page-title">AI Dining Assistant</h1>
+            <p class="page-subtitle">
+              Generative AI, voice, and automation for menu discovery, ordering, and restaurant operations
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="s-pagecontent pagecontent">
+        <div class="row pageintro">
+          <div class="column xl-6 lg-12">
+            <p class="cs-eyebrow">Case study</p>
+            <h2 class="text-display-title">
+              Restaurant platform with NLU, RAG, and tool-driven execution
+            </h2>
+          </div>
+          <div class="column xl-6 lg-12 u-flexitem-x-right">
+            <p class="lead">
+              AI Dining Assistant is a full-stack restaurant operating layer: customers browse and
+              customize menus through text or voice—including code-mixed English and Hindi
+              (Hinglish)—while operators get kitchen workflow visibility and analytics. The product
+              is architected as a multi-layer AI system (intent and entities, LLM reasoning, retrieval,
+              and function calling), not a standalone chat widget.
+            </p>
+          </div>
+        </div>
+
+        <div class="row pagemedia">
+          <div class="column xl-12">
+            <figure class="page-media">
+              <img src="../images/portfolio/ai-restraunt.png" alt="AI Dining Assistant — voice and chat ordering interface" />
+            </figure>
+          </div>
+        </div>
+
+        <div class="row pagemain">
+          <div class="column xl-8 md-12 case-study">
+            <h2>Overview</h2>
+            <p>
+              The platform connects three concerns that are usually fragmented: customer-facing
+              discovery and ordering, kitchen and fulfillment state, and owner-level analytics. Speech
+              and text share one conversational model; the same pipeline powers recommendations,
+              dietary filters, and cart mutations through explicit tool execution against REST APIs
+              and persistent state.
+            </p>
+
+            <div class="cs-section">
+              <h3>Problem</h3>
+              <div class="cs-two-col">
+                <div class="cs-panel">
+                  <h4>Customer experience</h4>
+                  <ul class="cs-list-tight disc">
+                    <li>Static menus with limited personalization</li>
+                    <li>High friction for complex preferences (Jain, no onion/garlic, spice level)</li>
+                    <li>Weak or absent intelligent recommendations</li>
+                  </ul>
+                </div>
+                <div class="cs-panel">
+                  <h4>Operations</h4>
+                  <ul class="cs-list-tight disc">
+                    <li>Kitchen and order flow not aligned with real-time demand</li>
+                    <li>No unified view of behavior, peaks, or basket composition</li>
+                    <li>Manual coordination instead of event-driven updates</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="cs-section">
+              <h3>Solution</h3>
+              <p>
+                An AI-assisted restaurant operating system: natural-language and voice-first
+                ordering with multilingual understanding (English and Hinglish), retrieval-grounded
+                answers over menu data, and function calling for cart, filters, and order placement.
+                Staff see order lifecycle (pending → in progress → completed) on a kitchen-oriented
+                dashboard; leadership sees sales, peaks, and item-level performance.
+              </p>
+            </div>
+
+            <div class="cs-section">
+              <h3>Product capabilities</h3>
+
+              <h4 class="cs-feature-title">Voice and chat ordering</h4>
+              <p>
+                Speech-to-text and conversational flows for real-time ordering; designed for natural
+                turns rather than rigid command grammar. Table or session context can anchor a visit
+                where applicable (e.g. QR or session-scoped flows).
+              </p>
+
+              <h4 class="cs-feature-title">Recommendations and merchandising</h4>
+              <p>
+                Context-aware suggestions, history-informed personalization where data exists, and
+                structured upsell paths (combos, pairings) tied to inventory and menu metadata.
+              </p>
+
+              <h4 class="cs-feature-title">Ingredient and preference intelligence</h4>
+              <p>
+                Filters and NLU for dietary modes—including Jain (no onion/garlic), vegetarian and
+                vegan constraints—and custom ingredient exclusions. User phrasing such as
+                &ldquo;bina pyaz ka kuch dikhao&rdquo; or &ldquo;light aur healthy kya hai?&rdquo;
+                maps to structured filters and ranked results.
+              </p>
+
+              <h4 class="cs-feature-title">Ordering and cart discipline</h4>
+              <p>
+                Add, remove, and clarify items via chat or voice; vague directives (e.g.
+                &ldquo;mujhe yeh order kar do&rdquo;) resolve against active context and last
+                discussed items. Cart state is authoritative and synchronized with the backend.
+              </p>
+
+              <h4 class="cs-feature-title">Kitchen workflow and analytics</h4>
+              <p>
+                Order state transitions with real-time updates for the line; analytics cover
+                top-selling SKUs, customer behavior signals, peak windows, and revenue trends for
+                operational and growth decisions.
+              </p>
+            </div>
+
+            <div class="cs-section">
+              <h3>AI architecture</h3>
+              <p>
+                The assistant is a pipeline, not a single prompt: classification and entity extraction
+                feed an LLM reasoning step; retrieved menu chunks reduce hallucination; tools perform
+                side effects (filter, recommend, mutate cart, place order); the model generates the
+                user-facing response from grounded context and tool results.
+              </p>
+              <div class="cs-arch" aria-label="AI pipeline flow">
+                <pre>User input (voice / text)
+        → Intent + entity extraction
+        → LLM reasoning
+        → RAG (vector store: menu / policy context)
+        → Tool layer (order, filter, recommend, …)
+        → Response generation</pre>
+              </div>
+
+              <h4 class="cs-feature-title">Core AI behaviors</h4>
+              <ul class="disc cs-list-tight">
+                <li><strong>NLU:</strong> Robust handling of informal and code-mixed utterances; extraction of intent, items, and constraints.</li>
+                <li><strong>RAG:</strong> Menu and operational text embedded and retrieved for answer grounding and catalog alignment.</li>
+                <li><strong>Dialogue state:</strong> Multi-turn resolution (&ldquo;isko add kar do&rdquo;, repeat last order, corrections).</li>
+                <li><strong>Tool calling:</strong> Deterministic execution for cart, filters, and order commits alongside generative copy.</li>
+                <li><strong>Locale:</strong> Hinglish and Indian dining context as first-class design inputs, not an afterthought.</li>
+              </ul>
+            </div>
+
+            <div class="cs-section">
+              <h3>Technology</h3>
+              <dl class="cs-dl">
+                <dt>Frontend</dt>
+                <dd>React / Next.js, TypeScript, Material UI or Tailwind, voice UI integration.</dd>
+                <dt>Backend</dt>
+                <dd>Node.js, Express.js, MongoDB, REST APIs; modular services suitable for multi-tenant expansion.</dd>
+                <dt>AI layer</dt>
+                <dd>OpenAI GPT family, prompt design, function calling; LangChain or LangGraph for agent-style workflows; embeddings and semantic search over Pinecone or Weaviate.</dd>
+                <dt>Infrastructure</dt>
+                <dd>AWS (e.g. EC2, S3, CDN), Docker, horizontally scalable API boundaries; latency-conscious AI orchestration.</dd>
+              </dl>
+              <p class="cs-inline-note">
+                <strong>Delivery note:</strong> Implementations may use Netlify, Render, or AWS-hosted
+                frontends and APIs depending on environment; the architecture targets portability
+                across those targets.
+              </p>
+            </div>
+
+            <div class="cs-section">
+              <h3>System design</h3>
+              <ul class="disc cs-list-tight">
+                <li>Clear separation: conversational AI orchestration, domain APIs, and client UI.</li>
+                <li>Multi-restaurant (multi-tenant) readiness in data and routing assumptions.</li>
+                <li>Event-driven patterns for order and kitchen updates where real-time UX matters.</li>
+                <li>Optimized paths for low-latency inference and cached retrieval where safe.</li>
+              </ul>
+            </div>
+
+            <div class="cs-section">
+              <h3>Outcomes and positioning</h3>
+              <div class="cs-two-col">
+                <div class="cs-panel">
+                  <h4>For diners</h4>
+                  <ul class="cs-list-tight disc">
+                    <li>Faster path from intent to confirmed order</li>
+                    <li>Preference-aware discovery without manual menu archaeology</li>
+                    <li>Natural multimodal interaction (voice or text)</li>
+                  </ul>
+                </div>
+                <div class="cs-panel">
+                  <h4>For restaurants</h4>
+                  <ul class="cs-list-tight disc">
+                    <li>Higher average order value through structured upsell</li>
+                    <li>Reduced manual triage on routine requests</li>
+                    <li>Actionable analytics on demand, basket, and throughput</li>
+                  </ul>
+                </div>
+              </div>
+              <p>
+                <strong>Differentiation:</strong> Indian-context and Hinglish fluency, ingredient-level
+                intelligence, and end-to-end ordering execution—not a generic FAQ bot bolted onto a
+                static site.
+              </p>
+            </div>
+
+            <div class="cs-section">
+              <h3>Roadmap</h3>
+              <ul class="disc cs-list-tight">
+                <li>Full voice-first flows with minimal UI dependency</li>
+                <li>Image-based dish recognition for faster discovery</li>
+                <li>Self-improving recommendation signals from fulfillment and feedback loops</li>
+                <li>POS and payment ecosystem integrations</li>
+                <li>Mobile client (e.g. React Native) and multi-agent specialization (menu, ops, support)</li>
+              </ul>
+            </div>
+
+            <div class="cs-section">
+              <h3>Engineering learnings</h3>
+              <p>
+                Shipping production-grade conversational AI required moving beyond prompt-only
+                prototypes: RAG boundaries, tool schemas, evaluation of edge-case utterances, and a
+                backend that could enforce invariants while the model handled language. Bridging
+                generative UX with transactional systems—and keeping observability in mind—was the
+                core engineering challenge.
+              </p>
+            </div>
+
+            <div class="cs-section">
+              <h3>Summary</h3>
+              <blockquote>
+                <p>
+                  AI Dining Assistant demonstrates a domain-specific platform: NLU plus retrieval plus
+                  tool execution, aligned with real restaurant workflows and Indian multilingual usage.
+                  It is a step toward treatable, scalable AI products in traditional verticals—not
+                  only a demo application.
+                </p>
+              </blockquote>
+            </div>
+
+            <!-- <a href="https://github.com/viveklodhi/ai-restaurant" target="_blank" class="btn btn--primary">View on GitHub</a> -->
+          </div>
+
+          <div class="column xl-4 md-12">
+            <aside class="project-sidebar">
+              <div class="project-meta">
+                <h4>Engagement</h4>
+                <ul>
+                  <li><strong>Scope:</strong> Full-stack product + AI orchestration</li>
+                  <li><strong>Duration:</strong> ~2 months</li>
+                  <li><strong>Role:</strong> Full-stack / AI integration</li>
+                  <li><strong>Status:</strong> Shipped / deployed</li>
+                </ul>
+              </div>
+
+              <div class="project-meta">
+                <h4>Capability tags</h4>
+                <ul>
+                  <li>NLU &amp; Hinglish</li>
+                  <li>RAG + vector retrieval</li>
+                  <li>Function calling &amp; cart APIs</li>
+                  <li>Kitchen state &amp; analytics</li>
+                  <li>Voice + chat UX</li>
+                </ul>
+              </div>
+
+              <div class="project-meta">
+                <h4>Stack snapshot</h4>
+                <ul>
+                  <li>React, TypeScript, Node, Express</li>
+                  <li>MongoDB, OpenAI, embeddings store</li>
+                  <li>Docker-friendly services</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <div class="row width-narrower pagemain">
+        <div class="column xl-12">
+          <h2>Let's Work Together</h2>
+          <div class="row">
+            <div class="column xl-6 md-12 contact-cta">
+              <p>
+                I bring expertise in React, Next.js, Node.js, TypeScript,
+                and modern CSS frameworks to build fast, scalable, and
+                maintainable applications. Whether it's crafting intuitive
+                user interfaces, architecting REST/GraphQL APIs, or
+                optimizing performance, I follow best practices and clean
+                coding principles to ensure your projects succeed.
+              </p>
+
+              <a href="mailto:#0" class="btn btn--primary u-fullwidth contact-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                  style="fill: rgba(0, 0, 0, 1)">
+                  <path
+                    d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z">
+                  </path>
+                </svg>
+                Get In Touch
+              </a>
+            </div>
+            <div class="column xl-5 md-12 u-flexitem-x-right">
+              <div class="contact-block">
+                <h6>Follow My Work</h6>
+                <ul class="contact-social social-list">
+                  <li><a href="#0" title="GitHub">GitHub</a></li>
+                  <li><a href="#0" title="LinkedIn">LinkedIn</a></li>
+                  <li><a href="#0" title="Twitter">Twitter</a></li>
+                  <li><a href="#0" title="Dribbble">Dribbble</a></li>
+                </ul>
+              </div>
+
+              <div class="contact-block">
+                <h6>Email</h6>
+                <a href="mailto:#0">viveklodhi740@gmail.com</a>
+              </div>
+
+              <div class="contact-block">
+                <h6>Phone</h6>
+                <ul class="contact-list">
+                  <li><a href="tel:+916351800692">+91 635 180 0692</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="s-footer">
+      <div class="row s-footer__content">
+
+        <!-- About -->
+        <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+          <h3>About Me</h3>
+          <p>
+            I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL,
+            Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and
+            performant web applications. My passion is turning ideas into modern, responsive digital experiences that
+            deliver real value to clients.
+          </p>
+        </div>
+
+        <!-- Site Links -->
+        <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+          <h3>Site Links</h3>
+          <ul class="link-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+          <h3>Newsletter</h3>
+          <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
+          <div class="subscribe-form">
+            <form id="mc-form" class="mc-form">
+              <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+                placeholder="Your Email Address" required />
+              <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth" />
+              <div class="mc-status"></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Social & Copyright -->
+      <div class="row s-footer__bottom">
+        <div class="column xl-6 lg-12">
+          <ul class="s-footer__social social-list">
+            <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+            <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+            <li><a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a></li>
+          </ul>
+        </div>
+
+        <!-- <div class="column xl-6 lg-12">
+      <p class="ss-copyright">
+        <span>© Copyright 2025 Your Name</span>
+        <span>Design inspired by 
+          <a href="https://www.styleshout.com/">StyleShout</a>, Distributed by 
+          <a href="https://themewagon.com">ThemeWagon</a>
+        </span>
+      </p>
+    </div> -->
+
+        <!-- Back to top -->
+        <div class="ss-go-top">
+          <a class="smoothscroll" title="Back to Top" href="#top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+              stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="17 11 12 6 7 11"></polyline>
+              <line x1="12" y1="18" x2="12" y2="6"></line>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

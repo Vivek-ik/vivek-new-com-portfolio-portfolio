@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--- basic page needs
+    ================================================== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivek</title>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    document.documentElement.classList.add("js");
+  </script>
+
+  <!-- CSS
+    ================================================== -->
+  <link rel="stylesheet" href="css/vendor.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- favicons
+    ================================================== -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="s-header">
+    <div class="row s-header__inner width-sixteen-col">
+      <div class="s-header__block">
+        <div class="s-header__logo">
+          <a class="logo" href="index.html">
+            <img src="/images/logo.jpg" alt="Homepage" />
+          </a>
+        </div>
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+      </div>
+
+      <nav class="s-header__nav">
+        <ul class="s-header__menu-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Journal</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="current"><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+        <div class="s-header__contact">
+          <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog Content -->
+  <section class="s-journal">
+    <div class="row row-x-center text-center">
+      <div class="column xl-12">
+        <h1 style="color: white;">Microservices Best Practices</h1>
+        <p class="lead">
+          A practical guide to designing microservices with NestJS, Docker, and RabbitMQ/Kafka. Learn about
+          inter-service communication, scaling, and fault tolerance.
+        </p>
+        <div class="blog-meta">
+          <span>Author: Vivek Lodhi</span> |
+          <span>Date: October 4, 2025</span> |
+          <span>Category: Architecture & Backend</span>
+        </div>
+      </div>
+    </div>
+    <div class="row s-journal__content width-sixteen-col">
+      <div class="column xl-8 lg-12">
+        <article class="blog-article">
+          <p>
+            Microservices architecture has emerged as a preferred design pattern for building scalable, fault-tolerant,
+            and maintainable applications.
+            Unlike monoliths, microservices break down systems into independently deployable services that communicate
+            via lightweight protocols.
+            In this article, we’ll explore best practices for designing microservices with <strong
+              class="text-pretitle">NestJS</strong>, containerizing them with <strong
+              class="text-pretitle">Docker</strong>,
+            and orchestrating communication with <strong class="text-pretitle">RabbitMQ</strong> or <strong
+              class="text-pretitle">Kafka</strong>.
+          </p>
+
+          <h2 class="text-display-title">Why Microservices?</h2>
+          <ul>
+            <li><strong class="text-pretitle">Scalability:</strong> Scale individual services independently based on
+              load.</li>
+            <li><strong class="text-pretitle">Resilience:</strong> Failures in one service don’t take down the entire
+              system.</li>
+            <li><strong class="text-pretitle">Faster Development:</strong> Teams can work on different services
+              concurrently.</li>
+            <li><strong class="text-pretitle">Technology Flexibility:</strong> Services can use different stacks if
+              needed.</li>
+          </ul>
+
+          <h2 class="text-display-title">Designing Microservices with NestJS</h2>
+          <p>
+            NestJS provides built-in support for microservices using transport layers like TCP, Redis, NATS, Kafka, and
+            RabbitMQ.
+            Each service has its own context, controllers, and business logic, making the architecture modular.
+          </p>
+          <pre><code>// user.service.ts (microservice example)
+import { Controller } from '@nestjs/common';
+import { MessagePattern } from '@nestjs/microservices';
+
+@Controller()
+export class UserController {
+  @MessagePattern({ cmd: 'get_users' })
+  getUsers() {
+    return [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }];
+  }
+}
+</code></pre>
+
+          <h2 class="text-display-title">Containerization with Docker</h2>
+          <p>
+            Packaging microservices with Docker ensures consistency across environments. A simple Dockerfile for a
+            NestJS microservice:
+          </p>
+          <pre><code># Dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --only=production
+COPY . .
+RUN npm run build
+CMD ["node", "dist/main"]
+</code></pre>
+          <p>Each microservice should have its own Dockerfile and run as a separate container.</p>
+
+          <h2 class="text-display-title">Service Communication with RabbitMQ/Kafka</h2>
+          <p>
+            For communication, message brokers like RabbitMQ (AMQP) and Kafka (event streaming) are preferred.
+            NestJS provides transport abstractions for these. Example with RabbitMQ:
+          </p>
+          <pre><code>// main.ts
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+
+async function bootstrap() {
+  const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
+    transport: Transport.RMQ,
+    options: {
+      urls: ['amqp://localhost:5672'],
+      queue: 'user_queue',
+      queueOptions: { durable: false },
+    },
+  });
+  await app.listen();
+}
+bootstrap();
+</code></pre>
+
+          <h2 class="text-display-title">Best Practices</h2>
+          <ul>
+            <li><strong class="text-pretitle">API Gateway:</strong> Use an API gateway (e.g., Kong, NGINX, or custom
+              NestJS gateway) for routing and authentication.</li>
+            <li><strong class="text-pretitle">Database per Service:</strong> Each microservice should own its data to
+              avoid tight coupling.</li>
+            <li><strong class="text-pretitle">Event-Driven Communication:</strong> Prefer async messaging (Kafka,
+              RabbitMQ) over synchronous REST to improve resilience.</li>
+            <li><strong class="text-pretitle">Fault Tolerance:</strong> Implement retries, circuit breakers (e.g., with
+              <em>resilience4js</em>), and dead-letter queues.</li>
+            <li><strong class="text-pretitle">Monitoring:</strong> Use centralized logging (ELK stack), metrics
+              (Prometheus), and tracing (Jaeger, OpenTelemetry).</li>
+            <li><strong class="text-pretitle">Scalability:</strong> Use Kubernetes or Docker Swarm for orchestration and
+              autoscaling.</li>
+          </ul>
+
+          <h2 class="text-display-title">Scaling Microservices</h2>
+          <p>
+            Horizontal scaling (spinning up more containers) is the most common strategy.
+            Load balancers or service meshes (Istio, Linkerd) can manage service discovery and traffic distribution
+            effectively.
+          </p>
+
+          <h2 class="text-display-title">Conclusion</h2>
+          <p>
+            Microservices provide a powerful way to build modern, scalable applications.
+            With NestJS for development, Docker for containerization, and RabbitMQ/Kafka for communication,
+            you can design fault-tolerant systems ready for production. Following best practices such as
+            database-per-service, async messaging, and centralized monitoring ensures that your architecture remains
+            robust and maintainable.
+          </p>
+          <p>Start small, split your monolith gradually, and evolve toward a full-fledged microservices ecosystem.</p>
+        </article>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="column xl-4 lg-12">
+        <aside class="blog-sidebar">
+          <h3>Recent Articles</h3>
+          <ul>
+            <li><a href="blog-nestjs.html">Building Scalable APIs with NestJS</a></li>
+            <li><a href="blog-postgres.html">Mastering PostgreSQL for Modern Apps</a></li>
+            <li><a href="blog-firebase.html">Firebase for Full-Stack Developers</a></li>
+            <li><a href="blog-ai.html">Integrating ChatGPT into Web Apps</a></li>
+            <li><a href="blog-ts.html">TypeScript for Large-Scale Apps</a></li>
+          </ul>
+
+          <h3>Tags</h3>
+          <div class="blog-tags">
+            <a href="#">Microservices</a>
+            <a href="#">NestJS</a>
+            <a href="#">Docker</a>
+            <a href="#">RabbitMQ</a>
+            <a href="#">Kafka</a>
+            <a href="#">Architecture</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="s-footer">
+    <div class="row s-footer__content">
+
+      <!-- About -->
+      <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+        <h3>About Me</h3>
+        <p>
+          I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL,
+          Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and
+          performant web applications. My passion is turning ideas into modern, responsive digital experiences that
+          deliver real value to clients.
+        </p>
+      </div>
+
+      <!-- Site Links -->
+      <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+        <h3>Site Links</h3>
+        <ul class="link-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
+        <div class="subscribe-form">
+          <form id="mc-form" class="mc-form">
+            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+              placeholder="Your Email Address" required />
+            <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth" />
+            <div class="mc-status"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Social & Copyright -->
+    <div class="row s-footer__bottom">
+      <div class="column xl-6 lg-12">
+        <ul class="s-footer__social social-list">
+          <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+          <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+          <li><a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a></li>
+        </ul>
+      </div>
+
+      <!-- <div class="column xl-6 lg-12">
+      <p class="ss-copyright">
+        <span>© Copyright 2025 Your Name</span>
+        <span>Design inspired by 
+          <a href="https://www.styleshout.com/">StyleShout</a>, Distributed by 
+          <a href="https://themewagon.com">ThemeWagon</a>
+        </span>
+      </p>
+    </div> -->
+
+      <!-- Back to top -->
+      <div class="ss-go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="17 11 12 6 7 11"></polyline>
+            <line x1="12" y1="18" x2="12" y2="6"></line>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+</body>
+
+</html>

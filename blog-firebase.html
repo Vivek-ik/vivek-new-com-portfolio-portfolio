@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vivek</title>
+
+    <script>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+  </head>
+  <body>
+    <!-- Header -->
+        <header class="s-header">
+            <div class="row s-header__inner width-sixteen-col">
+                <div class="s-header__block">
+                    <div class="s-header__logo">
+                        <a class="logo" href="index.html">
+                            <img src="/images/logo.jpg" alt="Homepage" />
+                        </a>
+                    </div>
+                    <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+                </div>
+
+                <nav class="s-header__nav">
+                    <ul class="s-header__menu-links">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/blog.html">Journal</a></li>                        <li><a href="/contact.html">Contact</a></li>
+                        <li class="current"><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                    <div class="s-header__contact">
+                        <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+    <!-- Blog Content -->
+    <section class="s-journal">
+      <div class="row row-x-center text-center">
+        <div class="column xl-12">
+          <h1 class="text-display-title" >Firebase for Full-Stack Developers</h1>
+          <p class="lead">
+            From authentication to real-time databases and hosting, Firebase
+            offers everything you need to speed up development. Learn how to
+            integrate it with TypeScript and React apps.
+          </p>
+          <div class="blog-meta">
+            <span>Author: Vivek Lodhi</span> |
+            <span>Date: October 4, 2025</span> |
+            <span>Category: Cloud Development</span>
+          </div>
+        </div>
+      </div>
+      <div class="row s-journal__content width-sixteen-col">
+        <div class="column xl-8 lg-12">
+          <article class="blog-article">
+            <p>
+              Firebase, developed by Google, has become a cornerstone for modern
+              web and mobile applications. It allows developers to skip heavy
+              backend setups and move faster with services like authentication,
+              databases, hosting, analytics, and serverless functions.
+            </p>
+
+            <h2 class="text-display-title">Why Firebase for Full-Stack Development?</h2>
+            <ul>
+              <li>
+                <strong class="text-pretitle">Quick Setup:</strong> No need to configure servers or
+                manage infrastructure.
+              </li>
+              <li>
+                <strong class="text-pretitle">Authentication Made Simple:</strong> Supports
+                email/password, phone, and OAuth providers like Google,
+                Facebook, and GitHub.
+              </li>
+              <li>
+                <strong class="text-pretitle">Real-Time Database & Firestore:</strong> Sync data in
+                real-time across clients.
+              </li>
+              <li>
+                <strong class="text-pretitle">Hosting & Serverless:</strong> Deploy static sites with
+                Firebase Hosting and extend features with Cloud Functions.
+              </li>
+              <li>
+                <strong class="text-pretitle">Cross-Platform:</strong> Works seamlessly with React,
+                Angular, Vue, Flutter, and native apps.
+              </li>
+            </ul>
+
+            <h2 class="text-display-title">Setting Up Firebase in a React + TypeScript Project</h2>
+            <p>First, install Firebase in your project:</p>
+            <pre><code>npm install firebase</code></pre>
+
+            <p>Then, configure Firebase in your app:</p>
+            <pre><code>// src/firebase.ts
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "your-app.firebaseapp.com",
+  projectId: "your-app",
+  storageBucket: "your-app.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abcdefg",
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+</code></pre>
+
+            <h2 class="text-display-title">Authentication with Firebase</h2>
+            <p>
+              Firebase Authentication integrates seamlessly with front-end
+              frameworks:
+            </p>
+            <pre><code>// src/hooks/useAuth.tsx
+import { useEffect, useState } from "react";
+import { auth } from "../firebase";
+import { onAuthStateChanged, User } from "firebase/auth";
+
+export function useAuth() {
+  const [user, setUser] = useState&lt;User | null&gt;(null);
+
+  useEffect(() =&gt; {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) =&gt; {
+      setUser(firebaseUser);
+    });
+    return unsubscribe;
+  }, []);
+
+  return user;
+}
+</code></pre>
+
+            <p>
+              This hook allows you to track the authentication state throughout
+              your app.
+            </p>
+
+            <h2 class="text-display-title">Working with Firestore</h2>
+            <p>Firestore is Firebase’s scalable NoSQL database:</p>
+            <pre><code>// Adding data
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
+
+async function addUser() {
+  await addDoc(collection(db, "users"), {
+    name: "Alice",
+    age: 25,
+    role: "developer"
+  });
+}
+</code></pre>
+
+            <p>
+              Firestore automatically updates connected clients in real time
+              whenever data changes.
+            </p>
+
+            <h2 class="text-display-title">Deploying with Firebase Hosting</h2>
+            <p>Firebase Hosting makes deployment easy:</p>
+            <pre><code>npm install -g firebase-tools
+firebase login
+firebase init
+firebase deploy</code></pre>
+            <p>
+              You can deploy React apps, static sites, or even full-stack apps
+              with serverless functions.
+            </p>
+
+            <h2 class="text-display-title">Advanced Features</h2>
+            <ul>
+              <li>
+                <strong class="text-pretitle">Cloud Functions:</strong> Write serverless APIs that
+                scale automatically.
+              </li>
+              <li>
+                <strong class="text-pretitle">Firebase Storage:</strong> Manage and serve
+                user-uploaded files like images and videos.
+              </li>
+              <li>
+                <strong class="text-pretitle">Firebase Analytics:</strong> Track user engagement and
+                behavior in real-time.
+              </li>
+              <li>
+                <strong class="text-pretitle">Firebase Emulator Suite:</strong> Test your app locally
+                before deploying.
+              </li>
+            </ul>
+
+            <h2 class="text-display-title">Best Practices</h2>
+            <ul>
+              <li>Always secure your Firestore rules.</li>
+              <li>Use environment variables for API keys.</li>
+              <li>Leverage Firebase Emulator for local development.</li>
+              <li>
+                Combine Firebase with frameworks like Next.js for SSR + API
+                routes.
+              </li>
+            </ul>
+
+            <h2 class="text-display-title">Conclusion</h2>
+            <p>
+              Firebase empowers full-stack developers to build and scale
+              applications quickly without managing complex infrastructure. From
+              authentication and real-time data to hosting and serverless
+              functions, Firebase simplifies backend development and accelerates
+              project delivery.
+            </p>
+            <p>
+              Start integrating Firebase today and unlock the power of
+              serverless, scalable development.
+            </p>
+          </article>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="column xl-4 lg-12">
+          <aside class="blog-sidebar">
+            <h3>Recent Articles</h3>
+            <ul>
+              <li>
+                <a href="blog-nestjs.html"
+                  >Building Scalable APIs with NestJS</a
+                >
+              </li>
+              <li>
+                <a href="blog-postgres.html"
+                  >Mastering PostgreSQL for Modern Apps</a
+                >
+              </li>
+              <li>
+                <a href="blog-typescript.html"
+                  >TypeScript Tips for Large Projects</a
+                >
+              </li>
+              <li>
+                <a href="blog-microservices.html">Microservices with Node.js</a>
+              </li>
+              <li>
+                <a href="blog-ai.html"
+                  >Integrating ChatGPT in Your Applications</a
+                >
+              </li>
+            </ul>
+
+            <h3>Tags</h3>
+            <div class="blog-tags">
+              <a href="#">Firebase</a>
+              <a href="#">React</a>
+              <a href="#">TypeScript</a>
+              <a href="#">Cloud</a>
+              <a href="#">NoSQL</a>
+              <a href="#">Full-Stack</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+ <footer class="s-footer">
+  <div class="row s-footer__content">
+
+    <!-- About -->
+    <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+      <h3>About Me</h3>
+      <p>
+        I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL, Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and performant web applications. My passion is turning ideas into modern, responsive digital experiences that deliver real value to clients.
+      </p>
+    </div>
+
+    <!-- Site Links -->
+    <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+      <h3>Site Links</h3>
+      <ul class="link-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+      <h3>Newsletter</h3>
+      <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
+      <div class="subscribe-form">
+        <form id="mc-form" class="mc-form">
+          <input
+            type="email"
+            name="EMAIL"
+            id="mce-EMAIL"
+            class="u-fullwidth text-center"
+            placeholder="Your Email Address"
+            required
+          />
+          <input
+            type="submit"
+            name="subscribe"
+            value="Subscribe"
+            class="btn btn--primary btn--small u-fullwidth"
+          />
+          <div class="mc-status"></div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Social & Copyright -->
+  <div class="row s-footer__bottom">
+    <div class="column xl-6 lg-12">
+      <ul class="s-footer__social social-list">
+        <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+        <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+        <li><a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a></li>
+      </ul>
+    </div>
+
+    <!-- <div class="column xl-6 lg-12">
+      <p class="ss-copyright">
+        <span>© Copyright 2025 Your Name</span>
+        <span>Design inspired by 
+          <a href="https://www.styleshout.com/">StyleShout</a>, Distributed by 
+          <a href="https://themewagon.com">ThemeWagon</a>
+        </span>
+      </p>
+    </div> -->
+
+    <!-- Back to top -->
+    <div class="ss-go-top">
+      <a class="smoothscroll" title="Back to Top" href="#top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="17 11 12 6 7 11"></polyline>
+          <line x1="12" y1="18" x2="12" y2="6"></line>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</footer>
+  </body>
+</html>

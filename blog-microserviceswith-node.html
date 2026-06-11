@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Introduction to Microservices with Node.js</title>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    document.documentElement.classList.add("js");
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/vendor.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="s-header">
+    <div class="row s-header__inner width-sixteen-col">
+      <div class="s-header__block">
+        <div class="s-header__logo">
+          <a class="logo" href="index.html">
+            <img src="/images/logo.jpg" alt="Homepage" />
+          </a>
+        </div>
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+      </div>
+
+      <nav class="s-header__nav">
+        <ul class="s-header__menu-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Journal</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="current"><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+        <div class="s-header__contact">
+          <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog Content -->
+  <section class="s-journal">
+    <div class="row row-x-center text-center">
+      <div class="column xl-12">
+        <h1 style="color: white;">Introduction to Microservices with Node.js</h1>
+        <p class="lead">
+          Learn how to break your monolithic Node.js applications into efficient, scalable, and modular microservices. Discover architecture principles, communication methods, and deployment best practices.
+        </p>
+        <div class="blog-meta">
+          <span>Author: Vivek Lodhi</span> |
+          <span>Date: November 1, 2025</span> |
+          <span>Category: Node.js & Architecture</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row s-journal__content width-sixteen-col">
+      <div class="column xl-8 lg-12">
+        <article class="blog-article">
+          <p>
+            Microservices have revolutionized how modern applications are built. Instead of developing a large monolithic system where everything is tightly coupled, the microservices approach allows teams to split functionality into small, independent services that communicate with each other through lightweight APIs.
+          </p>
+
+          <h2 class="text-display-title">What Are Microservices?</h2>
+          <p>
+            A <strong class='text-pretitle'>microservice</strong> is a small, self-contained unit of software that performs a specific business function. 
+            Each microservice can be developed, deployed, and scaled independently — making it ideal for large applications that need flexibility and resilience.
+          </p>
+
+          <ul>
+            <li><strong class='text-pretitle'>Independent Deployment:</strong> You can deploy each service without affecting others.</li>
+            <li><strong class='text-pretitle'>Technology Freedom:</strong> Each team can use the tech stack that suits them best.</li>
+            <li><strong class='text-pretitle'>Scalability:</strong> Scale only the parts of your system that experience high traffic.</li>
+          </ul>
+
+          <h2 class="text-display-title">Why Node.js for Microservices?</h2>
+          <p>
+            Node.js is an excellent choice for microservices because of its <strong class='text-pretitle'>asynchronous, event-driven architecture</strong>. 
+            It handles concurrent requests efficiently, making it perfect for building lightweight, fast, and scalable services.
+          </p>
+          <ul>
+            <li>High performance with non-blocking I/O.</li>
+            <li>Vast ecosystem of NPM packages.</li>
+            <li>Easy integration with APIs and message queues.</li>
+            <li>Fast prototyping for distributed systems.</li>
+          </ul>
+
+          <h2 class="text-display-title">Architecture Overview</h2>
+          <p>
+            A typical Node.js microservice architecture involves multiple services communicating via HTTP or message brokers like <strong class='text-pretitle'>RabbitMQ</strong> or <strong class='text-pretitle'>Kafka</strong>. 
+            Common services might include:
+          </p>
+          <ul>
+            <li>Auth Service (for authentication and user management)</li>
+            <li>Product Service (for inventory and product details)</li>
+            <li>Order Service (for processing user orders)</li>
+            <li>API Gateway (for routing and aggregation)</li>
+          </ul>
+
+          <h2 class="text-display-title">Example: Simple Node.js Microservice</h2>
+          <pre><code>// user-service.js
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+app.get('/users', (req, res) => {
+  res.json([{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }]);
+});
+
+app.listen(4000, () => console.log('User service running on port 4000'));
+</code></pre>
+
+          <h2 class="text-display-title">Service Communication</h2>
+          <p>
+            Microservices communicate either through <strong class='text-pretitle'>REST APIs</strong> or asynchronous messaging systems like <strong class='text-pretitle'>RabbitMQ</strong> or <strong class='text-pretitle'>Kafka</strong>. 
+            While REST is simple, event-driven systems provide better scalability and fault tolerance.
+          </p>
+
+          <h2 class="text-display-title">Deploying with Docker</h2>
+          <p>
+            Containerization ensures consistency across environments. Docker makes it easy to package your service and deploy it anywhere.
+          </p>
+          <pre><code># Dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --only=production
+COPY . .
+CMD ["node", "user-service.js"]
+</code></pre>
+
+          <h2 class="text-display-title">Best Practices</h2>
+          <ul>
+            <li><strong class='text-pretitle'>Use an API Gateway:</strong> Manage routing, load balancing, and security.</li>
+            <li><strong class='text-pretitle'>Database per Service:</strong> Avoid tight coupling between services.</li>
+            <li><strong class='text-pretitle'>Centralized Logging:</strong> Use tools like ELK Stack or Grafana Loki.</li>
+            <li><strong class='text-pretitle'>Health Checks:</strong> Implement endpoints to monitor service uptime.</li>
+            <li><strong class='text-pretitle'>Security:</strong> Use JWT or OAuth 2.0 for service authentication.</li>
+          </ul>
+
+          <h2 class="text-display-title">Scaling & Monitoring</h2>
+          <p>
+            Use <strong class='text-pretitle'>Kubernetes</strong> or <strong class='text-pretitle'>Docker Swarm</strong> to manage multiple microservice containers efficiently. 
+            Tools like <strong class='text-pretitle'>Prometheus</strong> and <strong class='text-pretitle'>Grafana</strong> help track performance, logs, and health metrics.
+          </p>
+
+          <h2 class="text-display-title">Conclusion</h2>
+          <p>
+            Microservices with Node.js empower developers to build scalable, maintainable, and high-performance systems. 
+            By breaking applications into smaller components, teams can innovate faster, deploy independently, and ensure higher system resilience.
+          </p>
+          <p><strong class='text-pretitle'>Pro Tip:</strong> Start by modularizing your existing monolith before fully migrating to microservices. This ensures a smoother and more maintainable transition.</p>
+        </article>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="column xl-4 lg-12">
+        <aside class="blog-sidebar">
+          <h3>Recent Articles</h3>
+          <ul>
+            <li><a href="blog-nestjs.html">Building Scalable APIs with NestJS</a></li>
+            <li><a href="blog-seo-factors.html">7 SEO Factors for Better Ranking</a></li>
+            <li><a href="blog-firebase.html">Firebase for Full-Stack Developers</a></li>
+            <li><a href="blog-ts.html">Why TypeScript is a Game Changer</a></li>
+            <li><a href="blog-ai.html">Integrating ChatGPT into Web Apps</a></li>
+          </ul>
+
+          <h3>Tags</h3>
+          <div class="blog-tags">
+            <a href="#">Node.js</a>
+            <a href="#">Microservices</a>
+            <a href="#">Docker</a>
+            <a href="#">Scalability</a>
+            <a href="#">Architecture</a>
+            <a href="#">Backend</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="s-footer">
+    <div class="row s-footer__content">
+      <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+        <h3>About Me</h3>
+        <p>
+          I am a full-stack developer with expertise in Node.js, microservices, and cloud deployment. 
+          I focus on building scalable systems with modern tools like Docker, Kubernetes, and message-driven architectures.
+        </p>
+      </div>
+
+      <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+        <h3>Site Links</h3>
+        <ul class="link-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe for insights on Node.js, microservices, and cloud architecture.</p>
+        <div class="subscribe-form">
+          <form id="mc-form" class="mc-form">
+            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+              placeholder="Your Email Address" required />
+            <input type="submit" name="subscribe" value="Subscribe"
+              class="btn btn--primary btn--small u-fullwidth" />
+            <div class="mc-status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row s-footer__bottom">
+      <div class="column xl-6 lg-12">
+        <ul class="s-footer__social social-list">
+          <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+          <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+        </ul>
+      </div>
+
+      <div class="ss-go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="17 11 12 6 7 11"></polyline>
+            <line x1="12" y1="18" x2="12" y2="6"></line>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

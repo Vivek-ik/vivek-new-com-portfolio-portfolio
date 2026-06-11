@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--- basic page needs
+    ================================================== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivek</title>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    document.documentElement.classList.add("js");
+  </script>
+
+  <!-- CSS
+    ================================================== -->
+  <link rel="stylesheet" href="css/vendor.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- favicons
+    ================================================== -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="s-header">
+    <div class="row s-header__inner width-sixteen-col">
+      <div class="s-header__block">
+        <div class="s-header__logo">
+          <a class="logo" href="index.html">
+            <img src="/images/logo.jpg" alt="Homepage" />
+          </a>
+        </div>
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+      </div>
+
+      <nav class="s-header__nav">
+        <ul class="s-header__menu-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Journal</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="current"><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+        <div class="s-header__contact">
+          <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog Content -->
+  <section class="s-journal">
+    <div class="row row-x-center text-center">
+      <div class="column xl-12">
+        <h1 class="text-display-title">Mastering PostgreSQL for Modern Apps</h1>
+        <p style="color: white">
+          PostgreSQL is one of the most powerful relational databases. This
+          article explores schema design, indexing strategies, and query
+          optimization to boost performance in production.
+        </p>
+        <div class="blog-meta">
+          <span>Author: Vivek Lodhi</span> |
+          <span>Date: October 4, 2025</span> |
+          <span>Category: Database</span>
+        </div>
+      </div>
+    </div>
+    <div class="row s-journal__content width-sixteen-col">
+      <!-- Main Article -->
+      <div class="column xl-8 lg-12">
+        <article class="blog-article">
+          <h2 class="text-display-title">Introduction to PostgreSQL</h2>
+          <p>
+            PostgreSQL is an open-source relational database system known for
+            reliability, extensibility, and compliance with SQL standards.
+            Modern applications rely on PostgreSQL for transactional
+            integrity, analytics, and performance. It supports advanced
+            features such as JSONB, full-text search, stored procedures, and
+            replication.
+          </p>
+
+          <h2 class="text-display-title">Schema Design Best Practices</h2>
+          <p>
+            Efficient schema design is key to performance. Consider the
+            following:
+          </p>
+          <ul>
+            <li>
+              <strong class="text-pretitle">Normalization:</strong> Start with 3NF to eliminate
+              redundancy, but denormalize for read-heavy workloads.
+            </li>
+            <li>
+              <strong class="text-pretitle">Data Types:</strong> Choose correct types (e.g., integer
+              vs bigint, varchar vs text) to save storage and optimize
+              queries.
+            </li>
+            <li>
+              <strong class="text-pretitle">Constraints:</strong> Use primary keys, foreign keys,
+              and unique constraints for data integrity.
+            </li>
+            <li>
+              <strong class="text-pretitle">Partitioning:</strong> For large datasets, table
+              partitioning can improve query performance.
+            </li>
+          </ul>
+
+          <h2 class="text-display-title">Indexing Strategies</h2>
+          <p>
+            Indexes improve query performance but can slow inserts and
+            updates. Some tips:
+          </p>
+          <ul>
+            <li>
+              Use <code>B-tree</code> indexes for equality and range queries.
+            </li>
+            <li>
+              Use <code>GIN</code> indexes for JSONB and full-text search.
+            </li>
+            <li>
+              Partial indexes can optimize queries for specific conditions.
+            </li>
+            <li>
+              Regularly analyze and vacuum tables to maintain index
+              efficiency.
+            </li>
+          </ul>
+
+          <h2 class="text-display-title">Query Optimization Techniques</h2>
+          <p>Writing efficient queries is critical for scalable apps:</p>
+          <ul>
+            <li>
+              Use EXPLAIN and EXPLAIN ANALYZE to understand query plans.
+            </li>
+            <li>Avoid SELECT *, only select required columns.</li>
+            <li>
+              Use JOINs efficiently and prefer indexed columns for joins.
+            </li>
+            <li>
+              Leverage CTEs (WITH queries) for readability, but monitor
+              performance.
+            </li>
+          </ul>
+
+          <h2 class="text-display-title">Advanced Features</h2>
+          <p>PostgreSQL offers several advanced capabilities:</p>
+          <ul>
+            <li>
+              <strong class="text-pretitle">JSONB:</strong> Store and query semi-structured data
+              efficiently.
+            </li>
+            <li>
+              <strong class="text-pretitle">Full-text Search:</strong> Search textual content using
+              <code>tsvector</code> and <code>tsquery</code>.
+            </li>
+            <li>
+              <strong class="text-pretitle">Replication & Sharding:</strong> Scale reads using
+              streaming replication and distribute writes with sharding.
+            </li>
+            <li>
+              <strong class="text-pretitle">Stored Procedures & Triggers:</strong> Automate complex
+              business logic within the database.
+            </li>
+          </ul>
+
+          <h2 class="text-display-title">Example: Optimized Query</h2>
+          <pre><code>-- Select active users with their last orders
+SELECT u.id, u.name, o.order_date
+FROM users u
+JOIN orders o ON o.user_id = u.id
+WHERE u.is_active = TRUE
+ORDER BY o.order_date DESC
+LIMIT 50;</code></pre>
+
+          <h2 class="text-display-title">Conclusion</h2>
+          <p>
+            Mastering PostgreSQL involves understanding schema design,
+            indexing, query optimization, and advanced features. With these
+            strategies, you can ensure your modern applications are
+            performant, reliable, and scalable. Start implementing these
+            practices today to make the most of PostgreSQL in production
+            environments.
+          </p>
+        </article>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="column xl-4 lg-12">
+        <aside class="blog-sidebar">
+          <h3>Recent Articles</h3>
+          <ul>
+            <li>
+              <a href="blog1.html">Building Scalable APIs with NestJS</a>
+            </li>
+            <li>
+              <a href="blog2.html">5 Marketing Productivity Apps for Your Team</a>
+            </li>
+            <li>
+              <a href="blog-seo-factors.html">7 SEO Factors to Consider for Better Website Ranking</a>
+            </li>
+            <li>
+              <a href="blog-web-design-principles.html">5 Effective Web Design Principles</a>
+            </li>
+            <li>
+              <a href="blog-microserviceswith-node.html">Introduction to Microservices with Node.js</a>
+            </li>
+          </ul>
+
+          <h3>Tags</h3>
+          <div class="blog-tags">
+            <a href="#">PostgreSQL</a>
+            <a href="#">Database</a>
+            <a href="#">SQL</a>
+            <a href="#">Performance</a>
+            <a href="#">Indexing</a>
+            <a href="#">Schema Design</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="s-footer">
+    <div class="row s-footer__content">
+
+      <!-- About -->
+      <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+        <h3>About Me</h3>
+        <p>
+          I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL,
+          Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and
+          performant web applications. My passion is turning ideas into modern, responsive digital experiences that
+          deliver real value to clients.
+        </p>
+      </div>
+
+      <!-- Site Links -->
+      <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+        <h3>Site Links</h3>
+        <ul class="link-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
+        <div class="subscribe-form">
+          <form id="mc-form" class="mc-form">
+            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+              placeholder="Your Email Address" required />
+            <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth" />
+            <div class="mc-status"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Social & Copyright -->
+    <div class="row s-footer__bottom">
+      <div class="column xl-6 lg-12">
+        <ul class="s-footer__social social-list">
+          <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+          <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+          <li><a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a></li>
+        </ul>
+      </div>
+
+      <!-- <div class="column xl-6 lg-12">
+      <p class="ss-copyright">
+        <span>© Copyright 2025 Your Name</span>
+        <span>Design inspired by 
+          <a href="https://www.styleshout.com/">StyleShout</a>, Distributed by 
+          <a href="https://themewagon.com">ThemeWagon</a>
+        </span>
+      </p>
+    </div> -->
+
+      <!-- Back to top -->
+      <div class="ss-go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="17 11 12 6 7 11"></polyline>
+            <line x1="12" y1="18" x2="12" y2="6"></line>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+</body>
+
+</html>

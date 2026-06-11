@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--- basic page needs
+    ================================================== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivek</title>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    document.documentElement.classList.add("js");
+  </script>
+
+  <!-- CSS
+    ================================================== -->
+  <link rel="stylesheet" href="css/vendor.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- favicons
+    ================================================== -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+</head>
+
+<body>
+  <!-- Header -->
+        <header class="s-header">
+            <div class="row s-header__inner width-sixteen-col">
+                <div class="s-header__block">
+                    <div class="s-header__logo">
+                        <a class="logo" href="index.html">
+                            <img src="/images/logo.jpg" alt="Homepage" />
+                        </a>
+                    </div>
+                    <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+                </div>
+
+                <nav class="s-header__nav">
+                    <ul class="s-header__menu-links">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/blog.html">Journal</a></li>                        <li><a href="/contact.html">Contact</a></li>
+                        <li class="current"><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                    <div class="s-header__contact">
+                        <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+  <!-- Blog Content -->
+  <section class="s-journal">
+    <div class="row row-x-center text-center">
+      <div class="column xl-12">
+        <h1 style="color: white;">Modern Styling with CSS3 & SCSS</h1>
+        <p class="lead">
+          Take your UI to the next level with advanced CSS3 features and SCSS.
+          Learn variables, mixins, nesting, and how to structure scalable
+          stylesheets for large projects.
+        </p>
+        <div class="blog-meta">
+          <span>Author: Vivek Lodhi</span> | <span>Date: October 4, 2025</span> |
+          <span>Category: Frontend Development</span>
+        </div>
+      </div>
+    </div>
+    <div class="row s-journal__content width-sixteen-col">
+      <div class="column xl-8 lg-12">
+        <article class="blog-article">
+          <p>
+            Styling is one of the most crucial parts of frontend development.
+            A visually consistent and scalable CSS architecture ensures that
+            your applications look great, load fast, and are easy to maintain
+            as the project grows. With modern <strong class="text-pretitle">CSS3</strong> and
+            <strong class="text-pretitle">SCSS</strong> (Sass), developers can write clean,
+            reusable, and powerful stylesheets.
+          </p>
+
+          <h2 class="text-display-title">Why Use SCSS Along with CSS3?</h2>
+          <ul>
+            <li>
+              <strong class="text-pretitle">Variables:</strong> Store values like colors, fonts, or
+              spacing for easy reuse.
+            </li>
+            <li>
+              <strong class="text-pretitle">Nesting:</strong> Write hierarchical styles that follow
+              HTML structure.
+            </li>
+            <li>
+              <strong class="text-pretitle">Mixins:</strong> Create reusable style patterns like
+              media queries or button styles.
+            </li>
+            <li>
+              <strong class="text-pretitle">Modules/Partials:</strong> Split styles into multiple
+              files for maintainability.
+            </li>
+          </ul>
+
+          <h2 class="text-display-title">CSS3 Features That Enhance UI</h2>
+          <p>
+            CSS3 introduced powerful capabilities that make websites more
+            dynamic and visually appealing:
+          </p>
+          <ul>
+            <li>
+              <strong class="text-pretitle">Flexbox & Grid:</strong> Build responsive layouts
+              without external frameworks.
+            </li>
+            <li>
+              <strong class="text-pretitle">Transitions & Animations:</strong> Smooth UI
+              interactions and micro-animations.
+            </li>
+            <li>
+              <strong class="text-pretitle">Custom Properties (CSS Variables):</strong> Theme your
+              app easily.
+            </li>
+            <li>
+              <strong class="text-pretitle">Media Queries:</strong> Create adaptive, mobile-first
+              designs.
+            </li>
+          </ul>
+
+          <h2 class="text-display-title">Example: SCSS Variables & Nesting</h2>
+          <pre><code>
+// variables.scss
+$primary-color: #4cafef;
+$secondary-color: #222;
+$font-stack: 'Roboto', sans-serif;
+
+// styles.scss
+body {
+  font-family: $font-stack;
+  color: $secondary-color;
+
+  header {
+    background: $primary-color;
+    padding: 20px;
+
+    h1 {
+      color: white;
+    }
+  }
+}
+          </code></pre>
+          <p>
+            With SCSS, you can maintain consistency and make global updates by
+            simply changing variable values.
+          </p>
+
+          <h2 class="text-display-title">SCSS Mixins for Reusability</h2>
+          <pre><code>
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  @include flex-center;
+  padding: 10px 20px;
+  background: $primary-color;
+  color: white;
+  border-radius: 8px;
+}
+          </code></pre>
+          <p>
+            Mixins eliminate repetitive code and allow you to define reusable
+            patterns that can be applied anywhere.
+          </p>
+
+          <h2 class="text-display-title">Structuring SCSS for Large Projects</h2>
+          <p>A common approach is the <strong class="text-pretitle">7-1 pattern</strong>:</p>
+          <ul>
+            <li><code>abstracts/</code> – variables, mixins, functions</li>
+            <li><code>base/</code> – reset, typography, global styles</li>
+            <li><code>components/</code> – buttons, cards, modals</li>
+            <li><code>layout/</code> – header, footer, grid</li>
+            <li><code>pages/</code> – page-specific styles</li>
+            <li><code>themes/</code> – dark mode, light mode</li>
+            <li><code>vendors/</code> – external libraries overrides</li>
+            <li><code>main.scss</code> – imports everything</li>
+          </ul>
+
+          <h2 class="text-display-title">Best Practices</h2>
+          <ul>
+            <li>
+              Use <strong class="text-pretitle">variables</strong> and <strong class="text-pretitle">mixins</strong> to
+              keep code DRY (Don’t Repeat Yourself).
+            </li>
+            <li>
+              Adopt <strong class="text-pretitle">BEM (Block, Element, Modifier)</strong> for class
+              naming.
+            </li>
+            <li>
+              Split code into <strong class="text-pretitle">modules/partials</strong> for better
+              organization.
+            </li>
+            <li>
+              Leverage <strong class="text-pretitle">CSS Grid</strong> and
+              <strong class="text-pretitle">Flexbox</strong> for responsive design.
+            </li>
+            <li>Always <strong class="text-pretitle">minify</strong> CSS for production.</li>
+          </ul>
+
+          <h2 class="text-display-title">Conclusion</h2>
+          <p>
+            By combining the power of <strong class="text-pretitle">CSS3</strong> with the
+            flexibility of <strong class="text-pretitle">SCSS</strong>, you can build maintainable,
+            scalable, and visually stunning frontends. Whether it’s responsive
+            layouts, themeable designs, or modular styles, SCSS empowers
+            frontend developers to create world-class user experiences.
+          </p>
+          <p>
+            Start small—introduce variables and nesting—and gradually evolve
+            into a fully structured SCSS architecture for your next project!
+          </p>
+        </article>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="column xl-4 lg-12">
+        <aside class="blog-sidebar">
+          <h3>Recent Articles</h3>
+          <ul>
+            <li>
+              <a href="blog-nestjs.html">Building Scalable APIs with NestJS</a>
+            </li>
+            <li>
+              <a href="blog-postgres.html">Mastering PostgreSQL for Modern Apps</a>
+            </li>
+            <li>
+              <a href="blog-ai.html">Integrating ChatGPT into Web Apps</a>
+            </li>
+            <li>
+              <a href="blog-microservices.html">Microservices Best Practices</a>
+            </li>
+          </ul>
+
+          <h3>Tags</h3>
+          <div class="blog-tags">
+            <a href="#">CSS3</a>
+            <a href="#">SCSS</a>
+            <a href="#">Frontend</a>
+            <a href="#">UI</a>
+            <a href="#">Web Design</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="s-footer">
+    <div class="row s-footer__content">
+
+      <!-- About -->
+      <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+        <h3>About Me</h3>
+        <p>
+          I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL,
+          Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and
+          performant web applications. My passion is turning ideas into modern, responsive digital experiences that
+          deliver real value to clients.
+        </p>
+      </div>
+
+      <!-- Site Links -->
+      <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+        <h3>Site Links</h3>
+        <ul class="link-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
+        <div class="subscribe-form">
+          <form id="mc-form" class="mc-form">
+            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+              placeholder="Your Email Address" required />
+            <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth" />
+            <div class="mc-status"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Social & Copyright -->
+    <div class="row s-footer__bottom">
+      <div class="column xl-6 lg-12">
+        <ul class="s-footer__social social-list">
+          <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+          <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+          <li><a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a></li>
+        </ul>
+      </div>
+
+      <!-- <div class="column xl-6 lg-12">
+      <p class="ss-copyright">
+        <span>© Copyright 2025 Your Name</span>
+        <span>Design inspired by 
+          <a href="https://www.styleshout.com/">StyleShout</a>, Distributed by 
+          <a href="https://themewagon.com">ThemeWagon</a>
+        </span>
+      </p>
+    </div> -->
+
+      <!-- Back to top -->
+      <div class="ss-go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="17 11 12 6 7 11"></polyline>
+            <line x1="12" y1="18" x2="12" y2="6"></line>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+</body>
+
+</html>

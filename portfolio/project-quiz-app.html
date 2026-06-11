@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz App | Vivek Lodhi</title>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    document.documentElement.classList.add("js");
+  </script>
+
+  <link rel="stylesheet" href="css/vendor.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+</head>
+
+<style>
+  .page-subtitle {
+    font-size: 1.8rem;
+    color: #666;
+  }
+
+  .pagecontent {
+    padding: 60px 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .pageintro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .pageintro .column {
+    flex: 1;
+    padding: 15px;
+  }
+
+  ul.disc {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  blockquote {
+    border-left: 4px solid #007bff;
+    padding-left: 15px;
+    font-style: italic;
+    color: #555;
+    margin: 20px 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  .pagemedia {
+    margin: 40px 0;
+    text-align: center;
+  }
+
+  .pagemedia img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .pagemain {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .pagemain .column {
+    flex: 1;
+    padding: 15px;
+  }
+
+  .project-sidebar {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .project-sidebar h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .project-sidebar ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .project-sidebar li {
+    margin-bottom: 10px;
+    color: #555;
+  }
+
+  @media screen and (max-width: 991px) {
+    .pageintro {
+      flex-direction: column;
+    }
+
+    .pagemain {
+      flex-direction: column;
+    }
+
+    .project-sidebar {
+      margin-top: 30px;
+    }
+  }
+</style>
+
+<body id="top">
+  <header class="s-header">
+    <div class="row s-header__inner width-sixteen-col">
+      <div class="s-header__block">
+        <div class="s-header__logo">
+          <a class="logo" href="index.html">
+            <img src="../images/logo.jpg" alt="Homepage" />
+          </a>
+        </div>
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+      </div>
+
+      <nav class="s-header__nav">
+        <ul class="s-header__menu-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Journal</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="current"><a href="../portfolio.html">Portfolio</a></li>
+        </ul>
+        <div class="s-header__contact">
+          <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page">
+
+    <section id="content" class="s-content">
+      <section class="s-pageheader pageheader">
+        <div class="row">
+          <div class="column xl-12">
+            <h1 class="page-title">Quiz Management System</h1>
+            <p class="page-subtitle">
+              A Scalable Platform for Conducting and Managing Employee Quizzes
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="s-pagecontent pagecontent">
+        <div class="row pageintro">
+          <div class="column xl-6 lg-12">
+            <h2 class="text-display-title">Streamlining Assessments with Role-Based Access</h2>
+          </div>
+          <div class="column xl-6 lg-12 u-flexitem-x-right">
+            <p class="lead">
+              The Quiz Management System allows organizations to create, assign, and evaluate quizzes seamlessly.
+              With distinct roles — Super Admin, Company Admin, and HR Admin — it ensures granular control, security,
+              and accountability across departments.
+            </p>
+          </div>
+        </div>
+
+        <div class="row pagemedia">
+          <div class="column xl-12">
+            <figure class="page-media">
+              <img src="../images/portfolio/quiz-app.png" alt="Quiz App Preview" />
+            </figure>
+          </div>
+        </div>
+
+        <div class="row pagemain">
+          <div class="column xl-8 md-12">
+            <h2>About the Project</h2>
+            <p>
+              The Quiz App is built to simplify skill assessment workflows within organizations. Each user role has
+              dedicated permissions — Super Admin oversees platform-wide operations, Company Admin manages quizzes for
+              specific companies, and HR Admin handles user invitations and performance reports.
+            </p>
+
+            <p>
+              The platform includes authentication, quiz creation, timed tests, result analytics, and exportable
+              reports. It supports multiple companies under one system, making it ideal for enterprises and training
+              agencies.
+            </p>
+
+            <h3>Key Features</h3>
+            <ul class="disc">
+              <li>Role-based access (Super Admin, Company Admin, HR Admin)</li>
+              <li>Secure login and user authentication system</li>
+              <li>Dynamic quiz creation with multiple question types</li>
+              <li>Automated scoring and detailed analytics</li>
+              <li>Downloadable performance reports in CSV/PDF</li>
+              <li>Company-level segregation and management</li>
+              <li>Modern, responsive dashboard UI</li>
+            </ul>
+
+            <h3>Why It Matters</h3>
+            <p>
+              Efficient employee assessment is vital for growing organizations. This app empowers HR teams to create and
+              manage quizzes quickly, track participation, and make data-driven hiring or training decisions.
+            </p>
+
+            <blockquote>
+              <p>“Assess smarter, not harder — automate and track your organization’s learning journey.”</p>
+            </blockquote>
+
+            <h3>Tech Stack</h3>
+            <ul class="disc">
+              <li><strong>Frontend:</strong> React.js, TypeScript</li>
+              <li><strong>Backend:</strong> Node.js, Express.js</li>
+              <li><strong>Database:</strong> MongoDB</li>
+              <li><strong>Authentication:</strong> JWT + Bcrypt</li>
+              <li><strong>Hosting:</strong> Railway (Backend), Netlify (Frontend)</li>
+            </ul>
+
+            <!-- <a href="https://github.com/viveklodhi/quiz-app" target="_blank" class="btn btn--primary">View on GitHub</a> -->
+          </div>
+
+          <div class="column xl-4 md-12">
+            <aside style="background-color: #f8f8f8; padding: 20px; border-radius: 12px;">
+              <div class="project-meta">
+                <h4>Project Info</h4>
+                <ul>
+                  <li><strong>Type:</strong> Role-Based MERN App</li>
+                  <li><strong>Duration:</strong> 3 months</li>
+                  <li><strong>Role:</strong> Full Stack Developer</li>
+                  <li><strong>Status:</strong> Completed</li>
+                </ul>
+              </div>
+
+              <div class="project-meta">
+                <h4>Highlights</h4>
+                <ul>
+                  <li>3-tier Admin System</li>
+                  <li>Advanced Auth + JWT</li>
+                  <li>Secure Quiz Creation Flow</li>
+                  <li>Data Visualization Dashboard</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <div class="row width-narrower pagemain">
+        <div class="column xl-12">
+          <h2>Let’s Build Together</h2>
+          <div class="row">
+            <div class="column xl-6 md-12 contact-cta">
+              <p>
+                Looking to create enterprise-grade tools or learning platforms? I build secure, scalable systems that
+                empower organizations through technology. Let's turn your vision into a functional product.
+              </p>
+
+              <a href="mailto:viveklodhi740@gmail.com" class="btn btn--primary u-fullwidth contact-btn">
+                Get In Touch
+              </a>
+            </div>
+            <div class="column xl-5 md-12 u-flexitem-x-right">
+              <div class="contact-block">
+                <h6>Follow My Work</h6>
+                <ul class="contact-social social-list">
+                  <li><a href="https://github.com/viveklodhi">GitHub</a></li>
+                  <li><a href="https://linkedin.com/in/viveklodhi">LinkedIn</a></li>
+                  <li><a href="https://twitter.com/">Twitter</a></li>
+                  <li><a href="https://dribbble.com/">Dribbble</a></li>
+                </ul>
+              </div>
+
+              <div class="contact-block">
+                <h6>Email</h6>
+                <a href="mailto:viveklodhi740@gmail.com">viveklodhi740@gmail.com</a>
+              </div>
+
+              <div class="contact-block">
+                <h6>Phone</h6>
+                <ul class="contact-list">
+                  <li><a href="tel:+916351800692">+91 635 180 0692</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="s-footer">
+      <div class="row s-footer__content">
+        <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+          <h3>About Me</h3>
+          <p>
+            I’m a full-stack developer specializing in scalable web applications, TypeScript, and modern backend
+            architectures using NestJS, Express, and MongoDB.
+          </p>
+        </div>
+
+        <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+          <h3>Site Links</h3>
+          <ul class="link-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+          </ul>
+        </div>
+
+        <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+          <h3>Newsletter</h3>
+          <p>Subscribe for insights on modern app development and architecture.</p>
+          <div class="subscribe-form">
+            <form id="mc-form" class="mc-form">
+              <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+                placeholder="Your Email Address" required />
+              <input type="submit" name="subscribe" value="Subscribe"
+                class="btn btn--primary btn--small u-fullwidth" />
+              <div class="mc-status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row s-footer__bottom">
+        <div class="column xl-6 lg-12">
+          <ul class="s-footer__social social-list">
+            <li><a href="https://github.com/viveklodhi" target="_blank">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/viveklodhi" target="_blank">LinkedIn</a></li>
+            <li><a href="https://twitter.com/" target="_blank">Twitter</a></li>
+            <li><a href="https://dribbble.com/" target="_blank">Dribbble</a></li>
+          </ul>
+        </div>
+
+        <div class="ss-go-top">
+          <a class="smoothscroll" title="Back to Top" href="#top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+              stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="17 11 12 6 7 11"></polyline>
+              <line x1="12" y1="18" x2="12" y2="6"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

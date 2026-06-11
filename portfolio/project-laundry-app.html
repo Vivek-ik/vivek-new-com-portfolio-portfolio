@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Laundry Operations Platform — Case Study | Vivek Lodhi</title>
+
+    <script>
+        document.documentElement.classList.remove("no-js");
+        document.documentElement.classList.add("js");
+    </script>
+
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+</head>
+
+<style>
+    /* Same CSS styling reused for consistency */
+
+    .page-subtitle {
+        font-size: 1.8rem;
+        color: #666;
+    }
+
+    .pagecontent {
+        padding: 60px 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .pageintro {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .pageintro .column {
+        flex: 1;
+        padding: 15px;
+    }
+
+    ul.disc {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    blockquote {
+        border-left: 4px solid #007bff;
+        padding-left: 15px;
+        font-style: italic;
+        color: #555;
+        margin: 20px 0;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #007bff;
+        color: #fff;
+        padding: 12px 25px;
+        font-weight: 600;
+        border-radius: 6px;
+        text-decoration: none;
+        margin-top: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .pagemedia {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    .pagemedia img {
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .pagemain {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .pagemain .column {
+        flex: 1;
+        padding: 15px;
+    }
+
+    .project-sidebar {
+        background-color: #f8f8f8;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .project-sidebar h4 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .project-sidebar ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .project-sidebar li {
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    @media screen and (max-width: 991px) {
+        .pageintro {
+            flex-direction: column;
+        }
+
+        .pagemain {
+            flex-direction: column;
+        }
+
+        .project-sidebar {
+            margin-top: 30px;
+        }
+    }
+
+    /* Case study — product / engineering doc styling */
+    .case-study .lead {
+        font-size: 1.15rem;
+        line-height: 1.75;
+        color: #333;
+        max-width: 52rem;
+    }
+
+    .cs-eyebrow {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #007bff;
+        margin-bottom: 0.5rem;
+    }
+
+    .cs-section {
+        margin-top: 2.75rem;
+        padding-top: 2rem;
+        border-top: 1px solid #e8e8e8;
+    }
+
+    .cs-section:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+    }
+
+    .cs-section h3 {
+        font-size: 3.05rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #111;
+        margin-bottom: 1rem;
+    }
+
+    .cs-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem 2rem;
+        margin: 1.25rem 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        .cs-two-col {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .cs-panel {
+        background: #f6f8fb;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 1.25rem 1.35rem;
+    }
+
+    .cs-panel h4 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0 0 0.65rem;
+        color: #1a1a1a;
+    }
+
+    .cs-panel p:last-child,
+    .cs-panel ul:last-child {
+        margin-bottom: 0;
+    }
+
+    .cs-list-tight {
+        margin: 0;
+        padding-left: 1.15rem;
+        line-height: 1.65;
+        color: #444;
+    }
+
+    .cs-list-tight li {
+        margin-bottom: 0.4rem;
+    }
+
+    .cs-arch {
+        background: #1e293b;
+        /* color: #e2e8f0; */
+        border-radius: 10px;
+        padding: 1.25rem 1.5rem;
+        font-family: ui-monospace, SFMono-Regular, "Cascadia Mono", Consolas, monospace;
+        font-size: 0.8rem;
+        line-height: 1.55;
+        overflow-x: auto;
+        margin: 1rem 0 1.5rem;
+        border: 1px solid #334155;
+    }
+
+    .cs-arch pre {
+        margin: 0;
+        white-space: pre;
+        font-family: inherit;
+        font-size: inherit;
+    }
+
+    .cs-dl dt {
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: #111;
+        margin-top: 0.85rem;
+    }
+
+    .cs-dl dt:first-child {
+        margin-top: 0;
+    }
+
+    .cs-dl dd {
+        margin: 0.35rem 0 0 0;
+        padding-left: 0;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .cs-inline-note {
+        font-size: 0.9rem;
+        color: #555;
+        border-left: 3px solid #007bff;
+        padding-left: 1rem;
+        margin: 1rem 0;
+    }
+
+    .case-study h2 {
+        margin-top: 0;
+    }
+
+    .case-study h4.cs-feature-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 1.5rem 0 0.5rem;
+        color: #111;
+    }
+
+    .case-study h4.cs-feature-title:first-of-type {
+        margin-top: 0.5rem;
+    }
+</style>
+
+<body id="top">
+    <header class="s-header">
+        <div class="row s-header__inner width-sixteen-col">
+            <div class="s-header__block">
+                <div class="s-header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="../images/logo.jpg" alt="Homepage" />
+                    </a>
+                </div>
+                <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+            </div>
+
+            <nav class="s-header__nav">
+                <ul class="s-header__menu-links">
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/services.html">Services</a></li>
+                    <li><a href="/blog.html">Journal</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li class="current"><a href="../portfolio.html">Portfolio</a></li>
+                </ul>
+                <div class="s-header__contact">
+                    <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page">
+
+        <section id="content" class="s-content">
+            <section class="s-pageheader pageheader">
+                <div class="row">
+                    <div class="column xl-12">
+                        <h1 class="page-title">Laundry Operations Platform</h1>
+                        <p class="page-subtitle">
+                            End-to-end scheduling, fulfillment tracking, and payments for on-demand laundry services
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="s-pagecontent pagecontent">
+                <div class="row pageintro">
+                    <div class="column xl-6 lg-12">
+                        <p class="cs-eyebrow">Case study</p>
+                        <h2 class="text-display-title">Consumer mobile + web console for pickup, processing, and delivery</h2>
+                    </div>
+                    <div class="column xl-6 lg-12 u-flexitem-x-right">
+                        <p class="lead">
+                            A full-stack service platform for laundry operators and their customers: book pickups with
+                            clear service lines (wash, dry-clean, press), pay through a gateway integration, and follow
+                            orders through a defined fulfillment lifecycle. Operations staff use an admin surface to
+                            manage volume, assignments, and status—so the product is accountable end-to-end, not only
+                            a booking form.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row pagemedia">
+                    <div class="column xl-12">
+                        <figure class="page-media">
+                            <img src="../images/portfolio/laundry-app.png" alt="Laundry operations platform — scheduling and order tracking" />
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="row pagemain">
+                    <div class="column xl-8 md-12 case-study">
+                        <h2>Overview</h2>
+                        <p>
+                            The platform separates <strong>customer intent</strong> (when, where, which services),
+                            <strong>field execution</strong> (pickup and delivery routes, handoffs), and
+                            <strong>back-office control</strong> (queues, assignments, financial reconciliation). Mobile
+                            and web clients share the same domain model: orders advance through explicit states, media
+                            for items or receipts is served through a CDN-backed asset pipeline, and payments sit behind
+                            gateway flows rather than ad-hoc transfers.
+                        </p>
+
+                        <div class="cs-section">
+                            <h3>Problem</h3>
+                            <div class="cs-two-col">
+                                <div class="cs-panel">
+                                    <h4>Customer side</h4>
+                                    <ul class="cs-list-tight disc">
+                                        <li>Opaque status once garments leave the home</li>
+                                        <li>Friction coordinating pickup windows and addresses</li>
+                                        <li>Weak trust signals around pricing, add-ons, and service type</li>
+                                    </ul>
+                                </div>
+                                <div class="cs-panel">
+                                    <h4>Operator side</h4>
+                                    <ul class="cs-list-tight disc">
+                                        <li>Orders, staff, and vehicles tracked in disconnected channels</li>
+                                        <li>Hard to prioritize SLAs and peak-day throughput</li>
+                                        <li>Manual payment follow-up and dispute risk</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cs-section">
+                            <h3>Solution</h3>
+                            <p>
+                                A unified product: customers schedule pickups, select service tiers (wash, dry-clean,
+                                press / iron), and pay securely; the system surfaces live status from request through
+                                facility processing to return delivery. Administrators manage the catalog of services,
+                                assign runners or partners, and monitor pipeline health—structured so the same order
+                                record drives customer UI, notifications, and internal dashboards.
+                            </p>
+                        </div>
+
+                        <div class="cs-section">
+                            <h3>Product capabilities</h3>
+
+                            <h4 class="cs-feature-title">Scheduling and service configuration</h4>
+                            <p>
+                                Address capture, pickup windows, and line-item service selection reduce ambiguity before
+                                a job enters the queue. The model supports repeatable patterns operators expect
+                                (standard wash vs delicate / dry-clean routes) without overloading a single generic SKU.
+                            </p>
+
+                            <h4 class="cs-feature-title">Order lifecycle and visibility</h4>
+                            <p>
+                                Customers see progression across pickup, intake, processing, and delivery. Staff update
+                                authoritative state so mobile clients reflect the same source of truth—minimizing
+                                &ldquo;where is my bag?&rdquo; support load.
+                            </p>
+                            <div class="cs-arch" aria-label="Typical order state flow">
+                                <pre>Requested → Scheduled pickup → Collected
+        → In facility (wash / dry-clean / press)
+        → Ready → Out for delivery → Delivered / Closed</pre>
+                            </div>
+
+                            <h4 class="cs-feature-title">Payments</h4>
+                            <p>
+                                Integrated payment gateway for checkout and settlement; server-side validation of
+                                amounts and order linkage before fulfillment proceeds.
+                            </p>
+
+                            <h4 class="cs-feature-title">Notifications and engagement</h4>
+                            <p>
+                                Push and messaging channels (including WhatsApp-style updates where integrated) for
+                                milestone events—pickup dispatched, delay, ready for delivery—so users are not
+                                polling the app.
+                            </p>
+
+                            <h4 class="cs-feature-title">Location and logistics</h4>
+                            <p>
+                                Location-aware flows support pickup and delivery optimization and ETA-style
+                                communication between customer and field roles.
+                            </p>
+
+                            <h4 class="cs-feature-title">Media and performance</h4>
+                            <p>
+                                Receipt or garment imagery and marketing assets are stored and delivered via Cloudinary
+                                (transforms and CDN), keeping list and detail views fast on variable networks.
+                            </p>
+                        </div>
+
+                        <div class="cs-section">
+                            <h3>System design</h3>
+                            <ul class="disc cs-list-tight">
+                                <li><strong>Roles:</strong> Customer, admin / operations—with clear permission boundaries on mutations.</li>
+                                <li><strong>API-first backend:</strong> Express on Node.js; document-oriented persistence in MongoDB for flexible order payloads and audit-friendly append patterns.</li>
+                                <li><strong>Client split:</strong> React Native for mobile field and consumer scenarios; Next.js for web (marketing, account, or operator console) sharing types and API contracts where practical.</li>
+                                <li><strong>Evolution path:</strong> Modular services and clear domain boundaries to introduce async workers (e.g. messaging with RabbitMQ or Kafka) without rewriting core flows.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cs-section">
+                            <h3>Technology</h3>
+                            <dl class="cs-dl">
+                                <dt>Clients</dt>
+                                <dd>React Native (mobile), Next.js (web), TypeScript where adopted for safer contracts.</dd>
+                                <dt>Backend</dt>
+                                <dd>Node.js, Express.js, REST APIs, JWT or session-based auth patterns as required by deployment.</dd>
+                                <dt>Data</dt>
+                                <dd>MongoDB for orders, users, and service configuration; indexing for status and date-range queries.</dd>
+                                <dt>Assets</dt>
+                                <dd>Cloudinary for uploads, transformations, and CDN delivery.</dd>
+                            </dl>
+                            <p class="cs-inline-note">
+                                <strong>Integrations:</strong> Push (e.g. Firebase), WhatsApp Business messaging, or
+                                message-bus backends can attach to the same event hooks as the product matures—without
+                                changing the core order state machine.
+                            </p>
+                        </div>
+
+                        <div class="cs-section">
+                            <h3>Outcomes</h3>
+                            <div class="cs-two-col">
+                                <div class="cs-panel">
+                                    <h4>For customers</h4>
+                                    <ul class="cs-list-tight disc">
+                                        <li>Single place to book, pay, and track</li>
+                                        <li>Clear expectations on service type and timing</li>
+                                        <li>Proactive updates instead of reactive support</li>
+                                    </ul>
+                                </div>
+                                <div class="cs-panel">
+                                    <h4>For operators</h4>
+                                    <ul class="cs-list-tight disc">
+                                        <li>Operational dashboard over live pipeline</li>
+                                        <li>Assignable work and auditable status transitions</li>
+                                        <li>Foundation for SLA reporting and capacity planning</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cs-section">
+                            <h3>Roadmap</h3>
+                            <ul class="disc cs-list-tight">
+                                <li>Deeper route optimization and batching for field staff</li>
+                                <li>Subscription or recurring pickup plans</li>
+                                <li>Automated retry and escalation policies for failed pickups</li>
+                                <li>Analytics exports and partner / franchise multi-tenant mode</li>
+                            </ul>
+                        </div>
+
+                        <div class="cs-section">
+                            <h3>Engineering learnings</h3>
+                            <p>
+                                Service marketplaces fail on edge cases: partial pickups, address changes, and payment
+                                mismatches. Designing explicit states, idempotent payment hooks, and admin overrides
+                                early avoided painting the team into a corner. Treating mobile and web as consumers of
+                                the same API contract reduced drift and duplicated business rules.
+                            </p>
+                        </div>
+
+                        <div class="cs-section">
+                            <h3>Summary</h3>
+                            <blockquote>
+                                <p>
+                                    Laundry Operations Platform is a practical vertical SaaS slice: scheduling,
+                                    payments, fulfillment visibility, and operator tooling in one coherent system—
+                                    built for reliability and scale-up toward event-driven and multi-channel
+                                    notifications as traffic grows.
+                                </p>
+                            </blockquote>
+                        </div>
+
+                        <!-- <a href="https://github.com/viveklodhi/laundry-app" target="_blank" class="btn btn--primary">View on GitHub</a> -->
+                    </div>
+
+                    <div class="column xl-4 md-12">
+                        <aside class="project-sidebar">
+                            <div class="project-meta">
+                                <h4>Engagement</h4>
+                                <ul>
+                                    <li><strong>Scope:</strong> Web + mobile + API platform</li>
+                                    <li><strong>Duration:</strong> ~4 months</li>
+                                    <li><strong>Role:</strong> Full-stack delivery</li>
+                                    <li><strong>Status:</strong> In active development</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-meta">
+                                <h4>Capability tags</h4>
+                                <ul>
+                                    <li>Multi-role (customer / admin)</li>
+                                    <li>Order state machine &amp; tracking</li>
+                                    <li>Payments &amp; secure checkout</li>
+                                    <li>CDN-backed media (Cloudinary)</li>
+                                    <li>Logistics-friendly location flows</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-meta">
+                                <h4>Stack snapshot</h4>
+                                <ul>
+                                    <li>React Native, Next.js</li>
+                                    <li>Node.js, Express, MongoDB</li>
+                                    <li>Cloudinary</li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <div class="row width-narrower pagemain">
+                <div class="column xl-12">
+                    <h2>Let's Build Together</h2>
+                    <div class="row">
+                        <div class="column xl-6 md-12 contact-cta">
+                            <p>
+                                Whether you're running a service business or launching a tech startup, I bring
+                                full-stack expertise to
+                                create scalable, secure, and high-performance web apps. Let’s turn your ideas into
+                                digital success stories
+                                — from concept to deployment.
+                            </p>
+
+                            <a href="mailto:viveklodhi740@gmail.com" class="btn btn--primary u-fullwidth contact-btn">
+                                Get In Touch
+                            </a>
+                        </div>
+                        <div class="column xl-5 md-12 u-flexitem-x-right">
+                            <div class="contact-block">
+                                <h6>Follow My Work</h6>
+                                <ul class="contact-social social-list">
+                                    <li><a href="https://github.com/viveklodhi">GitHub</a></li>
+                                    <li><a href="https://linkedin.com/in/viveklodhi">LinkedIn</a></li>
+                                    <li><a href="https://twitter.com/">Twitter</a></li>
+                                    <li><a href="https://dribbble.com/">Dribbble</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="contact-block">
+                                <h6>Email</h6>
+                                <a href="mailto:viveklodhi740@gmail.com">viveklodhi740@gmail.com</a>
+                            </div>
+
+                            <div class="contact-block">
+                                <h6>Phone</h6>
+                                <ul class="contact-list">
+                                    <li><a href="tel:+916351800692">+91 635 180 0692</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="s-footer">
+            <div class="row s-footer__content">
+                <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+                    <h3>About Me</h3>
+                    <p>
+                        I am a full-stack developer specializing in scalable apps using MERN stack, TypeScript, NestJS,
+                        and
+                        microservices architecture. I focus on building modern, performance-oriented applications with
+                        clean code
+                        and intuitive user experiences.
+                    </p>
+                </div>
+
+                <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+                    <h3>Site Links</h3>
+                    <ul class="link-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                </div>
+
+                <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for the latest insights on modern web development and AI integration.</p>
+                    <div class="subscribe-form">
+                        <form id="mc-form" class="mc-form">
+                            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+                                placeholder="Your Email Address" required />
+                            <input type="submit" name="subscribe" value="Subscribe"
+                                class="btn btn--primary btn--small u-fullwidth" />
+                            <div class="mc-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row s-footer__bottom">
+                <div class="column xl-6 lg-12">
+                    <ul class="s-footer__social social-list">
+                        <li><a href="https://github.com/viveklodhi" target="_blank">GitHub</a></li>
+                        <li><a href="https://linkedin.com/in/viveklodhi" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://twitter.com/" target="_blank">Twitter</a></li>
+                        <li><a href="https://dribbble.com/" target="_blank">Dribbble</a></li>
+                    </ul>
+                </div>
+
+                <div class="ss-go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+                            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="17 11 12 6 7 11"></polyline>
+                            <line x1="12" y1="18" x2="12" y2="6"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

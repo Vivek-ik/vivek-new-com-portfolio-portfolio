@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--- basic page needs
+    ================================================== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivek</title>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    document.documentElement.classList.add("js");
+  </script>
+
+  <!-- CSS
+    ================================================== -->
+  <link rel="stylesheet" href="css/vendor.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- favicons
+    ================================================== -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+</head>
+
+<body>
+
+  <!-- <div id="preloader">
+      <div id="loader" class="dots-fade">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div> -->
+
+  <!-- Header -->
+  <header class="s-header">
+    <div class="row s-header__inner width-sixteen-col">
+      <div class="s-header__block">
+        <div class="s-header__logo">
+          <a class="logo" href="index.html">
+            <img src="/images/logo.jpg" alt="Homepage" />
+          </a>
+        </div>
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+      </div>
+
+      <nav class="s-header__nav">
+        <ul class="s-header__menu-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Journal</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="current"><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+        <div class="s-header__contact">
+          <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog Content -->
+  <section class="s-journal" style="padding-top:100px;">
+    <div class="row row-x-center text-center">
+      <div class="column xl-12">
+        <h1 style="color: white;">Building Scalable APIs with NestJS</h1>
+        <p>
+          Learn how NestJS leverages TypeScript and modular architecture to create maintainable and scalable backend
+          applications.
+        </p>
+        <div class="blog-meta">
+          <span>Author: Vivek Lodhi</span> |
+          <span>Date: October 4, 2025</span> |
+          <span>Category: Backend Development</span>
+        </div>
+      </div>
+    </div>
+    <div class="row s-journal__content width-sixteen-col">
+      <div class="column xl-8 lg-12">
+        <article class="blog-article">
+          <p>
+            NestJS is a progressive Node.js framework that leverages the power of TypeScript to build scalable,
+            maintainable, and testable backend applications. Inspired by Angular’s architecture, it provides a modular
+            design, built-in dependency injection, and support for a wide range of transport layers like HTTP,
+            WebSockets, and microservices.
+          </p>
+
+          <h2 class="text-display-title">Why Choose NestJS for Scalable APIs?</h2>
+          <p>
+            When building APIs for enterprise applications or high-traffic systems, scalability and maintainability are
+            key. NestJS offers:
+          </p>
+          <ul>
+            <li><strong class="text-pretitle">TypeScript Support:</strong> Strongly typed code reduces runtime errors
+              and improves developer productivity.</li>
+            <li><strong class="text-pretitle">Modular Architecture:</strong> Organize features into modules for clean
+              separation of concerns.</li>
+            <li><strong class="text-pretitle">Dependency Injection:</strong> Makes it easy to manage services and
+              repositories.</li>
+            <li><strong class="text-pretitle">Extensible:</strong> Integrates easily with other libraries like TypeORM,
+              Prisma, GraphQL, or Kafka.</li>
+          </ul>
+
+          <h2 class="text-display-title">Setting Up a NestJS Project</h2>
+          <p>First, install the Nest CLI:</p>
+          <pre><code>npm i -g @nestjs/cli
+nest new my-api
+cd my-api
+npm run start:dev</code></pre>
+
+          <p>This scaffolds a new NestJS application with a modular structure.</p>
+
+          <h2 class="text-display-title">Creating a Controller and Service</h2>
+          <p>Controllers handle incoming HTTP requests, while services contain the business logic.</p>
+          <pre><code>// src/users/users.controller.ts
+import { Controller, Get } from '@nestjs/common';
+import { UsersService } from './users.service';
+
+@Controller('users')
+export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+
+  @Get()
+  findAll() {
+    return this.usersService.findAll();
+  }
+}
+
+// src/users/users.service.ts
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class UsersService {
+  private users = [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }];
+
+  findAll() {
+    return this.users;
+  }
+}</code></pre>
+
+          <p>This modular approach keeps controllers lean and makes the service reusable across modules.</p>
+
+          <h2 class="text-display-title">Using Modules for Scalability</h2>
+          <p>Modules in NestJS allow you to encapsulate related features:</p>
+          <pre><code>// src/users/users.module.ts
+import { Module } from '@nestjs/common';
+import { UsersController } from './users.controller';
+import { UsersService } from './users.service';
+
+@Module({
+  controllers: [UsersController],
+  providers: [UsersService],
+})
+export class UsersModule {}</code></pre>
+
+          <p>For larger applications, you can create feature modules like AuthModule, OrdersModule, and ProductsModule,
+            making the codebase easier to maintain.</p>
+
+          <h2 class="text-display-title">Database Integration with PostgreSQL</h2>
+          <p>Using TypeORM or Prisma, you can easily connect NestJS with PostgreSQL:</p>
+          <pre><code>// src/app.module.ts
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
+
+@Module({
+  imports: [
+    UsersModule,
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'password',
+      database: 'mydb',
+      autoLoadEntities: true,
+      synchronize: true,
+    }),
+  ],
+})
+export class AppModule {}</code></pre>
+
+          <h2 class="text-display-title">Microservices Architecture</h2>
+          <p>
+            NestJS also supports microservices out-of-the-box. You can create message-based microservices using Redis,
+            NATS, Kafka, or RabbitMQ. This allows scaling independent services without affecting the main API.
+          </p>
+
+          <h2 class="text-display-title">Best Practices for Scalable APIs</h2>
+          <ul>
+            <li>Use modules to separate features.</li>
+            <li>Keep controllers thin and delegate logic to services.</li>
+            <li>Use DTOs (Data Transfer Objects) for request validation.</li>
+            <li>Implement exception filters and logging for robust error handling.</li>
+            <li>Leverage caching (Redis) and background jobs (Bull) for performance.</li>
+          </ul>
+
+          <h2 class="text-display-title">Conclusion</h2>
+          <p>
+            NestJS provides a robust framework for building scalable and maintainable APIs. With TypeScript, modular
+            architecture, dependency injection, and support for microservices, you can develop enterprise-ready backend
+            applications efficiently.
+          </p>
+          <p>Start building your NestJS API today and leverage its features to create scalable solutions for your
+            projects!</p>
+        </article>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="column xl-4 lg-12">
+        <aside class="blog-sidebar">
+          <h3>Recent Articles</h3>
+          <ul>
+            <li><a href="blog1.html">5 Marketing Productivity Apps for Your Team</a></li>
+            <li><a href="blog-seo-factors.html">7 SEO Factors to Consider for Better Website Ranking</a></li>
+            <li><a href="blog-web-design-principles.html">5 Effective Web Design Principles</a></li>
+            <li><a href="blog4.html">Getting Started with PostgreSQL and TypeORM</a></li>
+            <li><a href="blog5.html">Introduction to Microservices with Node.js</a></li>
+          </ul>
+
+          <h3>Tags</h3>
+          <div class="blog-tags">
+            <a href="#">NestJS</a>
+            <a href="#">TypeScript</a>
+            <a href="#">API</a>
+            <a href="#">PostgreSQL</a>
+            <a href="#">Microservices</a>
+            <a href="#">Backend</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="s-footer">
+    <div class="row s-footer__content">
+
+      <!-- About -->
+      <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+        <h3>About Me</h3>
+        <p>
+          I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL,
+          Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and
+          performant web applications. My passion is turning ideas into modern, responsive digital experiences that
+          deliver real value to clients.
+        </p>
+      </div>
+
+      <!-- Site Links -->
+      <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+        <h3>Site Links</h3>
+        <ul class="link-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
+        <div class="subscribe-form">
+          <form id="mc-form" class="mc-form">
+            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+              placeholder="Your Email Address" required />
+            <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth" />
+            <div class="mc-status"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Social & Copyright -->
+    <div class="row s-footer__bottom">
+      <div class="column xl-6 lg-12">
+        <ul class="s-footer__social social-list">
+          <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+          <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+          <li><a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a></li>
+        </ul>
+      </div>
+
+      <!-- <div class="column xl-6 lg-12">
+      <p class="ss-copyright">
+        <span>© Copyright 2025 Your Name</span>
+        <span>Design inspired by 
+          <a href="https://www.styleshout.com/">StyleShout</a>, Distributed by 
+          <a href="https://themewagon.com">ThemeWagon</a>
+        </span>
+      </p>
+    </div> -->
+
+      <!-- Back to top -->
+      <div class="ss-go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="17 11 12 6 7 11"></polyline>
+            <line x1="12" y1="18" x2="12" y2="6"></line>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+</body>
+
+</html>

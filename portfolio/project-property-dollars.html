@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Property Dollars | Vivek Lodhi</title>
+
+    <script>
+        document.documentElement.classList.remove("no-js");
+        document.documentElement.classList.add("js");
+    </script>
+
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <style>
+        .page-subtitle {
+            font-size: 1.8rem;
+            color: #666;
+        }
+
+        .pagecontent {
+            padding: 60px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pageintro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .pageintro .column {
+            flex: 1;
+            padding: 15px;
+        }
+
+        ul.disc {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        blockquote {
+            border-left: 4px solid #007bff;
+            padding-left: 15px;
+            font-style: italic;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .pagemedia {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .pagemedia img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagemain {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .pagemain .column {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .project-sidebar {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .project-sidebar h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .project-sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-sidebar li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        @media screen and (max-width: 991px) {
+            .pageintro {
+                flex-direction: column;
+            }
+
+            .pagemain {
+                flex-direction: column;
+            }
+
+            .project-sidebar {
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+    <header class="s-header">
+        <div class="row s-header__inner width-sixteen-col">
+            <div class="s-header__block">
+                <div class="s-header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="../images/logo.jpg" alt="Homepage" />
+                    </a>
+                </div>
+                <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+            </div>
+
+            <nav class="s-header__nav">
+                <ul class="s-header__menu-links">
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/services.html">Services</a></li>
+                    <li><a href="/blog.html">Journal</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li class="current"><a href="../portfolio.html">Portfolio</a></li>
+                </ul>
+                <div class="s-header__contact">
+                    <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page">
+        <section id="content" class="s-content">
+            <section class="s-pageheader pageheader">
+                <div class="row">
+                    <div class="column xl-12">
+                        <h1 class="page-title">Property Dollars</h1>
+                        <p class="page-subtitle">
+                            Real-Estate & Mortgage Management Platform
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="s-pagecontent pagecontent">
+                <div class="row pageintro">
+                    <div class="column xl-6 lg-12">
+                        <h2 class="text-display-title">Smart Real Estate Meets Seamless Mortgage Management</h2>
+                    </div>
+                    <div class="column xl-6 lg-12 u-flexitem-x-right">
+                        <p class="lead">
+                            Property Dollars is a next-generation real-estate and mortgage management system designed to
+                            connect property dealers, clients, and investors through a transparent, real-time
+                            collaboration platform. Built with React.js and NestJS, it provides a full-stack, scalable,
+                            and analytics-driven experience.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row pagemedia">
+                    <div class="column xl-12">
+                        <figure class="page-media">
+                            <img src="../images/portfolio/property-dollars.jpg" alt="Property Dollars Dashboard" />
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="row pagemain">
+                    <div class="column xl-8 md-12">
+                        <h2>About the Project</h2>
+                        <p>
+                            Property Dollars simplifies real-estate operations by bringing property listings, loan
+                            management, and team collaboration into one intuitive dashboard. It empowers agents,
+                            clients, and admins to manage deals, communicate instantly, and access mortgage data
+                            securely.
+                        </p>
+
+                        <p>
+                            Real-time updates powered by Socket.io ensure smooth team coordination. The NestJS backend
+                            handles transactions, user roles, and complex queries efficiently using PostgreSQL and
+                            TypeORM.
+                        </p>
+
+                        <h3>Key Features</h3>
+                        <ul class="disc">
+                            <li>Dynamic property and loan management dashboard</li>
+                            <li>Real-time chat and team collaboration using Socket.io</li>
+                            <li>Advanced search, filters, and property analytics</li>
+                            <li>Secure authentication and role-based permissions</li>
+                            <li>Fully responsive UI designed with SCSS and React components</li>
+                            <li>Backend integration with NestJS and PostgreSQL using TypeORM</li>
+                        </ul>
+
+                        <h3>Challenges & Solutions</h3>
+                        <p>
+                            Building a system that handles real-time updates and complex relational data was a core
+                            challenge. Using NestJS with TypeORM allowed efficient database design, while Socket.io
+                            handled instant communication between brokers and clients.
+                        </p>
+
+                        <blockquote>
+                            “A truly modern real-estate platform must combine data accuracy, real-time collaboration,
+                            and elegant design.”
+                        </blockquote>
+
+                        <h3>Tech Stack</h3>
+                        <ul class="disc">
+                            <li><strong>Frontend:</strong> React.js, SCSS</li>
+                            <li><strong>Backend:</strong> NestJS (modular architecture)</li>
+                            <li><strong>Database:</strong> PostgreSQL + TypeORM</li>
+                            <li><strong>Realtime:</strong> Socket.io</li>
+                            <li><strong>Authentication:</strong> JWT-based secure auth</li>
+                            <li><strong>Deployment:</strong> Render & Netlify (CI/CD integrated)</li>
+                        </ul>
+                    </div>
+
+                    <div class="column xl-4 md-12">
+                        <aside style="background-color: #f8f8f8; padding: 20px; border-radius: 12px;">
+                            <div class="project-meta">
+                                <h4>Project Info</h4>
+                                <ul>
+                                    <li><strong>Type:</strong> Real Estate & Mortgage Management</li>
+                                    <li><strong>Duration:</strong> 4 months</li>
+                                    <li><strong>Role:</strong> Full Stack Developer</li>
+                                    <li><strong>Status:</strong> Completed</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-meta">
+                                <h4>Highlights</h4>
+                                <ul>
+                                    <li>Integrated real-time collaboration</li>
+                                    <li>Data visualization for loan analytics</li>
+                                    <li>Modular NestJS API architecture</li>
+                                    <li>Responsive and interactive SCSS UI</li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <div class="row width-narrower pagemain">
+                <div class="column xl-12">
+                    <h2>Let's Build Innovative Real Estate Tools Together</h2>
+                    <div class="row">
+                        <div class="column xl-6 md-12 contact-cta">
+                            <p>
+                                Looking to transform your property business with modern technology?
+                                I build scalable real-estate and mortgage systems that empower collaboration,
+                                transparency, and growth.
+                            </p>
+
+                            <a href="mailto:viveklodhi740@gmail.com" class="btn btn--primary u-fullwidth contact-btn">
+                                Get In Touch
+                            </a>
+                        </div>
+
+                        <div class="column xl-5 md-12 u-flexitem-x-right">
+                            <div class="contact-block">
+                                <h6>Follow My Work</h6>
+                                <ul class="contact-social social-list">
+                                    <li><a href="https://github.com/viveklodhi">GitHub</a></li>
+                                    <li><a href="https://linkedin.com/in/viveklodhi">LinkedIn</a></li>
+                                    <li><a href="https://twitter.com/">Twitter</a></li>
+                                    <li><a href="https://dribbble.com/">Dribbble</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="contact-block">
+                                <h6>Email</h6>
+                                <a href="mailto:viveklodhi740@gmail.com">viveklodhi740@gmail.com</a>
+                            </div>
+
+                            <div class="contact-block">
+                                <h6>Phone</h6>
+                                <ul class="contact-list">
+                                    <li><a href="tel:+916351800692">+91 635 180 0692</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="s-footer">
+            <div class="row s-footer__content">
+                <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+                    <h3>About Me</h3>
+                    <p>
+                        I am a full-stack developer specializing in scalable apps using React, NestJS, TypeScript, and
+                        PostgreSQL. My work focuses on crafting high-performance web solutions with real-time
+                        interactivity and clean UI/UX.
+                    </p>
+                </div>
+
+                <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+                    <h3>Site Links</h3>
+                    <ul class="link-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                </div>
+
+                <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for insights on modern web apps and scalable backend architectures.</p>
+                    <div class="subscribe-form">
+                        <form id="mc-form" class="mc-form">
+                            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+                                placeholder="Your Email Address" required />
+                            <input type="submit" name="subscribe" value="Subscribe"
+                                class="btn btn--primary btn--small u-fullwidth" />
+                            <div class="mc-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row s-footer__bottom">
+                <div class="column xl-6 lg-12">
+                    <ul class="s-footer__social social-list">
+                        <li><a href="https://github.com/viveklodhi" target="_blank">GitHub</a></li>
+                        <li><a href="https://linkedin.com/in/viveklodhi" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://twitter.com/" target="_blank">Twitter</a></li>
+                        <li><a href="https://dribbble.com/" target="_blank">Dribbble</a></li>
+                    </ul>
+                </div>
+
+                <div class="ss-go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+                            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="17 11 12 6 7 11"></polyline>
+                            <line x1="12" y1="18" x2="12" y2="6"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
