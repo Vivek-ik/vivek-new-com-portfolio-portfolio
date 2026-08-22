@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>High Performance Websites Case Study | Vivek Lodhi</title>
+
+    <script>
+        document.documentElement.classList.remove("no-js");
+        document.documentElement.classList.add("js");
+    </script>
+
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <style>
+        .pagecontent {
+            padding: 60px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pageintro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .pageintro .column {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .page-subtitle {
+            font-size: 1.8rem;
+            color: #666;
+        }
+
+        ul.disc {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        blockquote {
+            border-left: 4px solid #007bff;
+            padding-left: 15px;
+            font-style: italic;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .pagemedia {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .pagemedia img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagemain {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .pagemain .column {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .project-sidebar {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .project-sidebar h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .project-sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-sidebar li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* =========================
+       CASE STUDY
+    ========================= */
+
+        .case-study .lead {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: #333;
+            max-width: 52rem;
+        }
+
+        .cs-eyebrow {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+
+        .cs-section {
+            margin-top: 2.75rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .cs-section:first-of-type {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        .cs-section h3 {
+            font-size: 3.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #111;
+            margin-bottom: 1rem;
+        }
+
+        .cs-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem 2rem;
+            margin: 1.25rem 0;
+        }
+
+        .cs-panel {
+            background: #f6f8fb;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.25rem 1.35rem;
+        }
+
+        .cs-panel h4 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 0.65rem;
+            color: #1a1a1a;
+        }
+
+        .cs-panel p:last-child,
+        .cs-panel ul:last-child {
+            margin-bottom: 0;
+        }
+
+        .cs-list-tight {
+            margin: 0;
+            padding-left: 1.15rem;
+            line-height: 1.65;
+            color: #444;
+        }
+
+        .cs-list-tight li {
+            margin-bottom: 0.4rem;
+        }
+
+        .cs-arch {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 1.2rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #334155;
+        }
+
+        .cs-arch pre {
+            margin: 0;
+            white-space: pre;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .cs-dl dt {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #111;
+            margin-top: 0.85rem;
+        }
+
+        .cs-dl dt:first-child {
+            margin-top: 0;
+        }
+
+        .cs-dl dd {
+            margin: 0.35rem 0 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .cs-inline-note {
+            font-size: 0.9rem;
+            color: #555;
+            border-left: 3px solid #007bff;
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+
+        .case-study h2 {
+            margin-top: 0;
+        }
+
+        .case-study h4.cs-feature-title {
+            margin: 1.5rem 0 0.5rem;
+            color: #111;
+        }
+
+        .performance-number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #007bff;
+            margin-bottom: 0.25rem;
+        }
+
+        .performance-label {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            padding: 1.5rem;
+            background: #f6f8fb;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #eef2ff;
+            color: #4338ca;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        @media screen and (max-width: 991px) {
+
+            .pageintro,
+            .pagemain {
+                flex-direction: column;
+            }
+
+            .project-sidebar {
+                margin-top: 30px;
+                position: static;
+            }
+
+            .metric-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .cs-two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cs-section h3 {
+                font-size: 2.2rem;
+            }
+
+            .cs-panel h4 {
+                font-size: 1.5rem;
+            }
+
+            .page-subtitle {
+                font-size: 1.35rem;
+            }
+
+            .case-study .lead {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- =========================
+       HEADER
+  ========================== -->
+
+    <header class="s-header">
+        <div class="row s-header__inner width-sixteen-col">
+
+            <div class="s-header__block">
+
+                <div class="s-header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="../images/logo.jpg" alt="Vivek Lodhi" />
+                    </a>
+                </div>
+
+                <a class="s-header__menu-toggle" href="#0">
+                    <span>Menu</span>
+                </a>
+
+            </div>
+
+            <nav class="s-header__nav">
+
+                <ul class="s-header__menu-links">
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="/services.html">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="/blog.html">Journal</a>
+                    </li>
+
+                    <li>
+                        <a href="/contact.html">Contact</a>
+                    </li>
+
+                    <li class="current">
+                        <a href="../portfolio.html">Portfolio</a>
+                    </li>
+                </ul>
+
+                <div class="s-header__contact">
+                    <a href="/contact.html" class="btn btn--primary s-header__contact-btn">
+                        Let's Work Together
+                    </a>
+                </div>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <div class="page">
+
+        <section id="content" class="s-content">
+
+            <!-- =========================
+           PAGE HEADER
+      ========================== -->
+
+            <section class="s-pageheader pageheader">
+
+                <div class="row">
+
+                    <div class="column xl-12">
+
+                        <h1 class="page-title">
+                            High Performance Web Platforms
+                        </h1>
+
+                        <p class="page-subtitle">
+                            Building fast, scalable, SEO-friendly websites for
+                            high traffic digital platforms
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+           MAIN CONTENT
+      ========================== -->
+
+            <section class="s-pagecontent pagecontent">
+
+                <!-- INTRO -->
+
+                <div class="row pageintro">
+
+                    <div class="column xl-6 lg-12">
+
+                        <p class="cs-eyebrow">
+                            Enterprise Web Development
+                        </p>
+
+                        <h2 class="text-display-title">
+                            Performance-first websites built for scale
+                        </h2>
+
+                    </div>
+
+                    <div class="column xl-6 lg-12 u-flexitem-x-right">
+
+                        <p class="lead">
+                            I have worked on high traffic websites and digital platforms
+                            across the Savings United ecosystem, including platforms such
+                            as Telegraph and other content-driven properties.
+                            The focus was not simply building pages it was building
+                            experiences that remain fast, responsive, SEO-friendly and
+                            maintainable under real-world traffic.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HERO IMAGE -->
+
+                <div class="row pagemedia">
+
+                    <div class="column xl-12">
+
+                        <figure class="page-media">
+
+                            <img src="../images/portfolio/chrome-lighthouse-100.jpg"
+                                alt="High performance website development" />
+
+                        </figure>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BODY -->
+
+                <div class="row pagemain">
+
+                    <div class="column xl-8 md-12 case-study">
+
+                        <h2>
+                            Overview
+                        </h2>
+
+                        <p>
+                            Modern publishing and commerce websites need to do more than
+                            look good. They need to load quickly, remain responsive across
+                            devices, rank well in search engines and handle large amounts
+                            of content and traffic without compromising user experience.
+                        </p>
+
+                        <p>
+                            My work within the Savings United ecosystem involved
+                            contributing to production websites where frontend performance,
+                            responsive interfaces, reusable components and reliable
+                            integrations were critical parts of the engineering process.
+                        </p>
+
+
+                        <!-- PROBLEM -->
+
+                        <div class="cs-section">
+
+                            <h3>
+                                The Challenge
+                            </h3>
+
+                            <div class="cs-two-col">
+
+                                <div class="cs-panel">
+
+                                    <h4>
+                                        Performance
+                                    </h4>
+
+                                    <ul class="cs-list-tight disc">
+
+                                        <li>
+                                            Fast initial page loading
+                                        </li>
+
+                                        <li>
+                                            Optimized rendering and asset delivery
+                                        </li>
+
+                                        <li>
+                                            Reduced unnecessary JavaScript execution
+                                        </li>
+
+                                        <li>
+                                            Responsive experience across devices
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+
+                                <div class="cs-panel">
+
+                                    <h4>
+                                        Scale
+                                    </h4>
+
+                                    <ul class="cs-list-tight disc">
+
+                                        <li>
+                                            Large content-driven websites
+                                        </li>
+
+                                        <li>
+                                            Reusable frontend architecture
+                                        </li>
+
+                                        <li>
+                                            API-driven content
+                                        </li>
+
+                                        <li>
+                                            Maintainable components across multiple properties
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PERFORMANCE -->
+
+                        <div class="cs-section">
+
+                            <h3>
+                                Performance Engineering
+                            </h3>
+
+                            <p>
+                                Performance was treated as an engineering requirement rather
+                                than something added after development. Every layer of the
+                                application was considered from rendering and JavaScript
+                                execution to images, network requests and API responses.
+                            </p>
+
+
+                            <div class="metric-grid">
+
+                                <div class="metric-card">
+
+                                    <div class="performance-number">
+                                        Fast
+                                    </div>
+
+                                    <div class="performance-label">
+                                        Page Delivery
+                                    </div>
+
+                                </div>
+
+
+                                <div class="metric-card">
+
+                                    <div class="performance-number">
+                                        SEO
+                                    </div>
+
+                                    <div class="performance-label">
+                                        Search Optimized
+                                    </div>
+
+                                </div>
+
+
+                                <div class="metric-card">
+
+                                    <div class="performance-number">
+                                        Scale
+                                    </div>
+
+                                    <div class="performance-label">
+                                        Production Ready
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <h4 class="cs-feature-title">
+                                Core Web Vitals mindset
+                            </h4>
+
+                            <p>
+                                Frontend implementation considered metrics such as
+                                Largest Contentful Paint, Cumulative Layout Shift and
+                                Interaction to Next Paint when optimizing the user experience.
+                            </p>
+
+
+                            <h4 class="cs-feature-title">
+                                Efficient rendering
+                            </h4>
+
+                            <p>
+                                Components were designed to avoid unnecessary rendering,
+                                excessive client-side work and large JavaScript payloads.
+                                The goal was to deliver useful content as quickly as possible.
+                            </p>
+
+
+                            <h4 class="cs-feature-title">
+                                Asset optimization
+                            </h4>
+
+                            <p>
+                                Images, fonts, JavaScript and other assets were treated as
+                                part of the performance budget. Reducing payload size and
+                                improving loading strategy directly improves perceived
+                                performance.
+                            </p>
+
+                        </div>
+
+
+                        <!-- ARCHITECTURE -->
+
+                        <div class="cs-section">
+
+                            <h3>
+                                Frontend Architecture
+                            </h3>
+
+                            <p>
+                                The frontend architecture was designed around reusable
+                                components and predictable data flows so that new pages and
+                                features could be introduced without duplicating large amounts
+                                of application logic.
+                            </p>
+
+                            <div class="cs-arch">
+
+                                <pre>
+User
+  │
+  ▼
+CDN / Edge
+  │
+  ▼
+Web Application
+  │
+  ├── Reusable UI Components
+  │
+  ├── Responsive Layout System
+  │
+  ├── SEO / Metadata
+  │
+  └── Performance Optimizations
+  │
+  ▼
+API / Content Services
+  │
+  ▼
+Backend / Data Layer
+</pre>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DEVELOPMENT -->
+
+                        <div class="cs-section">
+
+                            <h3>
+                                Development Approach
+                            </h3>
+
+                            <h4 class="cs-feature-title">
+                                Component-driven development
+                            </h4>
+
+                            <p>
+                                Reusable components helped maintain consistency across
+                                different pages and properties while reducing development
+                                duplication.
+                            </p>
+
+
+                            <h4 class="cs-feature-title">
+                                Responsive by default
+                            </h4>
+
+                            <p>
+                                Interfaces were designed to work across desktop, tablet and
+                                mobile devices rather than treating mobile as a separate
+                                experience.
+                            </p>
+
+
+                            <h4 class="cs-feature-title">
+                                API-driven interfaces
+                            </h4>
+
+                            <p>
+                                Frontend applications consumed backend services through
+                                structured APIs, allowing content and business logic to remain
+                                separated from presentation.
+                            </p>
+
+
+                            <h4 class="cs-feature-title">
+                                Production debugging
+                            </h4>
+
+                            <p>
+                                Performance and production issues were investigated by
+                                separating frontend, API, network and rendering bottlenecks
+                                instead of assuming every slow experience was caused by the
+                                UI.
+                            </p>
+
+                        </div>
+
+
+                        <!-- SEO -->
+
+                        <div class="cs-section">
+
+                            <h3>
+                                SEO & Discoverability
+                            </h3>
+
+                            <p>
+                                For content-heavy websites, technical SEO is closely tied to
+                                frontend architecture. Pages need to expose meaningful
+                                metadata, structured content and fast-loading experiences
+                                while remaining accessible to search engines and users.
+                            </p>
+
+                            <ul class="disc cs-list-tight">
+
+                                <li>
+                                    Semantic HTML structure
+                                </li>
+
+                                <li>
+                                    Metadata and social sharing optimization
+                                </li>
+
+                                <li>
+                                    Search-friendly routing
+                                </li>
+
+                                <li>
+                                    Performance-aware rendering
+                                </li>
+
+                                <li>
+                                    Responsive mobile experience
+                                </li>
+
+                                <li>
+                                    Image and asset optimization
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <!-- TECHNOLOGY -->
+
+                        <div class="cs-section">
+
+                            <h3>
+                                Technology
+                            </h3>
+
+                            <dl class="cs-dl">
+
+                                <dt>
+                                    Frontend
+                                </dt>
+
+                                <dd>
+                                    React, JavaScript, HTML5, CSS3, responsive UI development
+                                    and reusable component architecture.
+                                </dd>
+
+
+                                <dt>
+                                    Styling
+                                </dt>
+
+                                <dd>
+                                    Modern CSS, responsive layouts, reusable design patterns
+                                    and performance-conscious UI implementation.
+                                </dd>
+
+
+                                <dt>
+                                    APIs
+                                </dt>
+
+                                <dd>
+                                    REST APIs and asynchronous data fetching for dynamic
+                                    content and application functionality.
+                                </dd>
+
+
+                                <dt>
+                                    Performance
+                                </dt>
+
+                                <dd>
+                                    Core Web Vitals, code splitting, lazy loading, image
+                                    optimization, caching and minimizing unnecessary client-side
+                                    work.
+                                </dd>
+
+
+                                <dt>
+                                    Engineering
+                                </dt>
+
+                                <dd>
+                                    Git, debugging, production issue analysis, reusable
+                                    architecture and collaborative development workflows.
+                                </dd>
+
+                            </dl>
+
+
+                            <div class="tech-tags">
+
+                                <span class="tech-tag">
+                                    React
+                                </span>
+
+                                <span class="tech-tag">
+                                    JavaScript
+                                </span>
+
+                                <span class="tech-tag">
+                                    HTML5
+                                </span>
+
+                                <span class="tech-tag">
+                                    CSS3
+                                </span>
+
+                                <span class="tech-tag">
+                                    REST APIs
+                                </span>
+
+                                <span class="tech-tag">
+                                    SEO
+                                </span>
+
+                                <span class="tech-tag">
+                                    Core Web Vitals
+                                </span>
+
+                                <span class="tech-tag">
+                                    Responsive Design
+                                </span>
+
+                                <span class="tech-tag">
+                                    Git
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- RESULTS -->
+
+                        <div class="cs-section">
+
+                            <h3>
+                                Impact
+                            </h3>
+
+                            <div class="cs-two-col">
+
+                                <div class="cs-panel">
+
+                                    <h4>
+                                        Better User Experience
+                                    </h4>
+
+                                    <ul class="cs-list-tight disc">
+
+                                        <li>
+                                            Faster page experiences
+                                        </li>
+
+                                        <li>
+                                            Responsive interfaces
+                                        </li>
+
+                                        <li>
+                                            Reduced friction on mobile
+                                        </li>
+
+                                        <li>
+                                            Consistent UI across pages
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+
+                                <div class="cs-panel">
+
+                                    <h4>
+                                        Better Engineering
+                                    </h4>
+
+                                    <ul class="cs-list-tight disc">
+
+                                        <li>
+                                            Reusable components
+                                        </li>
+
+                                        <li>
+                                            Easier feature development
+                                        </li>
+
+                                        <li>
+                                            Maintainable frontend architecture
+                                        </li>
+
+                                        <li>
+                                            Performance-aware development process
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- WHY IT MATTERS -->
+
+                        <div class="cs-section">
+
+                            <h3>
+                                Why This Matters
+                            </h3>
+
+                            <blockquote>
+
+                                <p>
+                                    A website can look impressive and still fail users if it
+                                    takes too long to load.
+                                </p>
+
+                            </blockquote>
+
+                            <p>
+                                My approach to web development is therefore focused on the
+                                complete experience: visual quality, usability, accessibility,
+                                SEO, performance and maintainability.
+                            </p>
+
+                            <p>
+                                If you're building a high traffic website, publishing
+                                platform, e-commerce experience or business application,
+                                performance should be part of the architecture from day one —
+                                not a final optimization task.
+                            </p>
+
+                        </div>
+
+
+                        <!-- LEARNINGS -->
+
+                        <div class="cs-section">
+
+                            <h3>
+                                Engineering Learnings
+                            </h3>
+
+                            <p>
+                                Working on large production websites reinforced an important
+                                principle: frontend performance is not one optimization.
+                                It is the result of many small engineering decisions working
+                                together.
+                            </p>
+
+                            <ul class="disc cs-list-tight">
+
+                                <li>
+                                    Keep JavaScript execution intentional.
+                                </li>
+
+                                <li>
+                                    Avoid unnecessary rendering and data fetching.
+                                </li>
+
+                                <li>
+                                    Treat images and assets as part of the performance budget.
+                                </li>
+
+                                <li>
+                                    Build reusable components instead of duplicating UI logic.
+                                </li>
+
+                                <li>
+                                    Measure performance instead of relying only on assumptions.
+                                </li>
+
+                                <li>
+                                    Separate frontend, API and infrastructure bottlenecks during
+                                    debugging.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <!-- SUMMARY -->
+
+                        <div class="cs-section">
+
+                            <h3>
+                                Summary
+                            </h3>
+
+                            <blockquote>
+
+                                <p>
+                                    High performance web development is about engineering
+                                    websites that are fast for users, scalable for businesses
+                                    and maintainable for developers.
+                                </p>
+
+                            </blockquote>
+
+                            <p>
+                                My experience working on large digital platforms has given me
+                                practical exposure to the engineering challenges behind
+                                production websites from responsive interfaces and reusable
+                                components to performance, SEO and API-driven experiences.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+               SIDEBAR
+          ========================== -->
+
+                    <div class="column xl-4 md-12">
+
+                        <aside style="background-color: #f8f8f8; padding: 20px; border-radius: 12px;">
+
+                            <div class="project-meta">
+
+                                <h4>
+                                    Project Info
+                                </h4>
+
+                                <ul>
+
+                                    <li>
+                                        <strong>Domain:</strong>
+                                        Publishing / Digital Platforms
+                                    </li>
+
+                                    <li>
+                                        <strong>Role:</strong>
+                                        Frontend / Full-stack Developer
+                                    </li>
+
+                                    <li>
+                                        <strong>Focus:</strong>
+                                        Performance & Scalability
+                                    </li>
+
+                                    <li>
+                                        <strong>Environment:</strong>
+                                        Production
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <div class="project-meta">
+
+                                <h4>
+                                    Core Expertise
+                                </h4>
+
+                                <ul>
+
+                                    <li>
+                                        High performance websites
+                                    </li>
+
+                                    <li>
+                                        React development
+                                    </li>
+
+                                    <li>
+                                        Responsive UI
+                                    </li>
+
+                                    <li>
+                                        Core Web Vitals
+                                    </li>
+
+                                    <li>
+                                        Technical SEO
+                                    </li>
+
+                                    <li>
+                                        API integration
+                                    </li>
+
+                                    <li>
+                                        Performance debugging
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <div class="project-meta">
+
+                                <h4>
+                                    Stack Snapshot
+                                </h4>
+
+                                <ul>
+
+                                    <li>
+                                        React
+                                    </li>
+
+                                    <li>
+                                        JavaScript
+                                    </li>
+
+                                    <li>
+                                        HTML5 / CSS3
+                                    </li>
+
+                                    <li>
+                                        REST APIs
+                                    </li>
+
+                                    <li>
+                                        Git
+                                    </li>
+
+                                    <li>
+                                        Performance tooling
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+           CTA
+      ========================== -->
+
+            <div class="row width-narrower pagemain">
+
+                <div class="column xl-12">
+
+                    <h2>
+                        Need a Fast, Scalable Website?
+                    </h2>
+
+                    <div class="row">
+
+                        <div class="column xl-6 md-12 contact-cta">
+
+                            <p>
+                                I build modern web applications and high performance
+                                websites with a focus on speed, scalability, SEO and
+                                maintainability.
+                            </p>
+
+                            <p>
+                                Whether you're building a startup website, publishing
+                                platform, SaaS product or high traffic web application,
+                                performance can be engineered into the product from day one.
+                            </p>
+
+                            <a href="mailto:viveklodhi740@gmail.com" class="btn btn--primary u-fullwidth contact-btn">
+                                Get In Touch
+                            </a>
+
+                        </div>
+
+
+                        <div class="column xl-5 md-12 u-flexitem-x-right">
+
+                            <div class="contact-block">
+
+                                <h6>
+                                    Follow My Work
+                                </h6>
+
+                                <ul class="contact-social social-list">
+
+                                    <li>
+                                        <a href="https://github.com/viveklodhi" target="_blank" rel="noopener">
+                                            GitHub
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="https://linkedin.com/in/vivek-lodhi-201273168" target="_blank"
+                                            rel="noopener">
+                                            LinkedIn
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <div class="contact-block">
+
+                                <h6>
+                                    Email
+                                </h6>
+
+                                <a href="mailto:viveklodhi740@gmail.com">
+                                    viveklodhi740@gmail.com
+                                </a>
+
+                            </div>
+
+
+                            <div class="contact-block">
+
+                                <h6>
+                                    Phone
+                                </h6>
+
+                                <ul class="contact-list">
+
+                                    <li>
+                                        <a href="tel:+916351800692">
+                                            +91 635 180 0692
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         FOOTER
+    ========================== -->
+
+        <footer class="s-footer">
+
+            <div class="row s-footer__content">
+
+                <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+
+                    <h3>
+                        About Me
+                    </h3>
+
+                    <p>
+                        I am a full-stack developer specializing in React, Next.js,
+                        Node.js, TypeScript and modern web architecture. I build
+                        scalable, performant and maintainable digital products with a
+                        strong focus on user experience and engineering quality.
+                    </p>
+
+                </div>
+
+
+                <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+
+                    <h3>
+                        Site Links
+                    </h3>
+
+                    <ul class="link-list">
+
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="/services.html">Services</a>
+                        </li>
+
+                        <li>
+                            <a href="/blog.html">Blog</a>
+                        </li>
+
+                        <li>
+                            <a href="/about.html">About</a>
+                        </li>
+
+                        <li>
+                            <a href="/contact.html">Contact</a>
+                        </li>
+
+                        <li>
+                            <a href="../portfolio.html">Portfolio</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__newsletter">
+
+                    <h3>
+                        Newsletter
+                    </h3>
+
+                    <p>
+                        Subscribe to get the latest web development tips,
+                        tutorials and updates.
+                    </p>
+
+                    <div class="subscribe-form">
+
+                        <form id="mc-form" class="mc-form">
+
+                            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+                                placeholder="Your Email Address" required />
+
+                            <input type="submit" name="subscribe" value="Subscribe"
+                                class="btn btn--primary btn--small u-fullwidth" />
+
+                            <div class="mc-status"></div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="row s-footer__bottom">
+
+                <div class="column xl-6 lg-12">
+
+                    <ul class="s-footer__social social-list">
+
+                        <li>
+                            <a href="https://github.com/viveklodhi" target="_blank" rel="noopener">
+                                GitHub
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://linkedin.com/in/vivek-lodhi-201273168" target="_blank" rel="noopener">
+                                LinkedIn
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="ss-go-top">
+
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+                            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+
+                            <polyline points="17 11 12 6 7 11"></polyline>
+
+                            <line x1="12" y1="18" x2="12" y2="6"></line>
+
+                        </svg>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

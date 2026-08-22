@@ -1,4 +1,4 @@
-Vivek — How to run this project locally
+Vivek How to run this project locally
 
 This is a simple static HTML/CSS/JS template (no build step). Use any static file server or open files directly in your browser.
 
@@ -33,7 +33,7 @@ Stopping servers
 - http-server: Ctrl+C in that terminal as well.
 
 Notes and useful details
-- This template is a static site — there are no build steps, package.json, or server-side code.
+- This template is a static site there are no build steps, package.json, or server-side code.
 - Mailchimp form: the original template includes a Mailchimp example. See `readme.txt` for instructions to replace the MailChimp URL in `js/main.js` (search for `mailChimpURL`).
 - Attribution: The template is from styleshout.com and the `readme.txt` contains license/attribution requirements. Keep the footer credit if required.
 

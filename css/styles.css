@@ -1375,7 +1375,7 @@ blockquote cite {
 }
 
 blockquote cite:before {
-  content: "— ";
+  content: "";
 }
 
 blockquote cite,
@@ -3405,7 +3405,8 @@ td:last-child {
   .s-header__menu-links,
   .s-header__contact {
     margin: 0;
-    transform: translateY(-2rem);
+    /* commented because of lcp */
+    /* transform: translateY(-2rem); */
     opacity: 0;
     visibility: hidden;
   }
