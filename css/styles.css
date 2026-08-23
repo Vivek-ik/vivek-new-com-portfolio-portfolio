@@ -119,8 +119,12 @@
    * color-3(#FEF5E4)
    */
   --color-1: hsla(35, 87%, 49%, 1);
+  --color-text-accent: hsl(35, 80%, 30%);
   --color-2: hsla(127, 8%, 22%, 1);
   --color-3: hsla(39, 93%, 95%, 1);
+
+  --color-text-primary: #333;
+  --color-text-secondary: #555;
 
   /* theme color variations
    */
@@ -2766,7 +2770,7 @@ td:last-child {
   font-family: var(--font-1);
   font-size: var(--text-md);
   line-height: var(--vspace-1);
-  color: var(--color-1);
+  color: var(--color-text-accent);
   transform: translate(0.2em, 0);
   margin-top: 0;
 }
@@ -2898,7 +2902,7 @@ td:last-child {
 }
 
 .blog-card__cat-links a {
-  color: var(--color-1);
+  color: var(--color-text-dark);
 }
 
 .blog-card__title {
@@ -4230,7 +4234,7 @@ td:last-child {
 }
 
 .s-journal .blog-card-title a {
-  color: var(--color-3);
+  color: var(--color-text-accent);
 }
 
 .s-journal__content-main {
