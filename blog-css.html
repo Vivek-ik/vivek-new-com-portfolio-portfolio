@@ -15,8 +15,8 @@
 
   <!-- CSS
     ================================================== -->
-  <link rel="stylesheet" href="css/vendor.css" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preload" href="/css/vendor.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
   <!-- favicons
     ================================================== -->
@@ -28,30 +28,31 @@
 
 <body>
   <!-- Header -->
-        <header class="s-header">
-            <div class="row s-header__inner width-sixteen-col">
-                <div class="s-header__block">
-                    <div class="s-header__logo">
-                        <a class="logo" href="/index.html">
-                            <img src="/images/logo.jpg" alt="Homepage" />
-                        </a>
-                    </div>
-                    <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
-                </div>
+  <header class="s-header">
+    <div class="row s-header__inner width-sixteen-col">
+      <div class="s-header__block">
+        <div class="s-header__logo">
+          <a class="logo" href="/index.html">
+            <img src="/images/logo.jpg" alt="Homepage" />
+          </a>
+        </div>
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+      </div>
 
-                <nav class="s-header__nav">
-                    <ul class="s-header__menu-links">
-                        <li><a href="/about.html">About</a></li>
-                        <li><a href="/services.html">Services</a></li>
-                        <li><a href="/blog.html">Journal</a></li>                        <li><a href="/contact.html">Contact</a></li>
-                        <li class="current"><a href="portfolio.html">Portfolio</a></li>
-                    </ul>
-                    <div class="s-header__contact">
-                        <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
-                    </div>
-                </nav>
-            </div>
-        </header>
+      <nav class="s-header__nav">
+        <ul class="s-header__menu-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Journal</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li class="current"><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+        <div class="s-header__contact">
+          <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+        </div>
+      </nav>
+    </div>
+  </header>
   <!-- Blog Content -->
   <section class="s-journal">
     <div class="row row-x-center text-center">

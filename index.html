@@ -4,9 +4,14 @@
 <head>
   <!--- basic page needs
     ================================================== -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vivek</title>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vivek Lodhi | Senior Full Stack Developer</title>
+
+  <meta name="description"
+    content="Vivek Lodhi is a Senior Full Stack Developer specializing in React, Next.js, Node.js, MongoDB, PostgreSQL, and modern web application development.">
 
   <script>
     document.documentElement.classList.remove("no-js");
@@ -15,8 +20,9 @@
 
   <!-- CSS
     ================================================== -->
-  <link rel="stylesheet" href="css/vendor.css" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preload" href="/css/vendor.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
 
   <!-- favicons
     ================================================== -->
@@ -138,7 +144,7 @@
         <div class="s-header__block">
           <div class="s-header__logo">
             <a class="logo" href="/index.html">
-              <img src="/images/logo.jpg" alt="Homepage" />
+              <img src="/images/resized-logo.png" width="96" height="54" alt="Homepage" />
             </a>
           </div>
           <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
@@ -183,7 +189,8 @@
 
             <div class="s-intro__content-media">
               <div class="s-intro__content-media-inner">
-                <img src="images/vivek-bg.jpeg" srcset="images/vivek-bg.jpeg 1x, images/vivek-bg.jpeg 2x" alt="" />
+                <img src="images/resized-vivek-bg.webp"
+                  srcset="images/resized-vivek-bg.webp 1x, images/resized-vivek-bg.webp 2x" alt="" />
 
                 <div class="lines">
                   <span></span>
@@ -545,8 +552,7 @@
               <div class="clients-list__item" style="display: flex; align-items: center; justify-content: center;">
                 <a style="width: 100%; height: 100%; justify-content: center; align-items: center; display: flex;"
                   href="#0">
-                  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/OpenAI_logo_2025.svg" alt="OpenAI"
-                    width="80" height="80" />
+                  <img src="../images/techIcons/OpenAI_logo_2025.svg" alt="OpenAI" width="80" height="80" />
                   <span class="tooltip">ChatGPT / OpenAI</span>
                 </a>
               </div>
