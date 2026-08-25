@@ -3645,6 +3645,8 @@ td:last-child {
   margin-top: 0;
   margin-bottom: var(--vspace-1_25);
   color: var(--color-3);
+  width: 100%;
+  height: auto;
 }
 
 .s-intro__content-media {
@@ -3969,7 +3971,8 @@ td:last-child {
 
 .s-about__content-imgbg {
   aspect-ratio: 1/1;
-  width: 25vw;
+  width: 100%;
+  height: auto;
   transform: translate(-40%, 0);
   margin: -20% 0 0 0;
   opacity: 0.25;
