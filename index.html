@@ -2,8 +2,7 @@
 <html lang="en" class="no-js">
 
 <head>
-  <!--- basic page needs
-    ================================================== -->
+  <!--- basic page needs ================================================ -->
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +17,12 @@
     document.documentElement.classList.add("js");
   </script>
 
-  <!-- CSS
-    ================================================== -->
+  <!-- CSS ================================================ -->
   <link rel="preload" href="/css/vendor.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
-  <!-- favicons
-    ================================================== -->
+  <!-- favicons ================================================ -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
@@ -124,8 +121,7 @@
 </style>
 
 <body id="top">
-  <!-- preloader
-    ================================================== -->
+  <!-- preloader ================================================== -->
   <div id="preloader">
     <div id="loader" class="dots-fade">
       <div></div>
@@ -134,11 +130,9 @@
     </div>
   </div>
 
-  <!-- page wrap
-    ================================================== -->
-  <div id="page" class="s-pagewrap ss-home">
-    <!-- # site header 
-        ================================================== -->
+  <!-- page wrap ================================================ -->
+  <div id="page" class="s-pagewrap ss-home" style="width: 100%; height: 100%;">
+    <!-- # site header  =============================================== -->
     <header class="s-header">
       <div class="row s-header__inner width-sixteen-col">
         <div class="s-header__block">
@@ -168,8 +162,7 @@
 
     <main id="main-content">
 
-      <!-- # site main content
-        ================================================== -->
+      <!-- # site main content =============================================== -->
       <section id="content" class="s-content">
         <!-- intro ----------------------------------------------- -->
         <section id="intro" class="s-intro">
@@ -191,7 +184,8 @@
               <div class="s-intro__content-media">
                 <div class="s-intro__content-media-inner">
                   <img src="images/resized-vivek-bg.webp"
-                    srcset="images/resized-vivek-bg.webp 1x, images/resized-vivek-bg.webp 2x" alt="" />
+                    srcset="images/resized-vivek-bg.webp 1x, images/resized-vivek-bg.webp 2x" alt=""
+                    fetchpriority="high">
 
                   <div class="lines">
                     <span></span>
@@ -223,12 +217,12 @@
         </section>
         <!-- end s-intro -->
 
-        <!-- about
-            ----------------------------------------------- -->
+        <!-- about ----------------------------------------------- -->
         <section id="about" class="s-about target-section">
           <div class="row s-about__content width-sixteen-col">
             <div class="column grid-block grid-section-split">
-              <img src="images/geometric_shape.svg" alt="Geometric shape background" class="s-about__content-imgbg" />
+              <img src="images/geometric_shape.svg" alt="Geometric shape background" class="s-about__content-imgbg"
+                width="1000" height="1000" />
 
               <div class="section-header grid-section-split__header">
                 <div class="text-pretitle">About</div>
@@ -309,8 +303,7 @@
 
         <!-- end s-about -->
 
-        <!-- expertise
-            ----------------------------------------------- -->
+        <!-- expertise ----------------------------------------------- -->
         <section id="expertise" class="s-expertise">
           <div class="row s-expertise__content width-sixteen-col">
             <div class="column xl-12 grid-block grid-section-split">
@@ -425,8 +418,7 @@
 
         <!-- end s-expertise -->
 
-        <!-- clients
-            ----------------------------------------------- -->
+        <!-- clients ----------------------------------------------- -->
         <section id="clients" class="s-clients">
           <div class="row s-clients__content-block width-sixteen-col">
             <div class="column xl-12 grid-block grid-section-split">
@@ -581,7 +573,7 @@
           <!-- end row -->
 
           <!-- for  later part testimonials -->
-          <!-- <div class="row s-clients__content-block width-sixteen-col">
+          <div class="row s-clients__content-block width-sixteen-col">
             <div class="column xl-12 testimonials">
               <div class="swiper-container testimonials__slider home-slider">
                 <div class="swiper-wrapper">
@@ -593,11 +585,7 @@
                       improvements seamless.”
                     </p>
                     <div class="testimonials__author">
-                      <img
-                        src="images/avatars/user-01.jpg"
-                        alt="Client image"
-                        class="testimonials__avatar"
-                      />
+                      <img src="images/avatars/user-01.jpg" alt="Client image" class="testimonials__avatar" />
                       <cite class="testimonials__cite">
                         <strong class="text-pretitle">Amit Sharma</strong>
                         <span>Founder, Tech Startup</span>
@@ -611,11 +599,7 @@
                       project management and communication were excellent.”
                     </p>
                     <div class="testimonials__author">
-                      <img
-                        src="images/avatars/user-02.jpg"
-                        alt="Client image"
-                        class="testimonials__avatar"
-                      />
+                      <img src="images/avatars/user-02.jpg" alt="Client image" class="testimonials__avatar" />
                       <cite class="testimonials__cite">
                         <strong class="text-pretitle">Sophia Patel</strong>
                         <span>E-Commerce Business Owner</span>
@@ -629,11 +613,7 @@
                       looking for a reliable full-stack developer.”
                     </p>
                     <div class="testimonials__author">
-                      <img
-                        src="images/avatars/user-03.jpg"
-                        alt="Client image"
-                        class="testimonials__avatar"
-                      />
+                      <img src="images/avatars/user-03.jpg" alt="Client image" class="testimonials__avatar" />
                       <cite class="testimonials__cite">
                         <strong class="text-pretitle">David Lee</strong>
                         <span>Product Manager, SaaS Company</span>
@@ -641,333 +621,322 @@
                     </div>
                   </div>
                 </div>
-                <!-- end swiper-wrapper -->
 
-          <div class="swiper-pagination"></div>
-  </div>
-  <!--end testimonials__slider -->
-  </div>
-  <!-- end column -->
-  </div>
-  <!-- end row -->
-  </section>
+                <div class="swiper-pagination"></div>
+              </div>
+              <!--end testimonials__slider -->
+            </div>
+            <!-- end column -->
+          </div>
+          <!-- end row -->
+        </section>
 
-  <!-- end s-clients -->
-  </section>
-  <!-- s-content-->
+        <!-- s-content-->
 
-  <!-- # cta
-        ================================================== -->
-  <section id="cta" class="s-cta">
-    <div class="row row-x-center text-center">
-      <div class="column xl-8 lg-12">
-        <div class="s-cta__content">
-          <h2 class="text-display-title">
-            Let’s build something amazing together.
-          </h2>
-          <p class="lead">
-            Need a modern, fast, and scalable website or web application?
-            I specialize in building responsive UIs, robust backends, and seamless integrations
-            using technologies like React, Next.js, Node.js, and MongoDB.
-            Let’s turn your idea into reality.
+        <!-- # cta =============================================== -->
+        <section id="cta" class="s-cta">
+          <div class="row row-x-center text-center">
+            <div class="column xl-8 lg-12">
+              <div class="s-cta__content">
+                <h2 class="text-display-title">
+                  Let’s build something amazing together.
+                </h2>
+                <p class="lead">
+                  Need a modern, fast, and scalable website or web application?
+                  I specialize in building responsive UIs, robust backends, and seamless integrations
+                  using technologies like React, Next.js, Node.js, and MongoDB.
+                  Let’s turn your idea into reality.
+                </p>
+                <a href="/contact.html" class="btn btn--primary">
+                  Start Your Project
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- end s-cta -->
+
+        <!-- # journal =============================================== -->
+        <section id="journal" class="s-journal">
+          <div class="row s-journal__content width-sixteen-col">
+            <div class="column xl-12 grid-block">
+              <div class="grid-full section-header text-center">
+                <div class="text-pretitle">Recent Articles</div>
+                <h2 class="text-display-title">Latest insights from my dev blog.</h2>
+              </div>
+
+
+              <div class="grid-full s-journal__content-main grid-list-items">
+
+                <div class="grid-list-items__item blog-card">
+                  <div class="blog-card__header">
+                    <div class="blog-card__cat-links">
+                      <a href="blog-nestjs.html">Backend</a>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-nestjs.html">Building Scalable APIs with NestJS</a>
+                    </h3>
+                  </div>
+                  <div class="blog-card__text">
+                    <p>
+                      Learn how NestJS leverages TypeScript and modular architecture to
+                      create maintainable and scalable backend applications. A practical
+                      guide to controllers, services, and dependency injection.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="grid-list-items__item blog-card">
+                  <div class="blog-card__header">
+                    <div class="blog-card__cat-links">
+                      <a href="blog-postgres.html">Database</a>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-postgres.html">Mastering PostgreSQL for Modern Apps</a>
+                    </h3>
+                  </div>
+                  <div class="blog-card__text">
+                    <p>
+                      PostgreSQL is one of the most powerful relational databases. This
+                      article explores schema design, indexing strategies, and query
+                      optimization to boost performance in production.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="grid-list-items__item blog-card">
+                  <div class="blog-card__header">
+                    <div class="blog-card__cat-links">
+                      <a href="blog-firebase.html">Cloud</a>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-firebase.html">Firebase for Full-Stack Developers</a>
+                    </h3>
+                  </div>
+                  <div class="blog-card__text">
+                    <p>
+                      From authentication to real-time databases and hosting,
+                      Firebase offers everything you need to speed up development. Learn
+                      how to integrate it with TypeScript and React apps.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="grid-list-items__item blog-card">
+                  <div class="blog-card__header">
+                    <div class="blog-card__cat-links">
+                      <a href="blog-ai.html">AI</a>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-ai.html">Integrating ChatGPT into Web Apps</a>
+                    </h3>
+                  </div>
+                  <div class="blog-card__text">
+                    <p>
+                      Explore how to integrate OpenAI’s ChatGPT API into your apps for
+                      conversational experiences. Covers prompts, context management,
+                      and secure backend setup with Node.js.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="grid-list-items__item blog-card">
+                  <div class="blog-card__header">
+                    <div class="blog-card__cat-links">
+                      <a href="blog-microservices.html">Architecture</a>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-microservices.html">Microservices Best Practices</a>
+                    </h3>
+                  </div>
+                  <div class="blog-card__text">
+                    <p>
+                      A practical guide to designing microservices with NestJS, Docker,
+                      and RabbitMQ/Kafka. Learn about inter-service communication,
+                      scaling, and fault tolerance.
+                    </p>
+                  </div>
+                </div>
+                <div class="grid-list-items__item blog-card">
+                  <div class="blog-card__header">
+                    <div class="blog-card__cat-links">
+                      <a href="blog-css.html">Frontend</a>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-css.html">Modern Styling with CSS3 & SCSS</a>
+                    </h3>
+                  </div>
+                  <div class="blog-card__text">
+                    <p>
+                      Take your UI to the next level with advanced CSS3 features and
+                      SCSS. Learn variables, mixins, nesting, and how to structure
+                      scalable stylesheets for large projects.
+                    </p>
+                  </div>
+                </div>
+                <div class="grid-list-items__item blog-card">
+                  <div class="blog-card__header">
+                    <div class="blog-card__cat-links">
+                      <a href="blog-ts.html">Programming</a>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-ts.html">Why TypeScript is a Game Changer</a>
+                    </h3>
+                  </div>
+                  <div class="blog-card__text">
+                    <p>
+                      From type safety to better tooling, TypeScript enhances the
+                      development workflow. This post dives into advanced typing,
+                      generics, and integrating TypeScript with React and Node.js.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="journal" style="color: black;" class="s-journal preview-section">
+          <div class="row s-journal__content width-sixteen-col">
+            <div class="column xl-12 grid-block">
+              <div class="grid-full section-header text-center">
+                <div class="text-pretitle">Recent Articles</div>
+                <h2 class="text-display-title">Latest insights from my dev blog.</h2>
+              </div>
+
+              <div class="grid-full s-journal__content-main grid-list-items">
+
+                <!-- Article 1 -->
+                <div class="grid-list-items__item blog-card">
+                  <div class="blog-card__header">
+                    <div class="blog-card__cat-links">
+                      <a href="blog-nestjs.html">Backend</a>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-nestjs.html">Building Scalable APIs with NestJS</a>
+                    </h3>
+                  </div>
+                  <div class="blog-card__text">
+                    <p>
+                      Learn how NestJS leverages TypeScript and modular architecture to create
+                      maintainable and scalable backend applications.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="grid-list-items__item blog-card">
+                  <div class="blog-card__header">
+                    <div class="blog-card__cat-links">
+                      <a href="blog-postgres.html">Database</a>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-postgres.html">Mastering PostgreSQL for Modern Apps</a>
+                    </h3>
+                  </div>
+                  <div class="blog-card__text">
+                    <p>
+                      PostgreSQL is one of the most powerful relational databases. Learn schema design, indexing
+                      strategies,
+                      and query optimization.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Hover button -->
+              <div class="view-all-btn">
+                <a href="blog.html" class="btn btn--primary btn--small">View All Blogs</a>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <!-- end s-journal -->
+
+    <!-- # footer  =============================================== -->
+    <footer class="s-footer">
+      <div class="row s-footer__content">
+
+        <!-- About -->
+        <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+          <h3>About Me</h3>
+          <p>
+            I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL,
+            Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and
+            performant web applications. My passion is turning ideas into modern, responsive digital experiences that
+            deliver real value to clients.
           </p>
-          <a href="/contact.html" class="btn btn--primary">
-            Start Your Project
+        </div>
+
+        <!-- Site Links -->
+        <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+          <h3>Site Links</h3>
+          <ul class="link-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
+          <h3>Newsletter</h3>
+          <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
+          <div class="subscribe-form">
+            <form id="mc-form" class="mc-form">
+              <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
+                placeholder="Your Email Address" required />
+              <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth" />
+              <div class="mc-status"></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Social & Copyright -->
+      <div class="row s-footer__bottom">
+        <div class="column xl-6 lg-12">
+          <ul class="s-footer__social social-list">
+            <li><a href="https://github.com/Viveklodhi21/" target="_blank">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/vivek-lodhi-201273168/" target="_blank">LinkedIn</a></li>
+          </ul>
+          <!-- <div class="column xl-6 lg-12"> -->
+          <p class="ss-copyright">
+            <span>© Copyright 2025 vtechno</span>
+          </p>
+          <!-- </div> -->
+        </div>
+
+
+        <!-- Back to top -->
+        <div class="ss-go-top">
+          <a class="smoothscroll" title="Back to Top" href="#top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
+              stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="17 11 12 6 7 11"></polyline>
+              <line x1="12" y1="18" x2="12" y2="6"></line>
+            </svg>
           </a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end s-cta -->
-
-  <!-- # journal
-        ================================================== -->
-  <!-- <section id="journal" class="s-journal">
-    <div class="row s-journal__content width-sixteen-col">
-      <div class="column xl-12 grid-block">
-        <div class="grid-full section-header text-center">
-          <div class="text-pretitle">Recent Articles</div>
-          <h2 class="text-display-title">Latest insights from my dev blog.</h2>
-        </div>
-
-
-        <div class="grid-full s-journal__content-main grid-list-items">
-
-          <div class="grid-list-items__item blog-card">
-            <div class="blog-card__header">
-              <div class="blog-card__cat-links">
-                <a href="blog-nestjs.html">Backend</a>
-              </div>
-              <h3 class="blog-card__title">
-                <a href="blog-nestjs.html">Building Scalable APIs with NestJS</a>
-              </h3>
-            </div>
-            <div class="blog-card__text">
-              <p>
-                Learn how NestJS leverages TypeScript and modular architecture to
-                create maintainable and scalable backend applications. A practical
-                guide to controllers, services, and dependency injection.
-              </p>
-            </div>
-          </div>
-
-          <div class="grid-list-items__item blog-card">
-            <div class="blog-card__header">
-              <div class="blog-card__cat-links">
-                <a href="blog-postgres.html">Database</a>
-              </div>
-              <h3 class="blog-card__title">
-                <a href="blog-postgres.html">Mastering PostgreSQL for Modern Apps</a>
-              </h3>
-            </div>
-            <div class="blog-card__text">
-              <p>
-                PostgreSQL is one of the most powerful relational databases. This
-                article explores schema design, indexing strategies, and query
-                optimization to boost performance in production.
-              </p>
-            </div>
-          </div>
-
-          <div class="grid-list-items__item blog-card">
-            <div class="blog-card__header">
-              <div class="blog-card__cat-links">
-                <a href="blog-firebase.html">Cloud</a>
-              </div>
-              <h3 class="blog-card__title">
-                <a href="blog-firebase.html">Firebase for Full-Stack Developers</a>
-              </h3>
-            </div>
-            <div class="blog-card__text">
-              <p>
-                From authentication to real-time databases and hosting,
-                Firebase offers everything you need to speed up development. Learn
-                how to integrate it with TypeScript and React apps.
-              </p>
-            </div>
-          </div>
-
-          <div class="grid-list-items__item blog-card">
-            <div class="blog-card__header">
-              <div class="blog-card__cat-links">
-                <a href="blog-ai.html">AI</a>
-              </div>
-              <h3 class="blog-card__title">
-                <a href="blog-ai.html">Integrating ChatGPT into Web Apps</a>
-              </h3>
-            </div>
-            <div class="blog-card__text">
-              <p>
-                Explore how to integrate OpenAI’s ChatGPT API into your apps for
-                conversational experiences. Covers prompts, context management,
-                and secure backend setup with Node.js.
-              </p>
-            </div>
-          </div>
-
-          <div class="grid-list-items__item blog-card">
-            <div class="blog-card__header">
-              <div class="blog-card__cat-links">
-                <a href="blog-microservices.html">Architecture</a>
-              </div>
-              <h3 class="blog-card__title">
-                <a href="blog-microservices.html">Microservices Best Practices</a>
-              </h3>
-            </div>
-            <div class="blog-card__text">
-              <p>
-                A practical guide to designing microservices with NestJS, Docker,
-                and RabbitMQ/Kafka. Learn about inter-service communication,
-                scaling, and fault tolerance.
-              </p>
-            </div>
-          </div>
-          <div class="grid-list-items__item blog-card">
-            <div class="blog-card__header">
-              <div class="blog-card__cat-links">
-                <a href="blog-css.html">Frontend</a>
-              </div>
-              <h3 class="blog-card__title">
-                <a href="blog-css.html">Modern Styling with CSS3 & SCSS</a>
-              </h3>
-            </div>
-            <div class="blog-card__text">
-              <p>
-                Take your UI to the next level with advanced CSS3 features and
-                SCSS. Learn variables, mixins, nesting, and how to structure
-                scalable stylesheets for large projects.
-              </p>
-            </div>
-          </div>
-          <div class="grid-list-items__item blog-card">
-            <div class="blog-card__header">
-              <div class="blog-card__cat-links">
-                <a href="blog-ts.html">Programming</a>
-              </div>
-              <h3 class="blog-card__title">
-                <a href="blog-ts.html">Why TypeScript is a Game Changer</a>
-              </h3>
-            </div>
-            <div class="blog-card__text">
-              <p>
-                From type safety to better tooling, TypeScript enhances the
-                development workflow. This post dives into advanced typing,
-                generics, and integrating TypeScript with React and Node.js.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <section id="journal" style="color: black;" class="s-journal preview-section">
-    <div class="row s-journal__content width-sixteen-col">
-      <div class="column xl-12 grid-block">
-        <div class="grid-full section-header text-center">
-          <div class="text-pretitle">Recent Articles</div>
-          <h2 class="text-display-title">Latest insights from my dev blog.</h2>
-        </div>
-
-        <div class="grid-full s-journal__content-main grid-list-items">
-
-          <!-- Article 1 -->
-          <div class="grid-list-items__item blog-card">
-            <div class="blog-card__header">
-              <div class="blog-card__cat-links">
-                <a href="blog-nestjs.html">Backend</a>
-              </div>
-              <h3 class="blog-card__title">
-                <a href="blog-nestjs.html">Building Scalable APIs with NestJS</a>
-              </h3>
-            </div>
-            <div class="blog-card__text">
-              <p>
-                Learn how NestJS leverages TypeScript and modular architecture to create
-                maintainable and scalable backend applications.
-              </p>
-            </div>
-          </div>
-
-          <!-- Article 2 -->
-          <div class="grid-list-items__item blog-card">
-            <div class="blog-card__header">
-              <div class="blog-card__cat-links">
-                <a href="blog-postgres.html">Database</a>
-              </div>
-              <h3 class="blog-card__title">
-                <a href="blog-postgres.html">Mastering PostgreSQL for Modern Apps</a>
-              </h3>
-            </div>
-            <div class="blog-card__text">
-              <p>
-                PostgreSQL is one of the most powerful relational databases. Learn schema design, indexing strategies,
-                and query optimization.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Hover button -->
-        <div class="view-all-btn">
-          <a href="blog.html" class="btn btn--primary btn--small">View All Blogs</a>
-        </div>
 
       </div>
-    </div>
-  </section>
-  </main>
-  <!-- end s-journal -->
+    </footer>
 
-  <!-- # footer 
-        ================================================== -->
-  <footer class="s-footer">
-    <div class="row s-footer__content">
-
-      <!-- About -->
-      <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
-        <h3>About Me</h3>
-        <p>
-          I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL,
-          Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and
-          performant web applications. My passion is turning ideas into modern, responsive digital experiences that
-          deliver real value to clients.
-        </p>
-      </div>
-
-      <!-- Site Links -->
-      <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
-        <h3>Site Links</h3>
-        <ul class="link-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-        </ul>
-      </div>
-
-      <!-- Newsletter -->
-      <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
-        <h3>Newsletter</h3>
-        <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
-        <div class="subscribe-form">
-          <form id="mc-form" class="mc-form">
-            <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
-              placeholder="Your Email Address" required />
-            <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth" />
-            <div class="mc-status"></div>
-          </form>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Social & Copyright -->
-    <div class="row s-footer__bottom">
-      <div class="column xl-6 lg-12">
-        <ul class="s-footer__social social-list">
-          <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
-          <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
-          <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
-          <li><a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a></li>
-        </ul>
-      </div>
-
-      <!-- <div class="column xl-6 lg-12">
-      <p class="ss-copyright">
-        <span>© Copyright 2025 Your Name</span>
-        <span>Design inspired by 
-          <a href="https://www.styleshout.com/">StyleShout</a>, Distributed by 
-          <a href="https://themewagon.com">ThemeWagon</a>
-        </span>
-      </p>
-    </div> -->
-
-      <!-- Back to top -->
-      <div class="ss-go-top">
-        <a class="smoothscroll" title="Back to Top" href="#top">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
-            stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="17 11 12 6 7 11"></polyline>
-            <line x1="12" y1="18" x2="12" y2="6"></line>
-          </svg>
-        </a>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- end s-footer -->
+    <!-- end s-footer -->
   </div>
   <!-- end page-wrap -->
 
-  <!-- Java Script
-    ================================================== -->
+  <!-- Java Script ================================================ -->
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 </body>
