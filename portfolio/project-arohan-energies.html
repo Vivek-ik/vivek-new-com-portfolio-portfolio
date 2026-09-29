@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Arohan Energies | Solar Energy Platform | Vivek Lodhi</title>
+
+    <script>
+        document.documentElement.classList.remove("no-js");
+        document.documentElement.classList.add("js");
+    </script>
+
+    <!-- Existing portfolio styles -->
+    <link rel="stylesheet" href="../css/vendor.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+    <link rel="manifest" href="../site.webmanifest" />
+
+    <style>
+        /* =========================================================
+           AROHAN PROJECT PAGE
+        ========================================================= */
+
+        .page-subtitle {
+            font-size: 1.8rem;
+            color: #666;
+        }
+
+        .pagecontent {
+            padding: 60px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pageintro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .pageintro .column {
+            flex: 1;
+            padding: 15px;
+        }
+
+        /* .pageintro .lead {
+            font-size: 1.15rem;
+            line-height: 1.8;
+        } */
+
+        ul.disc {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul.disc li {
+            margin-bottom: 9px;
+        }
+
+        blockquote {
+            border-left: 4px solid #6a9d46;
+            padding-left: 15px;
+            font-style: italic;
+            color: #555;
+            margin: 25px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #426b35;
+            color: #fff;
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2e4d25;
+        }
+
+        .pagemedia {
+            margin: 40px 0 70px;
+            text-align: center;
+        }
+
+        .pagemedia img {
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 14px;
+            box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .pagemain {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .pagemain .column {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .project-sidebar {
+            background-color: #f5f7f3;
+            padding: 25px;
+            border-radius: 14px;
+        }
+
+        .project-sidebar h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .project-sidebar ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .project-sidebar li {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .project-sidebar strong {
+            color: #222;
+        }
+
+        .project-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 35px 0;
+        }
+
+        .project-highlight {
+            padding: 20px;
+            border: 1px solid #e4e9e2;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .project-highlight strong {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 900;
+            font-size: 2rem;
+        }
+
+        .project-highlight span {
+            color: #666;
+            font-size: 1.5rem;
+        }
+
+        .service-pricing-box {
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 14px;
+            background: #10251c;
+            color: #fff;
+        }
+
+        .service-pricing-box h4 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .service-pricing-box p {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .service-pricing-box strong {
+            color: #d4e99c;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tech-tags span {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf2ea;
+            color: #36543d;
+            /* font-size: 0.8rem; */
+            font-weight: 600;
+        }
+
+        .project-cta {
+            margin-top: 70px;
+            padding: 55px;
+            border-radius: 18px;
+            background: #eaf0e7;
+        }
+
+        .project-cta h2 {
+            margin-bottom: 15px;
+        }
+
+        .project-cta p {
+            max-width: 700px;
+        }
+
+        @media screen and (max-width: 991px) {
+            .pageintro {
+                flex-direction: column;
+            }
+
+            .pagemain {
+                flex-direction: column;
+            }
+
+            .project-sidebar {
+                margin-top: 30px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .project-highlight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-cta {
+                padding: 30px 20px;
+            }
+
+            .page-subtitle {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+
+<body id="top">
+
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
+
+    <header class="s-header">
+
+        <div class="row s-header__inner width-sixteen-col">
+
+            <div class="s-header__block">
+
+                <div class="s-header__logo">
+                    <a class="logo" href="../index.html">
+                        <img src="../images/logo.jpg" alt="Vivek Lodhi - Home" />
+                    </a>
+                </div>
+
+                <a class="s-header__menu-toggle" href="#0">
+                    <span>Menu</span>
+                </a>
+
+            </div>
+
+            <nav class="s-header__nav">
+
+                <ul class="s-header__menu-links">
+                    <li>
+                        <a href="../about.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="../services.html">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="../blog.html">Journal</a>
+                    </li>
+
+                    <li>
+                        <a href="../contact.html">Contact</a>
+                    </li>
+
+                    <li class="current">
+                        <a href="../portfolio.html">Portfolio</a>
+                    </li>
+                </ul>
+
+                <div class="s-header__contact">
+                    <a href="../contact.html" class="btn btn--primary s-header__contact-btn">
+                        Let's Work Together
+                    </a>
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <div class="page">
+
+        <section id="content" class="s-content">
+
+            <!-- =====================================================
+                 PAGE HEADER
+            ====================================================== -->
+
+            <section class="s-pageheader pageheader">
+
+                <div class="row">
+
+                    <div class="column xl-12">
+
+                        <h1 class="page-title">
+                            Arohan Energies
+                        </h1>
+
+                        <p class="page-subtitle">
+                            Solar Energy Solutions & Digital Lead Generation Platform
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 PROJECT CONTENT
+            ====================================================== -->
+
+            <section class="s-pagecontent pagecontent">
+
+                <!-- INTRO -->
+
+                <div class="row pageintro">
+
+                    <div class="column xl-6 lg-12">
+
+                        <h2 class="text-display-title">
+                            Turning Solar Energy into a Smarter Digital Experience
+                        </h2>
+
+                    </div>
+
+                    <div class="column xl-6 lg-12 u-flexitem-x-right">
+
+                        <p class="lead">
+
+                            Arohan Energies is a modern solar-energy website
+                            designed to help residential, commercial and
+                            industrial customers understand solar solutions,
+                            estimate potential savings and connect with the
+                            solar team.
+
+                        </p>
+
+                        <p class="lead">
+
+                            The platform combines a premium corporate
+                            experience with interactive tools such as a
+                            solar savings calculator, solar panel cleaning
+                            service estimator and WhatsApp-based lead flow.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HERO IMAGE -->
+
+                <div class="row pagemedia">
+
+                    <div class="column xl-12">
+
+                        <figure class="page-media">
+
+                            <!--
+                                Replace this image with your actual
+                                Arohan website screenshot.
+                            -->
+
+                            <img src="../images/portfolio/arohan-energy-hero-image.png"
+                                alt="Arohan Energies Solar Website" />
+
+                        </figure>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAIN CONTENT -->
+
+                <div class="row pagemain">
+
+                    <!-- =================================================
+                         MAIN PROJECT DESCRIPTION
+                    ================================================== -->
+
+                    <div class="column xl-8 md-12">
+
+                        <h2>
+                            About the Project
+                        </h2>
+
+                        <p>
+
+                            Arohan Energies is a digital platform created
+                            for a solar-energy business focused on
+                            residential, commercial and industrial solar
+                            solutions.
+
+                            The website was designed to communicate the
+                            value of solar energy clearly while giving
+                            potential customers practical tools to
+                            understand their investment.
+
+                        </p>
+
+                        <p>
+
+                            Instead of relying only on traditional
+                            marketing sections, the website introduces
+                            interactive experiences that help customers
+                            move from discovering solar to calculating
+                            potential savings and contacting the business.
+
+                        </p>
+
+
+                        <!-- PROJECT HIGHLIGHTS -->
+
+                        <div class="project-highlight-grid">
+
+                            <div class="project-highlight">
+
+                                <strong>
+                                    Solar Savings Calculator
+                                </strong>
+
+                                <span>
+                                    Helps visitors estimate system size,
+                                    generation and potential savings.
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-highlight">
+
+                                <strong>
+                                    WhatsApp Lead Flow
+                                </strong>
+
+                                <span>
+                                    Converts website enquiries into
+                                    pre-filled WhatsApp conversations.
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-highlight">
+
+                                <strong>
+                                    Solar Cleaning Service
+                                </strong>
+
+                                <span>
+                                    Customers can understand cleaning
+                                    pricing based on their system size.
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-highlight">
+
+                                <strong>
+                                    Responsive Experience
+                                </strong>
+
+                                <span>
+                                    Designed for desktop, tablet and
+                                    mobile visitors.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FEATURES -->
+
+                        <h3>
+                            Key Features
+                        </h3>
+
+                        <ul class="disc">
+
+                            <li>
+                                Premium solar-focused landing experience
+                            </li>
+
+                            <li>
+                                Residential, commercial and industrial
+                                solar solutions
+                            </li>
+
+                            <li>
+                                Interactive solar savings calculator
+                            </li>
+
+                            <li>
+                                Recommended solar capacity estimation
+                            </li>
+
+                            <li>
+                                Estimated monthly and annual savings
+                            </li>
+
+                            <li>
+                                Solar generation and rooftop-area estimates
+                            </li>
+
+                            <li>
+                                Rooftop solar panel cleaning service section
+                            </li>
+
+                            <li>
+                                One-time cleaning pricing at ₹250/kW/visit
+                            </li>
+
+                            <li>
+                                Annual-plan cleaning rate at ₹200/kW/visit
+                            </li>
+
+                            <li>
+                                Interactive cleaning price calculator
+                            </li>
+
+                            <li>
+                                WhatsApp enquiry and booking flow
+                            </li>
+
+                            <li>
+                                Mobile-responsive interface
+                            </li>
+
+                        </ul>
+
+
+                        <!-- CUSTOMER EXPERIENCE -->
+
+                        <h3>
+                            Customer Experience
+                        </h3>
+
+                        <p>
+
+                            The main goal was to make the website useful
+                            rather than simply informational.
+
+                            Visitors can immediately understand what
+                            Arohan Energies does, explore relevant solar
+                            solutions and use interactive tools before
+                            contacting the company.
+
+                        </p>
+
+                        <p>
+
+                            The cleaning-service experience was also
+                            designed around pricing transparency. Instead
+                            of simply displaying “₹250/kW”, the interface
+                            explains what a visit means, calculates the
+                            expected charge and shows examples such as a
+                            3 kW system.
+
+                        </p>
+
+
+                        <!-- SERVICE PRICING -->
+
+                        <div class="service-pricing-box">
+
+                            <h4>
+                                Rooftop Solar Panel Cleaning
+                            </h4>
+
+                            <p>
+                                One-time cleaning:
+                                <strong>₹250/kW per visit</strong>
+                            </p>
+
+                            <p>
+                                Annual-plan rate:
+                                <strong>₹200/kW per visit</strong>
+                            </p>
+
+                            <p>
+                                Example:
+                                <strong>
+                                    3 kW × ₹250 = ₹750 per visit
+                                </strong>
+                            </p>
+
+                            <p>
+                                The calculator allows customers to enter
+                                their system capacity and understand the
+                                estimated charge before making an enquiry.
+                            </p>
+
+                        </div>
+
+
+                        <!-- WHY IT MATTERS -->
+
+                        <h3>
+                            Why It Matters
+                        </h3>
+
+                        <p>
+
+                            Solar customers often need answers to practical
+                            questions before they are ready to contact a
+                            provider: How large should the system be?
+                            How much could it generate? What could the
+                            savings look like? What services are available
+                            after installation?
+
+                        </p>
+
+                        <p>
+
+                            Arohan's website addresses these questions
+                            directly through interactive tools and
+                            transparent service information.
+
+                        </p>
+
+
+                        <blockquote>
+
+                            <p>
+                                “Make solar easier to understand, evaluate
+                                and act on.”
+                            </p>
+
+                        </blockquote>
+
+
+                        <!-- TECHNOLOGY -->
+
+                        <h3>
+                            Technology Stack
+                        </h3>
+
+                        <div class="tech-tags">
+
+                            <span>React.js</span>
+                            <span>Vite</span>
+                            <span>JavaScript</span>
+                            <span>React Router</span>
+                            <span>Lucide React</span>
+                            <span>CSS3</span>
+                            <span>Responsive Design</span>
+                            <span>WhatsApp Integration</span>
+
+                        </div>
+
+
+                        <h3 style="margin-top: 45px;">
+                            Development Focus
+                        </h3>
+
+                        <ul class="disc">
+
+                            <li>
+                                Component-based frontend architecture
+                            </li>
+
+                            <li>
+                                Interactive calculations using React state
+                            </li>
+
+                            <li>
+                                Responsive layouts across screen sizes
+                            </li>
+
+                            <li>
+                                Conversion-focused user journeys
+                            </li>
+
+                            <li>
+                                Clear pricing communication
+                            </li>
+
+                            <li>
+                                Direct WhatsApp lead generation
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PROJECT SIDEBAR
+                    ================================================== -->
+
+                    <div class="column xl-4 md-12">
+
+                        <aside style="background-color: #f8f8f8; padding: 20px; border-radius: 12px;">
+
+                            <div class="project-meta">
+
+                                <h4>
+                                    Project Info
+                                </h4>
+
+                                <ul>
+
+                                    <li>
+                                        <strong>Project:</strong>
+                                        Arohan Energies
+                                    </li>
+
+                                    <li>
+                                        <strong>Type:</strong>
+                                        Solar Energy Website
+                                    </li>
+
+                                    <li>
+                                        <strong>Industry:</strong>
+                                        Renewable Energy
+                                    </li>
+
+                                    <li>
+                                        <strong>Role:</strong>
+                                        Full Stack / Frontend Developer
+                                    </li>
+
+                                    <li>
+                                        <strong>Focus:</strong>
+                                        UI, Interactive Tools & Lead Generation
+                                    </li>
+
+                                    <li>
+                                        <strong>Status:</strong>
+                                        Development
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <div class="project-meta">
+
+                                <h4>
+                                    Core Modules
+                                </h4>
+
+                                <ul>
+
+                                    <li>
+                                        Solar Solutions
+                                    </li>
+
+                                    <li>
+                                        Solar Savings Calculator
+                                    </li>
+
+                                    <li>
+                                        Solar Cleaning Services
+                                    </li>
+
+                                    <li>
+                                        Service Price Calculator
+                                    </li>
+
+                                    <li>
+                                        WhatsApp Lead Generation
+                                    </li>
+
+                                    <li>
+                                        Contact / Consultation Flow
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <div class="project-meta">
+
+                                <h4>
+                                    Target Customers
+                                </h4>
+
+                                <ul>
+
+                                    <li>
+                                        Residential homeowners
+                                    </li>
+
+                                    <li>
+                                        Commercial businesses
+                                    </li>
+
+                                    <li>
+                                        Industrial facilities
+                                    </li>
+
+                                    <li>
+                                        Solar system owners
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <a href="https://wa.me/919109101114" target="_blank" rel="noopener noreferrer" class="btn"
+                                style="width:100%;">
+                                Discuss a Solar Project
+                            </a>
+
+                        </aside>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================================================
+                     CTA
+                ====================================================== -->
+
+                <div class="project-cta">
+
+                    <h2>
+                        Need a Digital Platform
+                        for Your Business?
+                    </h2>
+
+                    <p>
+
+                        I build modern websites and business applications
+                        that combine polished interfaces with practical
+                        tools, automation and conversion-focused user
+                        journeys.
+
+                    </p>
+
+                    <a href="../contact.html" class="btn">
+                        Let's Work Together
+                    </a>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- =========================================================
+             FOOTER
+        ========================================================= -->
+
+        <footer class="s-footer">
+
+            <div class="row s-footer__content">
+
+                <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+
+                    <h3>
+                        About Me
+                    </h3>
+
+                    <p>
+
+                        I am a full-stack developer specializing in scalable
+                        applications using MERN stack, TypeScript, NestJS
+                        and modern web technologies.
+
+                    </p>
+
+                </div>
+
+
+                <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+
+                    <h3>
+                        Site Links
+                    </h3>
+
+                    <ul class="link-list">
+
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="../services.html">Services</a>
+                        </li>
+
+                        <li>
+                            <a href="../blog.html">Blog</a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">About</a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">Contact</a>
+                        </li>
+
+                        <li>
+                            <a href="../portfolio.html">Portfolio</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="column xl-3 lg-6 md-12 s-footer__block">
+
+                    <h3>
+                        Contact
+                    </h3>
+
+                    <p>
+                        <a href="mailto:viveklodhi740@gmail.com">
+                            viveklodhi740@gmail.com
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="tel:+916351800692">
+                            +91 635 180 0692
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="row s-footer__bottom">
+
+                <div class="column xl-6 lg-12">
+
+                    <ul class="s-footer__social social-list">
+
+                        <li>
+                            <a href="https://github.com/viveklodhi21" target="_blank" rel="noopener noreferrer">
+                                GitHub
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.linkedin.com/in/vivek-lodhi-201273168" target="_blank"
+                                rel="noopener noreferrer">
+                                LinkedIn
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="ss-go-top">
+
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+                        ↑
+                    </a>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
