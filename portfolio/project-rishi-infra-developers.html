@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Rishi Infra Developers | Real Estate Platform | Vivek Lodhi</title>
+
+    <script>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+
+    <!-- Your existing portfolio styles -->
+    <link rel="stylesheet" href="../css/vendor.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon-16x16.png"
+    />
+    <link rel="manifest" href="../site.webmanifest" />
+
+    <style>
+      /* =========================================================
+           RISHI INFRA DEVELOPERS PROJECT PAGE
+        ========================================================= */
+
+      .page-subtitle {
+        font-size: 1.8rem;
+        color: #666;
+      }
+
+      .pagecontent {
+        padding: 60px 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .pageintro {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+
+      .pageintro .column {
+        flex: 1;
+        padding: 15px;
+      }
+
+      .pagemedia {
+        margin: 40px 0 70px;
+        text-align: center;
+      }
+
+      .pagemedia img {
+        width: 100%;
+        max-width: 1200px;
+        border-radius: 14px;
+        box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      .pagemain {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .pagemain .column {
+        flex: 1;
+        padding: 15px;
+      }
+
+      .project-sidebar {
+        background-color: #f5f7f3;
+        padding: 25px;
+        border-radius: 14px;
+      }
+
+      .project-sidebar h4 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .project-sidebar ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 30px;
+      }
+
+      .project-sidebar li {
+        margin-bottom: 12px;
+        color: #555;
+      }
+
+      .project-sidebar strong {
+        color: #222;
+      }
+
+      .project-highlight-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 35px 0;
+      }
+
+      .project-highlight {
+        padding: 20px;
+        border: 1px solid #e4e9e2;
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      .project-highlight strong {
+        display: block;
+        margin-bottom: 7px;
+        font-weight: 900;
+        font-size: 1.8rem;
+      }
+
+      .project-highlight span {
+        color: #666;
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+
+      .feature-box {
+        padding: 25px;
+        margin: 30px 0;
+        border-radius: 14px;
+        background: #10251c;
+        color: #fff;
+      }
+
+      .feature-box h4 {
+        margin-bottom: 15px;
+        color: #fff;
+      }
+
+      .feature-box p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .feature-box strong {
+        color: #d4e99c;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .tech-tags span {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #edf2ea;
+        color: #36543d;
+        font-weight: 600;
+      }
+
+      .project-cta {
+        margin-top: 70px;
+        padding: 55px;
+        border-radius: 18px;
+        background: #eaf0e7;
+      }
+
+      .project-cta h2 {
+        margin-bottom: 15px;
+      }
+
+      .project-cta p {
+        max-width: 700px;
+      }
+
+      .project-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #426b35;
+        color: #fff;
+        padding: 12px 25px;
+        font-weight: 600;
+        border-radius: 6px;
+        text-decoration: none;
+        margin-top: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .project-btn:hover {
+        background-color: #2e4d25;
+        color: #fff;
+      }
+
+      ul.disc {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      ul.disc li {
+        margin-bottom: 9px;
+      }
+
+      blockquote {
+        border-left: 4px solid #6a9d46;
+        padding-left: 15px;
+        font-style: italic;
+        color: #555;
+        margin: 25px 0;
+      }
+
+      @media screen and (max-width: 991px) {
+        .pageintro {
+          flex-direction: column;
+        }
+
+        .pagemain {
+          flex-direction: column;
+        }
+
+        .project-sidebar {
+          margin-top: 30px;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .project-highlight-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-cta {
+          padding: 30px 20px;
+        }
+
+        .page-subtitle {
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="top">
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
+
+    <header class="s-header">
+      <div class="row s-header__inner width-sixteen-col">
+        <div class="s-header__block">
+          <div class="s-header__logo">
+            <a class="logo" href="../index.html">
+              <img src="../images/logo.jpg" alt="Vivek Lodhi - Home" />
+            </a>
+          </div>
+
+          <a class="s-header__menu-toggle" href="#0">
+            <span>Menu</span>
+          </a>
+        </div>
+
+        <nav class="s-header__nav">
+          <ul class="s-header__menu-links">
+            <li>
+              <a href="../about.html">About</a>
+            </li>
+
+            <li>
+              <a href="../services.html">Services</a>
+            </li>
+
+            <li>
+              <a href="../blog.html">Journal</a>
+            </li>
+
+            <li>
+              <a href="../contact.html">Contact</a>
+            </li>
+
+            <li class="current">
+              <a href="../portfolio.html">Portfolio</a>
+            </li>
+          </ul>
+
+          <div class="s-header__contact">
+            <a
+              href="../contact.html"
+              class="btn btn--primary s-header__contact-btn"
+            >
+              Let's Work Together
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="page">
+      <section id="content" class="s-content">
+        <!-- =====================================================
+                 PAGE HEADER
+            ====================================================== -->
+
+        <section class="s-pageheader pageheader">
+          <div class="row">
+            <div class="column xl-12">
+              <h1 class="page-title">Rishi Infra Developers</h1>
+
+              <p class="page-subtitle">
+                Real Estate Property Marketplace & Management Platform
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+                 PROJECT CONTENT
+            ====================================================== -->
+
+        <section class="s-pagecontent pagecontent">
+          <!-- INTRO -->
+
+          <div class="row pageintro">
+            <div class="column xl-6 lg-12">
+              <h2 class="text-display-title">
+                A Smarter Digital Experience for Real Estate
+              </h2>
+            </div>
+
+            <div class="column xl-6 lg-12 u-flexitem-x-right">
+              <p class="lead">
+                Rishi Infra Developers is a modern real-estate platform designed
+                to help buyers discover properties, explore detailed listings
+                and connect with sellers.
+              </p>
+
+              <p class="lead">
+                The platform also provides sellers with their own property
+                workspace where they can create, edit and manage listings, while
+                administrators can review and moderate submitted properties.
+              </p>
+            </div>
+          </div>
+
+          <!-- HERO IMAGE -->
+
+          <div class="row pagemedia">
+            <div class="column xl-12">
+              <figure class="page-media">
+                <img
+                  src="../images/portfolio/rishi-infra-developers-hero-image.png"
+                  alt="Rishi Infra Developers Real Estate Platform"
+                />
+              </figure>
+            </div>
+          </div>
+
+          <!-- MAIN CONTENT -->
+
+          <div class="row pagemain">
+            <!-- =================================================
+                         MAIN PROJECT DESCRIPTION
+                    ================================================== -->
+
+            <div class="column xl-8 md-12">
+              <h2>About the Project</h2>
+
+              <p>
+                Rishi Infra Developers is a full-stack real-estate platform
+                created to provide a professional digital experience for
+                property discovery and management.
+              </p>
+
+              <p>
+                The system is built around three primary user roles: buyers,
+                sellers and administrators. Each role receives a different
+                experience based on its permissions.
+              </p>
+
+              <!-- PROJECT HIGHLIGHTS -->
+
+              <div class="project-highlight-grid">
+                <div class="project-highlight">
+                  <strong> Property Discovery </strong>
+
+                  <span>
+                    Buyers can search properties by city, locality, type and
+                    other listing details.
+                  </span>
+                </div>
+
+                <div class="project-highlight">
+                  <strong> Seller Dashboard </strong>
+
+                  <span>
+                    Sellers can create, edit and manage their property listings.
+                  </span>
+                </div>
+
+                <div class="project-highlight">
+                  <strong> Admin Moderation </strong>
+
+                  <span>
+                    Administrators can review submitted properties before
+                    publication.
+                  </span>
+                </div>
+
+                <div class="project-highlight">
+                  <strong> Buyer Enquiries </strong>
+
+                  <span>
+                    Buyers can submit enquiries and connect with property
+                    sellers.
+                  </span>
+                </div>
+              </div>
+
+              <!-- FEATURES -->
+
+              <h3>Key Features</h3>
+
+              <ul class="disc">
+                <li>Modern real-estate landing experience</li>
+
+                <li>Property search and filtering</li>
+
+                <li>Property detail pages</li>
+
+                <li>Seller registration and login</li>
+
+                <li>Buyer registration and login</li>
+
+                <li>Seller dashboard</li>
+
+                <li>Add property functionality</li>
+
+                <li>Edit property functionality</li>
+
+                <li>Property image upload and gallery</li>
+
+                <li>Property status management</li>
+
+                <li>Admin property moderation</li>
+
+                <li>Buyer enquiry workflow</li>
+
+                <li>JWT authentication</li>
+
+                <li>Role-based authorization</li>
+
+                <li>Responsive design for mobile and desktop</li>
+              </ul>
+
+              <!-- USER EXPERIENCE -->
+
+              <h3>User Experience</h3>
+
+              <p>
+                The main goal was to make the platform useful rather than simply
+                informational.
+              </p>
+
+              <p>
+                A buyer can search for a property, open its details, review the
+                available information and submit an enquiry. Sellers get a
+                dedicated workspace for managing their listings.
+              </p>
+
+              <p>
+                New properties can initially remain pending while an
+                administrator reviews the listing. Once approved, the property
+                becomes available in the public property collection.
+              </p>
+
+              <!-- WORKFLOW BOX -->
+
+              <div class="feature-box">
+                <h4>Property Listing Workflow</h4>
+
+                <p>
+                  <strong>Seller:</strong>
+                  Create property → Submit for review
+                </p>
+
+                <p>
+                  <strong>Admin:</strong>
+                  Review → Approve / Reject
+                </p>
+
+                <p>
+                  <strong>Buyer:</strong>
+                  Browse → View details → Send enquiry
+                </p>
+              </div>
+
+              <!-- WHY IT MATTERS -->
+
+              <h3>Why It Matters</h3>
+
+              <p>
+                Property websites often need to serve multiple types of users at
+                the same time. Buyers need an easy way to discover properties,
+                while sellers need a simple way to manage their listings.
+              </p>
+
+              <p>
+                Rishi Infra Developers brings these workflows together in one
+                platform with authentication, role-based access, property
+                management and enquiry functionality.
+              </p>
+
+              <blockquote>
+                <p>
+                  "Make property discovery easier to understand, evaluate and
+                  act on."
+                </p>
+              </blockquote>
+
+              <!-- TECHNOLOGY -->
+
+              <h3>Technology Stack</h3>
+
+              <div class="tech-tags">
+                <span>React.js</span>
+                <span>Vite</span>
+                <span>JavaScript</span>
+                <span>Node.js</span>
+                <span>Express.js</span>
+                <span>MongoDB</span>
+                <span>Mongoose</span>
+                <span>JWT</span>
+                <span>Cloudinary</span>
+                <span>REST API</span>
+                <span>Responsive Design</span>
+              </div>
+
+              <!-- DEVELOPMENT FOCUS -->
+
+              <h3 style="margin-top: 45px">Development Focus</h3>
+
+              <ul class="disc">
+                <li>Component-based React architecture</li>
+
+                <li>RESTful backend architecture</li>
+
+                <li>Secure JWT authentication</li>
+
+                <li>Role-based authorization</li>
+
+                <li>Seller property CRUD operations</li>
+
+                <li>Reusable property forms</li>
+
+                <li>Image upload and property gallery</li>
+
+                <li>Admin moderation workflow</li>
+
+                <li>Responsive layouts across screen sizes</li>
+
+                <li>Buyer enquiry workflow</li>
+              </ul>
+            </div>
+
+            <!-- =================================================
+                         PROJECT SIDEBAR
+                    ================================================== -->
+
+            <div class="column xl-4 md-12">
+              <aside class="project-sidebar">
+                <div class="project-meta">
+                  <h4>Project Info</h4>
+
+                  <ul>
+                    <li>
+                      <strong>Project:</strong>
+                      Rishi Infra Developers
+                    </li>
+
+                    <li>
+                      <strong>Type:</strong>
+                      Real Estate Platform
+                    </li>
+
+                    <li>
+                      <strong>Industry:</strong>
+                      Real Estate
+                    </li>
+
+                    <li>
+                      <strong>Role:</strong>
+                      Full Stack Developer
+                    </li>
+
+                    <li>
+                      <strong>Focus:</strong>
+                      Property Discovery, Management & Enquiries
+                    </li>
+
+                    <li>
+                      <strong>Status:</strong>
+                      Full-Stack Demo
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="project-meta">
+                  <h4>Core Modules</h4>
+
+                  <ul>
+                    <li>Property Marketplace</li>
+
+                    <li>Property Search & Filters</li>
+
+                    <li>Property Detail Pages</li>
+
+                    <li>Seller Dashboard</li>
+
+                    <li>Add / Edit Property</li>
+
+                    <li>Property Image Upload</li>
+
+                    <li>Admin Moderation</li>
+
+                    <li>Buyer Enquiries</li>
+                  </ul>
+                </div>
+
+                <div class="project-meta">
+                  <h4>Target Users</h4>
+
+                  <ul>
+                    <li>Property Buyers</li>
+
+                    <li>Property Sellers</li>
+
+                    <li>Real Estate Businesses</li>
+
+                    <li>Property Administrators</li>
+                  </ul>
+                </div>
+
+                <a
+                  href="../contact.html"
+                  class="project-btn"
+                  style="width: 100%"
+                >
+                  Discuss a Real Estate Project
+                </a>
+              </aside>
+            </div>
+          </div>
+
+          <!-- =====================================================
+                     CTA
+                ====================================================== -->
+
+          <div class="project-cta">
+            <h2>Need a Digital Platform for Your Business?</h2>
+
+            <p>
+              I build modern websites and full-stack business applications that
+              combine polished interfaces with practical workflows, automation
+              and scalable backend systems.
+            </p>
+
+            <a href="../contact.html" class="project-btn">
+              Let's Work Together
+            </a>
+          </div>
+        </section>
+      </section>
+
+      <!-- =========================================================
+             FOOTER
+        ========================================================= -->
+
+      <footer class="s-footer">
+        <div class="row s-footer__content">
+          <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+            <h3>About Me</h3>
+
+            <p>
+              I am a full-stack developer specializing in scalable applications
+              using MERN stack, TypeScript, NestJS and modern web technologies.
+            </p>
+          </div>
+
+          <div
+            class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links"
+          >
+            <h3>Site Links</h3>
+
+            <ul class="link-list">
+              <li>
+                <a href="../index.html">Home</a>
+              </li>
+
+              <li>
+                <a href="../services.html">Services</a>
+              </li>
+
+              <li>
+                <a href="../blog.html">Blog</a>
+              </li>
+
+              <li>
+                <a href="../about.html">About</a>
+              </li>
+
+              <li>
+                <a href="../contact.html">Contact</a>
+              </li>
+
+              <li>
+                <a href="../portfolio.html">Portfolio</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="column xl-3 lg-6 md-12 s-footer__block">
+            <h3>Contact</h3>
+
+            <p>
+              <a href="mailto:viveklodhi740@gmail.com">
+                viveklodhi740@gmail.com
+              </a>
+            </p>
+
+            <p>
+              <a href="tel:+916351800692"> +91 635 180 0692 </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="row s-footer__bottom">
+          <div class="column xl-6 lg-12">
+            <ul class="s-footer__social social-list">
+              <li>
+                <a
+                  href="https://github.com/viveklodhi21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/vivek-lodhi-201273168"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="ss-go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top"> ↑ </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

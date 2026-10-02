@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Shree Balaji | Business Website | Vivek Lodhi</title>
+
+    <script>
+        document.documentElement.classList.remove("no-js");
+        document.documentElement.classList.add("js");
+    </script>
+
+    <!-- Existing Portfolio Styles -->
+    <link rel="stylesheet" href="../css/vendor.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+
+    <style>
+
+        /* =========================================================
+           SHREE BALAJI PROJECT PAGE
+        ========================================================= */
+
+        :root {
+            --balaji-primary: #b8860b;
+            --balaji-dark: #151515;
+            --balaji-light: #f8f1df;
+            --balaji-border: #e8dfca;
+        }
+
+        .page-subtitle {
+            font-size: 1.8rem;
+            color: #666;
+        }
+
+        .pagecontent {
+            padding: 60px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pageintro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .pageintro .column {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .pagemedia {
+            margin: 40px 0 70px;
+            text-align: center;
+        }
+
+        .pagemedia img {
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 14px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .pagemain {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .pagemain .column {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .project-sidebar {
+            background: var(--balaji-light);
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--balaji-border);
+        }
+
+        .project-sidebar h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .project-sidebar ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .project-sidebar li {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .project-sidebar strong {
+            color: var(--balaji-dark);
+        }
+
+        .project-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 35px 0;
+        }
+
+        .project-highlight {
+            padding: 20px;
+            border: 1px solid var(--balaji-border);
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .project-highlight strong {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 900;
+            font-size: 1.7rem;
+        }
+
+        .project-highlight span {
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .feature-box {
+            padding: 28px;
+            margin: 30px 0;
+            border-radius: 14px;
+            background: var(--balaji-dark);
+            color: #fff;
+        }
+
+        .feature-box h4 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .feature-box strong {
+            color: #e3b94d;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tech-tags span {
+            padding: 8px 13px;
+            border-radius: 999px;
+            background: var(--balaji-light);
+            color: #745800;
+            border: 1px solid var(--balaji-border);
+            font-weight: 600;
+        }
+
+        .project-cta {
+            margin-top: 70px;
+            padding: 55px;
+            border-radius: 18px;
+            background: var(--balaji-light);
+            border: 1px solid var(--balaji-border);
+        }
+
+        .project-cta h2 {
+            margin-bottom: 15px;
+        }
+
+        .project-cta p {
+            max-width: 700px;
+        }
+
+        .project-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--balaji-primary);
+            color: #fff;
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .project-btn:hover {
+            background: #8d6808;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        ul.disc {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul.disc li {
+            margin-bottom: 9px;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--balaji-primary);
+            padding-left: 15px;
+            font-style: italic;
+            color: #555;
+            margin: 25px 0;
+        }
+
+        .project-number {
+            color: var(--balaji-primary);
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width: 991px) {
+
+            .pageintro {
+                flex-direction: column;
+            }
+
+            .pagemain {
+                flex-direction: column;
+            }
+
+            .project-sidebar {
+                margin-top: 30px;
+            }
+
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .project-highlight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-cta {
+                padding: 30px 20px;
+            }
+
+            .page-subtitle {
+                font-size: 1.3rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body id="top">
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
+
+    <header class="s-header">
+
+        <div class="row s-header__inner width-sixteen-col">
+
+            <div class="s-header__block">
+
+                <div class="s-header__logo">
+
+                    <a class="logo" href="../index.html">
+
+                        <img
+                            src="../images/logo.jpg"
+                            alt="Vivek Lodhi - Home"
+                        >
+
+                    </a>
+
+                </div>
+
+                <a class="s-header__menu-toggle" href="#0">
+                    <span>Menu</span>
+                </a>
+
+            </div>
+
+
+            <nav class="s-header__nav">
+
+                <ul class="s-header__menu-links">
+
+                    <li>
+                        <a href="../about.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="../services.html">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="../blog.html">Journal</a>
+                    </li>
+
+                    <li>
+                        <a href="../contact.html">Contact</a>
+                    </li>
+
+                    <li class="current">
+                        <a href="../portfolio.html">Portfolio</a>
+                    </li>
+
+                </ul>
+
+
+                <div class="s-header__contact">
+
+                    <a
+                        href="../contact.html"
+                        class="btn btn--primary s-header__contact-btn"
+                    >
+                        Let's Work Together
+                    </a>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <div class="page">
+
+        <section id="content" class="s-content">
+
+
+            <!-- =====================================================
+                 PAGE HEADER
+            ====================================================== -->
+
+            <section class="s-pageheader pageheader">
+
+                <div class="row">
+
+                    <div class="column xl-12">
+
+                        <span class="project-number">
+                            Featured Project
+                        </span>
+
+                        <h1 class="page-title">
+                            Shree Balaji
+                        </h1>
+
+                        <p class="page-subtitle">
+                            Modern Business Website & Digital Presence
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 PROJECT CONTENT
+            ====================================================== -->
+
+            <section class="s-pagecontent pagecontent">
+
+
+                <!-- INTRO -->
+
+                <div class="row pageintro">
+
+                    <div class="column xl-6 lg-12">
+
+                        <h2 class="text-display-title">
+                            Building a Stronger Digital Presence for Shree Balaji
+                        </h2>
+
+                    </div>
+
+
+                    <div class="column xl-6 lg-12 u-flexitem-x-right">
+
+                        <p class="lead">
+
+                            Shree Balaji is a modern business website designed
+                            to present the company's services, establish a
+                            professional digital identity and make it easier
+                            for potential customers to understand the business.
+
+                        </p>
+
+                        <p class="lead">
+
+                            The website focuses on clean presentation,
+                            responsive layouts, clear navigation and
+                            strategically placed calls-to-action to create
+                            a simple path from discovering the business
+                            to getting in touch.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HERO IMAGE -->
+
+                <div class="row pagemedia">
+
+                    <div class="column xl-12">
+
+                        <figure class="page-media">
+
+                            <img
+                                src="../images/portfolio/shree-balaji-hero-image.png"
+                                alt="Shree Balaji Business Website"
+                            >
+
+                        </figure>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAIN CONTENT -->
+
+                <div class="row pagemain">
+
+
+                    <!-- =================================================
+                         MAIN PROJECT DESCRIPTION
+                    ================================================== -->
+
+                    <div class="column xl-8 md-12">
+
+
+                        <h2>
+                            About the Project
+                        </h2>
+
+                        <p>
+
+                            Shree Balaji needed a professional web presence
+                            that could communicate its business offering
+                            clearly while maintaining a polished and modern
+                            visual identity.
+
+                        </p>
+
+                        <p>
+
+                            The website was designed around a straightforward
+                            user journey: introduce the business, communicate
+                            its services and strengths, establish trust and
+                            give visitors an easy way to make an enquiry.
+
+                        </p>
+
+
+                        <!-- PROJECT HIGHLIGHTS -->
+
+                        <div class="project-highlight-grid">
+
+
+                            <div class="project-highlight">
+
+                                <strong>
+                                    Modern UI
+                                </strong>
+
+                                <span>
+                                    Clean visual hierarchy with a premium
+                                    business-focused interface.
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-highlight">
+
+                                <strong>
+                                    Responsive
+                                </strong>
+
+                                <span>
+                                    Optimized layouts for desktop, tablet
+                                    and mobile visitors.
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-highlight">
+
+                                <strong>
+                                    Service Focus
+                                </strong>
+
+                                <span>
+                                    Structured sections help visitors quickly
+                                    understand the company's offerings.
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-highlight">
+
+                                <strong>
+                                    Lead Generation
+                                </strong>
+
+                                <span>
+                                    Clear calls-to-action make it easier for
+                                    visitors to contact the business.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FEATURES -->
+
+                        <h3>
+                            Key Features
+                        </h3>
+
+                        <ul class="disc">
+
+                            <li>
+                                Premium business-focused landing page
+                            </li>
+
+                            <li>
+                                Responsive navigation
+                            </li>
+
+                            <li>
+                                Hero section with strong call-to-action
+                            </li>
+
+                            <li>
+                                Business introduction section
+                            </li>
+
+                            <li>
+                                Services / offerings presentation
+                            </li>
+
+                            <li>
+                                Company highlights
+                            </li>
+
+                            <li>
+                                Trust-building content sections
+                            </li>
+
+                            <li>
+                                Contact and enquiry sections
+                            </li>
+
+                            <li>
+                                Mobile-responsive design
+                            </li>
+
+                            <li>
+                                SEO-friendly page structure
+                            </li>
+
+                            <li>
+                                Optimized user journey
+                            </li>
+
+                        </ul>
+
+
+                        <!-- USER EXPERIENCE -->
+
+                        <h3>
+                            User Experience
+                        </h3>
+
+                        <p>
+
+                            The primary objective was to make the website
+                            immediately understandable to a first-time visitor.
+
+                        </p>
+
+                        <p>
+
+                            Important information is organized into clear
+                            sections so users can quickly understand what
+                            Shree Balaji offers without navigating through
+                            complicated menus.
+
+                        </p>
+
+                        <p>
+
+                            The design also gives strong importance to
+                            mobile users, ensuring that the website remains
+                            easy to navigate and interact with across
+                            different screen sizes.
+
+                        </p>
+
+
+                        <!-- EXPERIENCE BOX -->
+
+                        <div class="feature-box">
+
+                            <h4>
+                                Customer Journey
+                            </h4>
+
+                            <p>
+                                <strong>Discover:</strong>
+                                Visitor lands on the website and understands
+                                the business.
+                            </p>
+
+                            <p>
+                                <strong>Explore:</strong>
+                                Visitor reviews services, company information
+                                and key highlights.
+                            </p>
+
+                            <p>
+                                <strong>Trust:</strong>
+                                Structured content establishes a professional
+                                business presence.
+                            </p>
+
+                            <p>
+                                <strong>Connect:</strong>
+                                Visitor uses the contact or enquiry CTA.
+                            </p>
+
+                        </div>
+
+
+                        <!-- DESIGN APPROACH -->
+
+                        <h3>
+                            Design Approach
+                        </h3>
+
+                        <p>
+
+                            The visual direction focuses on a premium,
+                            trustworthy and professional appearance rather
+                            than overwhelming visitors with unnecessary
+                            interface elements.
+
+                        </p>
+
+                        <p>
+
+                            Typography, spacing, content hierarchy and
+                            carefully selected accent colors work together
+                            to make important information easy to scan.
+
+                        </p>
+
+
+                        <blockquote>
+
+                            <p>
+                                "A professional digital presence should make
+                                the business easier to understand and easier
+                                to contact."
+                            </p>
+
+                        </blockquote>
+
+
+                        <!-- TECHNOLOGY -->
+
+                        <h3>
+                            Technology Stack
+                        </h3>
+
+                        <div class="tech-tags">
+
+                            <span>React.js</span>
+
+                            <span>Vite</span>
+
+                            <span>JavaScript</span>
+
+                            <span>HTML5</span>
+
+                            <span>CSS3</span>
+
+                            <span>Responsive Design</span>
+
+                            <span>React Router</span>
+
+                            <span>Lucide Icons</span>
+
+                        </div>
+
+
+                        <!-- DEVELOPMENT FOCUS -->
+
+                        <h3 style="margin-top: 45px;">
+                            Development Focus
+                        </h3>
+
+                        <ul class="disc">
+
+                            <li>
+                                Component-based frontend architecture
+                            </li>
+
+                            <li>
+                                Reusable UI sections
+                            </li>
+
+                            <li>
+                                Responsive layouts
+                            </li>
+
+                            <li>
+                                Mobile-first considerations
+                            </li>
+
+                            <li>
+                                Clear content hierarchy
+                            </li>
+
+                            <li>
+                                Conversion-focused CTAs
+                            </li>
+
+                            <li>
+                                Cross-browser compatibility
+                            </li>
+
+                            <li>
+                                Performance-conscious implementation
+                            </li>
+
+                            <li>
+                                SEO-friendly semantic structure
+                            </li>
+
+                        </ul>
+
+
+                        <!-- BUSINESS VALUE -->
+
+                        <h3>
+                            Business Value
+                        </h3>
+
+                        <p>
+
+                            The website gives Shree Balaji a centralized
+                            digital presence where potential customers can
+                            understand the business before making contact.
+
+                        </p>
+
+                        <p>
+
+                            Rather than functioning only as an online
+                            brochure, the website is structured as a
+                            customer acquisition touchpoint with clear
+                            information architecture and conversion paths.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PROJECT SIDEBAR
+                    ================================================== -->
+
+                    <div class="column xl-4 md-12">
+
+                        <aside class="project-sidebar">
+
+
+                            <div class="project-meta">
+
+                                <h4>
+                                    Project Info
+                                </h4>
+
+                                <ul>
+
+                                    <li>
+                                        <strong>Project:</strong>
+                                        Shree Balaji
+                                    </li>
+
+                                    <li>
+                                        <strong>Type:</strong>
+                                        Business Website
+                                    </li>
+
+                                    <li>
+                                        <strong>Industry:</strong>
+                                        Business / Services
+                                    </li>
+
+                                    <li>
+                                        <strong>Role:</strong>
+                                        Full Stack / Frontend Developer
+                                    </li>
+
+                                    <li>
+                                        <strong>Focus:</strong>
+                                        UI, Branding & Lead Generation
+                                    </li>
+
+                                    <li>
+                                        <strong>Status:</strong>
+                                        Completed
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <div class="project-meta">
+
+                                <h4>
+                                    Core Modules
+                                </h4>
+
+                                <ul>
+
+                                    <li>
+                                        Business Landing Page
+                                    </li>
+
+                                    <li>
+                                        About / Company Section
+                                    </li>
+
+                                    <li>
+                                        Services Section
+                                    </li>
+
+                                    <li>
+                                        Business Highlights
+                                    </li>
+
+                                    <li>
+                                        Contact Section
+                                    </li>
+
+                                    <li>
+                                        Lead Generation CTA
+                                    </li>
+
+                                    <li>
+                                        Responsive Navigation
+                                    </li>
+
+                                    <li>
+                                        Mobile Experience
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <div class="project-meta">
+
+                                <h4>
+                                    Target Customers
+                                </h4>
+
+                                <ul>
+
+                                    <li>
+                                        New Customers
+                                    </li>
+
+                                    <li>
+                                        Existing Customers
+                                    </li>
+
+                                    <li>
+                                        Business Enquiries
+                                    </li>
+
+                                    <li>
+                                        Local Customers
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <a
+                                href="../contact.html"
+                                class="project-btn"
+                                style="width:100%;"
+                            >
+                                Discuss a Website Project
+                            </a>
+
+                        </aside>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================================================
+                     CTA
+                ====================================================== -->
+
+                <div class="project-cta">
+
+                    <h2>
+                        Need a Website Like Shree Balaji?
+                    </h2>
+
+                    <p>
+
+                        I build modern business websites that combine
+                        professional design, responsive experiences and
+                        conversion-focused user journeys to help businesses
+                        establish a stronger digital presence.
+
+                    </p>
+
+                    <a
+                        href="../contact.html"
+                        class="project-btn"
+                    >
+                        Let's Work Together
+                    </a>
+
+                </div>
+
+
+            </section>
+
+        </section>
+
+
+        <!-- =========================================================
+             FOOTER
+        ========================================================= -->
+
+        <footer class="s-footer">
+
+            <div class="row s-footer__content">
+
+
+                <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
+
+                    <h3>
+                        About Me
+                    </h3>
+
+                    <p>
+
+                        I am a full-stack developer specializing in scalable
+                        applications using MERN stack, TypeScript, NestJS
+                        and modern web technologies.
+
+                    </p>
+
+                </div>
+
+
+                <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
+
+                    <h3>
+                        Site Links
+                    </h3>
+
+                    <ul class="link-list">
+
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="../services.html">Services</a>
+                        </li>
+
+                        <li>
+                            <a href="../blog.html">Blog</a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">About</a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">Contact</a>
+                        </li>
+
+                        <li>
+                            <a href="../portfolio.html">Portfolio</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="column xl-3 lg-6 md-12 s-footer__block">
+
+                    <h3>
+                        Contact
+                    </h3>
+
+                    <p>
+                        <a href="mailto:viveklodhi740@gmail.com">
+                            viveklodhi740@gmail.com
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="tel:+916351800692">
+                            +91 635 180 0692
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="row s-footer__bottom">
+
+                <div class="column xl-6 lg-12">
+
+                    <ul class="s-footer__social social-list">
+
+                        <li>
+
+                            <a
+                                href="https://github.com/viveklodhi21"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a
+                                href="https://www.linkedin.com/in/vivek-lodhi-201273168"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="ss-go-top">
+
+                    <a
+                        class="smoothscroll"
+                        title="Back to Top"
+                        href="#top"
+                    >
+                        ↑
+                    </a>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>
