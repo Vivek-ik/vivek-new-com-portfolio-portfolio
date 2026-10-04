@@ -1,944 +1,2525 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <!--- basic page needs ================================================ -->
-  <meta charset="UTF-8">
+    <title>VTECHNO | Digital Products & Software Solutions</title>
+    <meta
+      name="description"
+      content="VTECHNO designs and develops modern websites, web platforms, mobile applications, AI solutions and custom business software."
+    />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="preload"
+      href="/css/vendor.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <link
+      rel="preload"
+      href="/css/styles.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link rel="stylesheet" href="/css/vendor.css" />
+      <link rel="stylesheet" href="/css/styles.css" />
+    </noscript>
 
-  <title>Vivek Lodhi | Senior Full Stack Developer</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 
-  <meta name="description"
-    content="Vivek Lodhi is a Senior Full Stack Developer specializing in React, Next.js, Node.js, MongoDB, PostgreSQL, and modern web application development.">
+    <style>
+      :root {
+        --brand: #97b34a;
+        --brand-dark: #718a31;
+        --ink: #111;
+        --muted: #686868;
+        --surface: #f4f3ef;
+        --card: #fff;
+        --line: rgba(17, 17, 17, 0.12);
+      }
 
-  <script>
-    document.documentElement.classList.remove("no-js");
-    document.documentElement.classList.add("js");
-  </script>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        overflow-x: hidden;
+      }
 
-  <!-- CSS ================================================ -->
-  <link rel="preload" href="/css/vendor.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      /* ---------- company hero ---------- */
+      .company-hero {
+        min-height: 95vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 78% 22%,
+            rgba(151, 179, 74, 0.18),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 15% 80%,
+            rgba(0, 0, 0, 0.06),
+            transparent 30%
+          );
+      }
 
+      .company-hero::before,
+      .company-hero::after {
+        content: "";
+        position: absolute;
+        border: 1px solid rgba(151, 179, 74, 0.24);
+        border-radius: 50%;
+        pointer-events: none;
+      }
 
-  <!-- favicons ================================================ -->
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="manifest" href="site.webmanifest" />
-</head>
-<style>
-  .clients-list__item {
-    position: relative;
-    display: inline-block;
-  }
+      .company-hero::before {
+        width: 620px;
+        height: 620px;
+        right: -260px;
+        top: -180px;
+      }
 
-  .clients-list__item img {
-    transition: transform 0.3s ease;
-  }
+      .company-hero::after {
+        width: 420px;
+        height: 420px;
+        right: 60px;
+        bottom: -260px;
+      }
 
-  .clients-list__item:hover img {
-    transform: scale(1.1);
-    /* slight zoom effect */
-  }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.85fr);
+        gap: 7rem;
+        align-items: center;
+        width: 100%;
+      }
 
-  .clients-list__item .tooltip {
-    visibility: hidden;
-    opacity: 0;
-    width: max-content;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    text-align: center;
-    padding: 4px 8px;
-    border-radius: 4px;
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        font-weight: 700;
+        color: var(--brand-dark);
+        margin-bottom: 24px;
+      }
 
-    position: absolute;
-    bottom: 100%;
-    /* above the image */
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 8px;
+      .hero-eyebrow::before {
+        content: "";
+        width: 38px;
+        height: 2px;
+        background: var(--brand);
+      }
 
-    transition: opacity 0.3s ease;
-    white-space: nowrap;
-    font-size: 12px;
-  }
+      .hero-title {
+        max-width: 900px;
+        font-size: clamp(4.6rem, 8vw, 9.5rem);
+        line-height: 0.88;
+        letter-spacing: -0.065em;
+        margin: 0;
+      }
 
-  .clients-list__item:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
-  }
+      .hero-title em {
+        color: var(--brand);
+        font-style: normal;
+      }
 
-  /* Blog Preview Styling */
-  .preview-section {
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 5rem;
-  }
+      .hero-copy {
+        max-width: 680px;
+        margin: 30px 0 0;
+        font-size: 1.55rem;
+        line-height: 1.6;
+        color: #555;
+      }
 
-  .preview-section .grid-list-items {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-  }
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 38px;
+      }
 
-  .preview-section .blog-card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 45%;
-  }
+      .hero-actions .btn {
+        margin: 0;
+      }
 
-  .preview-section .blog-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  }
+      .hero-visual {
+        position: relative;
+        min-height: 500px;
+        perspective: 1300px;
+      }
 
-  /* Hover button */
-  .view-all-btn {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: all 0.4s ease;
-  }
+      .visual-panel {
+        position: absolute;
+        inset: 40px 0 20px 30px;
+        border-radius: 28px;
+        background: #161616;
+        box-shadow: 0 35px 90px rgba(0, 0, 0, 0.22);
+        transform: rotateY(-12deg) rotateX(5deg) rotateZ(2deg);
+        overflow: hidden;
+      }
 
-  .s-journal__content:hover .view-all-btn {
-    opacity: 1;
-    bottom: 3rem;
-  }
+      .visual-panel::before {
+        content: "";
+        position: absolute;
+        width: 330px;
+        height: 330px;
+        border-radius: 50%;
+        right: -100px;
+        top: -100px;
+        background: radial-gradient(
+          circle,
+          rgba(151, 179, 74, 0.7),
+          rgba(151, 179, 74, 0) 68%
+        );
+      }
 
-  .view-all-btn .btn {
-    padding: 0.8rem 2rem;
-    border-radius: 8px;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-</style>
+      .visual-panel::after {
+        content: "";
+        position: absolute;
+        left: -60px;
+        bottom: -100px;
+        width: 340px;
+        height: 340px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 50%;
+      }
 
-<body id="top">
-  <!-- preloader ================================================== -->
-  <div id="preloader">
-    <div id="loader" class="dots-fade">
-      <div></div>
-      <div></div>
-      <div></div>
+      .visual-ui {
+        position: absolute;
+        inset: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 20px;
+        padding: 25px;
+        color: #fff;
+      }
+
+      .visual-dots {
+        display: flex;
+        gap: 7px;
+      }
+      .visual-dots span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.35);
+      }
+
+      .visual-label {
+        margin-top: 70px;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        color: #aaa;
+      }
+
+      .visual-big {
+        font-size: clamp(4rem, 6vw, 7rem);
+        line-height: 0.9;
+        letter-spacing: -0.07em;
+        margin: 12px 0;
+        max-width: 420px;
+      }
+
+      .visual-big span {
+        color: var(--brand);
+      }
+
+      .visual-lines {
+        display: grid;
+        gap: 11px;
+        margin-top: 48px;
+      }
+
+      .visual-lines i {
+        display: block;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+      }
+
+      .visual-lines i:nth-child(1) {
+        width: 90%;
+        background: var(--brand);
+      }
+      .visual-lines i:nth-child(2) {
+        width: 72%;
+      }
+      .visual-lines i:nth-child(3) {
+        width: 54%;
+      }
+
+      /* ---------- company strip ---------- */
+      .company-strip {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 24px 0;
+        overflow: hidden;
+      }
+
+      .strip-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .strip-item {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: #777;
+        font-weight: 700;
+      }
+
+      .strip-item strong {
+        color: #111;
+        font-size: 12px;
+      }
+
+      /* ---------- section helpers ---------- */
+      .company-section {
+        padding-top: 13rem;
+        padding-bottom: 13rem;
+      }
+
+      .company-section.alt {
+        background: var(--surface);
+      }
+
+      .company-kicker {
+        color: var(--brand-dark);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      .company-heading {
+        max-width: 950px;
+        font-size: clamp(4rem, 6.5vw, 8rem);
+        line-height: 0.92;
+        letter-spacing: -0.055em;
+        margin: 0;
+      }
+
+      .company-heading span {
+        color: var(--brand);
+      }
+
+      .company-lead {
+        max-width: 720px;
+        margin-top: 28px;
+        color: #5f5f5f;
+        font-size: 1.55rem;
+        line-height: 1.65;
+      }
+
+      /* ---------- services ---------- */
+      .service-grid {
+        margin-top: 70px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .service-card {
+        min-height: 330px;
+        padding: 48px;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.45s ease,
+          background 0.45s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-7px);
+        background: #fbfbf8;
+        z-index: 2;
+      }
+
+      .service-number {
+        font-size: 12px;
+        color: var(--brand-dark);
+        letter-spacing: 0.15em;
+        font-weight: 800;
+      }
+
+      .service-card h3 {
+        font-size: 2.6rem;
+        letter-spacing: -0.04em;
+        margin: 80px 0 14px;
+      }
+
+      .service-card p {
+        max-width: 470px;
+        color: #666;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .service-arrow {
+        position: absolute;
+        right: 38px;
+        bottom: 34px;
+        font-size: 34px;
+        transition: transform 0.35s ease;
+      }
+
+      .service-card:hover .service-arrow {
+        transform: translate(6px, -6px);
+      }
+
+      /* ---------- work / 3d cards ---------- */
+      .work-grid {
+        margin-top: 75px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px;
+      }
+
+      .work-card {
+        position: relative;
+        min-height: 520px;
+        border-radius: 26px;
+        overflow: hidden;
+        background: #151515;
+        isolation: isolate;
+        transform-style: preserve-3d;
+        perspective: 1200px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.13);
+        transition:
+          transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+          box-shadow 0.5s ease;
+      }
+
+      .work-card:hover {
+        transform: translateY(-10px) rotateX(2deg) rotateY(-1deg);
+        box-shadow: 0 35px 90px rgba(0, 0, 0, 0.2);
+      }
+
+      .work-card-media {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .work-card:hover .work-card-media {
+        transform: scale(1.07);
+      }
+
+      .work-card-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.04) 20%,
+          rgba(0, 0, 0, 0.88) 100%
+        );
+      }
+
+      .work-card--rishi .work-card-media {
+        background-image:
+          linear-gradient(135deg, rgba(151, 179, 74, 0.28), transparent),
+          url("/images/portfolio/rishi-infra-card-image.png");
+      }
+
+      .work-card--arohan .work-card-media {
+        background-image:
+          linear-gradient(135deg, rgba(151, 179, 74, 0.2), transparent),
+          url("/images/portfolio/arohan-energy-hero-image.png");
+      }
+
+      .work-card--dining .work-card-media {
+        background-image:
+          linear-gradient(135deg, rgba(151, 179, 74, 0.2), transparent),
+          url("/images/portfolio/ai-restraunt.png");
+      }
+
+      .work-card--laundry .work-card-media {
+        background-image:
+          linear-gradient(135deg, rgba(151, 179, 74, 0.2), transparent),
+          url("/images/portfolio/laundry-app-design.png");
+      }
+
+      .work-card-content {
+        position: absolute;
+        left: 34px;
+        right: 34px;
+        bottom: 32px;
+        z-index: 2;
+        color: #fff;
+        transform: translateZ(40px);
+      }
+
+      .work-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 14px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+      }
+
+      .work-meta span:first-child {
+        color: #c8df87;
+      }
+
+      .work-title {
+        font-size: clamp(2.8rem, 4vw, 5rem);
+        line-height: 0.9;
+        letter-spacing: -0.055em;
+        margin: 0;
+        color: #fff;
+      }
+
+      .work-desc {
+        color: rgba(255, 255, 255, 0.76);
+        max-width: 650px;
+        margin: 16px 0 20px;
+        line-height: 1.55;
+      }
+
+      .work-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .work-tags span {
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+
+      .work-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 22px;
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.13em;
+      }
+
+      .work-link::after {
+        content: "↗";
+        font-size: 17px;
+      }
+
+      /* ---------- process ---------- */
+      .process-grid {
+        margin-top: 70px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .process-item {
+        padding: 42px 28px;
+        border-right: 1px solid var(--line);
+      }
+
+      .process-item:last-child {
+        border-right: 0;
+      }
+
+      .process-item b {
+        font-size: 12px;
+        color: var(--brand-dark);
+        letter-spacing: 0.15em;
+      }
+
+      .process-item h3 {
+        font-size: 2rem;
+        margin: 55px 0 14px;
+        letter-spacing: -0.035em;
+      }
+
+      .process-item p {
+        color: #666;
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      /* ---------- tech ---------- */
+      /* ---------- tech marquee ---------- */
+
+      .tech-marquee {
+        margin-top: 65px;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .tech-track {
+        display: flex;
+        width: max-content;
+        animation: techScroll 35s linear infinite;
+      }
+
+      .tech-list {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        padding-right: 12px;
+        flex-shrink: 0;
+      }
+
+      .tech-pill {
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50px;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+
+      /* Continuous movement */
+      @keyframes techScroll {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Optional: pause when hovering */
+      .tech-marquee:hover .tech-track {
+        animation-play-state: paused;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .tech-marquee {
+          margin-top: 40px;
+        }
+
+        .tech-pill {
+          padding: 8px 14px;
+          font-size: 13px;
+        }
+
+        .tech-track {
+          animation-duration: 25s;
+        }
+      }
+
+      .tech-pill {
+        border: 1px solid var(--line);
+        background: #fff;
+        padding: 15px 21px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 13px;
+        transition: all 0.3s ease;
+      }
+
+      .tech-pill:hover {
+        background: #111;
+        color: #fff;
+        transform: translateY(-4px);
+      }
+
+      /* ---------- testimonials ---------- */
+      /* ================================
+   CLIENT REVIEWS MARQUEE
+================================ */
+
+      .reviews-marquee {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 55px;
+        position: relative;
+      }
+
+      .reviews-track {
+        display: flex;
+        width: max-content;
+        animation: reviewsScroll 45s linear infinite;
+      }
+
+      .reviews-group {
+        display: flex;
+        gap: 24px;
+        flex-shrink: 0;
+        padding-right: 24px;
+      }
+
+      .quote-card {
+        width: 380px;
+        min-height: 260px;
+        flex-shrink: 0;
+
+        padding: 32px;
+
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        background: rgba(255, 255, 255, 0.025);
+
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .quote-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .quote-card blockquote {
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.7;
+        font-weight: 400;
+      }
+
+      .quote-author {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .quote-author img {
+        width: 48px;
+        height: 48px;
+
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .quote-author div {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .quote-author strong {
+        font-size: 15px;
+      }
+
+      .quote-author span {
+        font-size: 13px;
+        opacity: 0.55;
+      }
+
+      /* ================================
+   CONTINUOUS MARQUEE
+================================ */
+
+      @keyframes reviewsScroll {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Pause when user hovers */
+      .reviews-marquee:hover .reviews-track {
+        animation-play-state: paused;
+      }
+
+      /* ================================
+   EDGE FADE
+================================ */
+
+      .reviews-marquee::before,
+      .reviews-marquee::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .reviews-marquee::before {
+        left: 0;
+        background: linear-gradient(
+          to right,
+          var(--background-color),
+          transparent
+        );
+      }
+
+      .reviews-marquee::after {
+        right: 0;
+        background: linear-gradient(
+          to left,
+          var(--background-color),
+          transparent
+        );
+      }
+
+      /* ================================
+   MOBILE
+================================ */
+
+      @media (max-width: 768px) {
+        .reviews-marquee {
+          margin-top: 40px;
+        }
+
+        .reviews-track {
+          animation-duration: 35s;
+        }
+
+        .quote-card {
+          width: 300px;
+          min-height: 240px;
+          padding: 25px;
+        }
+
+        .quote-card blockquote {
+          font-size: 15px;
+          line-height: 1.6;
+        }
+
+        .reviews-group {
+          gap: 16px;
+          padding-right: 16px;
+        }
+
+        .reviews-marquee::before,
+        .reviews-marquee::after {
+          width: 40px;
+        }
+      }
+      /* ---------- CTA ---------- */
+      .company-cta {
+        background: #111;
+        color: #fff;
+        padding: 12rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .company-cta::after {
+        content: "";
+        position: absolute;
+        width: 650px;
+        height: 650px;
+        right: -300px;
+        top: -300px;
+        border-radius: 50%;
+        border: 1px solid rgba(151, 179, 74, 0.3);
+        box-shadow:
+          0 0 0 80px rgba(151, 179, 74, 0.05),
+          0 0 0 160px rgba(151, 179, 74, 0.03);
+      }
+
+      .cta-title {
+        font-size: clamp(4rem, 8vw, 9rem);
+        line-height: 0.86;
+        letter-spacing: -0.07em;
+        max-width: 1000px;
+        margin: 0;
+        color: #fff;
+      }
+
+      .cta-title span {
+        color: var(--brand);
+      }
+
+      .cta-copy {
+        max-width: 650px;
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.6;
+        margin: 20px 0 20px;
+      }
+
+      .company-cta {
+        padding: 120px 0;
+      }
+
+      .cta-layout {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr) auto;
+        align-items: flex-start;
+        gap: 70px;
+      }
+
+      .cta-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 700px;
+      }
+
+      .cta-title {
+        margin: 0;
+        font-size: clamp(42px, 5vw, 72px);
+        line-height: 1.05;
+      }
+
+      .cta-title span {
+        opacity: 0.45;
+      }
+
+      .cta-copy {
+        max-width: 650px;
+        font-size: 17px;
+        line-height: 1.7;
+        opacity: 0.65;
+      }
+
+      .cta-action {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .cta-action .btn {
+        white-space: nowrap;
+      }
+
+      /* =========================
+   TABLET
+========================= */
+
+      @media (max-width: 1000px) {
+        .cta-layout {
+          grid-template-columns: 140px 1fr;
+          gap: 35px;
+        }
+
+        .cta-action {
+          grid-column: 2;
+          justify-content: flex-start;
+        }
+      }
+
+      /* =========================
+   MOBILE
+========================= */
+
+      @media (max-width: 600px) {
+        .company-cta {
+          padding: 80px 0;
+        }
+
+        .cta-layout {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 25px;
+        }
+
+        .cta-content {
+          max-width: 100%;
+        }
+
+        .cta-title {
+          font-size: 42px;
+        }
+
+        .cta-copy {
+          font-size: 15px;
+        }
+
+        .cta-action {
+          width: 100%;
+        }
+      }
+
+      /* ---------- footer ---------- */
+      .company-footer {
+        background: #111;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        color: #fff;
+        padding: 70px 0 35px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 0.7fr 0.7fr;
+        gap: 60px;
+      }
+
+      .footer-brand {
+        font-size: 3rem;
+        font-weight: 900;
+        letter-spacing: -0.06em;
+      }
+
+      .footer-brand span {
+        color: var(--brand);
+      }
+
+      .footer-copy {
+        color: rgba(255, 255, 255, 0.55);
+        max-width: 480px;
+        line-height: 1.7;
+        margin-top: 18px;
+      }
+
+      .footer-col h4 {
+        color: #fff;
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      .footer-col a {
+        display: block;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 5px 0;
+      }
+
+      .footer-col a:hover {
+        color: var(--brand);
+      }
+
+      .footer-bottom {
+        margin-top: 65px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 12px;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 1100px) {
+        .hero-grid {
+          gap: 3rem;
+        }
+        .hero-title {
+          font-size: clamp(4rem, 8vw, 7rem);
+        }
+        .company-section {
+          padding-top: 9rem;
+          padding-bottom: 9rem;
+        }
+        .process-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .process-item:nth-child(2) {
+          border-right: 0;
+        }
+        .process-item:nth-child(1),
+        .process-item:nth-child(2) {
+          border-bottom: 1px solid var(--line);
+        }
+        .quote-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 800px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .company-hero {
+          min-height: auto;
+          padding: 90px 0 70px;
+        }
+        .hero-visual {
+          min-height: 360px;
+        }
+        .visual-panel {
+          inset: 15px 10px 15px 0;
+        }
+        .service-grid,
+        .work-grid {
+          grid-template-columns: 1fr;
+        }
+        .service-card {
+          min-height: 270px;
+        }
+        .service-card h3 {
+          margin-top: 55px;
+        }
+        .company-heading {
+          font-size: clamp(3.3rem, 12vw, 5.5rem);
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-grid > :first-child {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .company-section {
+          padding-top: 7rem;
+          padding-bottom: 7rem;
+        }
+        .hero-title {
+          font-size: clamp(3.5rem, 16vw, 5.2rem);
+        }
+        .hero-copy {
+          font-size: 1.2rem;
+        }
+        .strip-inner {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+        .process-item,
+        .process-item:nth-child(1),
+        .process-item:nth-child(2) {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .process-item:last-child {
+          border-bottom: 0;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 35px;
+        }
+        .footer-grid > :first-child {
+          grid-column: auto;
+        }
+        .footer-bottom {
+          flex-direction: column;
+        }
+        .work-card {
+          min-height: 450px;
+        }
+        .work-card-content {
+          left: 24px;
+          right: 24px;
+          bottom: 24px;
+        }
+      }
+
+      /* header brand without changing your existing header CSS */
+      .company-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 900;
+        letter-spacing: -0.05em;
+        font-size: 2.1rem;
+        color: #111;
+        transition: color 0.3s ease;
+      }
+
+      .company-logo span {
+        color: var(--brand);
+        transition: color 0.3s ease;
+      }
+
+      .company-logo small {
+        display: block;
+        font-size: 8px;
+        letter-spacing: 0.2em;
+        font-weight: 700;
+        color: #777;
+        margin-top: 2px;
+        transition: color 0.3s ease;
+      }
+
+      /* =========================================
+   MOBILE MENU OPEN STATE
+========================================= */
+
+      .menu-is-open .company-logo {
+        color: var(--brand);
+      }
+
+      .menu-is-open .company-logo span {
+        color: var(--brand);
+      }
+
+      .menu-is-open .company-logo small {
+        color: var(--brand);
+      }
+      /* =========================================================
+   SELECTED WORK / PORTFOLIO
+========================================================= */
+
+      #work {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      #work .row {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ---------------------------------------------------------
+   PROJECT GRID
+--------------------------------------------------------- */
+
+      .work-grid {
+        width: 100%;
+        margin-top: 75px;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 32px;
+      }
+
+      /* ---------------------------------------------------------
+   PROJECT CARD
+--------------------------------------------------------- */
+
+      .work-card {
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+        min-height: 560px;
+
+        overflow: hidden;
+
+        border-radius: 26px;
+
+        background: #151515;
+
+        isolation: isolate;
+
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+        transform-style: preserve-3d;
+        perspective: 1200px;
+
+        transition:
+          transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+          box-shadow 0.5s ease;
+      }
+
+      .work-card:hover {
+        transform: translateY(-10px) rotateX(2deg) rotateY(-1deg);
+
+        box-shadow: 0 35px 90px rgba(0, 0, 0, 0.22);
+      }
+
+      /* ---------------------------------------------------------
+   PROJECT IMAGE
+--------------------------------------------------------- */
+
+      .work-card-media {
+        position: absolute;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        z-index: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: #202020;
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .work-card:hover .work-card-media {
+        transform: scale(1.07);
+      }
+
+      /* ---------------------------------------------------------
+   DARK GRADIENT OVER IMAGE
+--------------------------------------------------------- */
+
+      .work-card-media::after {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        z-index: 1;
+
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.05) 10%,
+          rgba(0, 0, 0, 0.2) 35%,
+          rgba(0, 0, 0, 0.92) 100%
+        );
+      }
+
+      /* ---------------------------------------------------------
+   RISHI INFRA
+--------------------------------------------------------- */
+
+      .work-card--rishi .work-card-media {
+        background-image:
+          linear-gradient(
+            135deg,
+            rgba(255, 107, 44, 0.35),
+            rgba(0, 0, 0, 0.05)
+          ),
+          url("/images/portfolio/rishi-infra-card-image.png");
+      }
+
+      /* ---------------------------------------------------------
+   AROHAN ENERGIES
+--------------------------------------------------------- */
+
+      .work-card--arohan .work-card-media {
+        background-image:
+          linear-gradient(135deg, rgba(255, 107, 44, 0.3), rgba(0, 0, 0, 0.05)),
+          url("/images/portfolio/arohan-energy-card.png");
+      }
+
+      /* ---------------------------------------------------------
+   AI DINING
+--------------------------------------------------------- */
+
+      .work-card--dining .work-card-media {
+        background-image:
+          linear-gradient(135deg, rgba(255, 107, 44, 0.3), rgba(0, 0, 0, 0.05)),
+          url("/images/portfolio/ai-restraunt.png");
+      }
+
+      /* ---------------------------------------------------------
+   LAUNDRY
+--------------------------------------------------------- */
+
+      .work-card--laundry .work-card-media {
+        background-image:
+          linear-gradient(135deg, rgba(255, 107, 44, 0.3), rgba(0, 0, 0, 0.05)),
+          url("/images/portfolio/laundry-app-design.png");
+      }
+
+      /* ---------------------------------------------------------
+   CARD CONTENT
+--------------------------------------------------------- */
+
+      .work-card-content {
+        position: absolute;
+
+        left: 34px;
+        right: 34px;
+        bottom: 32px;
+
+        z-index: 5;
+
+        color: #ffffff;
+
+        transform: translateZ(40px);
+      }
+
+      /* ---------------------------------------------------------
+   PROJECT META
+--------------------------------------------------------- */
+
+      .work-meta {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 15px;
+
+        margin-bottom: 14px;
+
+        font-size: 11px;
+
+        font-weight: 700;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.15em;
+
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .work-meta span:first-child {
+        color: #ff6b2c;
+      }
+
+      /* ---------------------------------------------------------
+   PROJECT TITLE
+--------------------------------------------------------- */
+
+      .work-title {
+        margin: 0;
+
+        color: #ffffff;
+
+        font-size: clamp(2.8rem, 4vw, 5rem);
+
+        line-height: 0.9;
+
+        letter-spacing: -0.055em;
+      }
+
+      /* ---------------------------------------------------------
+   PROJECT DESCRIPTION
+--------------------------------------------------------- */
+
+      .work-desc {
+        max-width: 650px;
+
+        margin: 16px 0 20px;
+
+        color: rgba(255, 255, 255, 0.78);
+
+        font-size: 15px;
+
+        line-height: 1.55;
+      }
+
+      /* ---------------------------------------------------------
+   TECHNOLOGY TAGS
+--------------------------------------------------------- */
+
+      .work-tags {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 7px;
+      }
+
+      .work-tags span {
+        display: inline-flex;
+
+        align-items: center;
+
+        min-height: 28px;
+
+        padding: 6px 10px;
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+
+        border-radius: 999px;
+
+        color: rgba(255, 255, 255, 0.9);
+
+        font-size: 10px;
+
+        line-height: 1;
+
+        letter-spacing: 0.08em;
+
+        transition:
+          background 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .work-card:hover .work-tags span {
+        border-color: rgba(255, 107, 44, 0.65);
+      }
+
+      /* ---------------------------------------------------------
+   CASE STUDY LINK
+--------------------------------------------------------- */
+
+      .work-link {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 9px;
+
+        margin-top: 22px;
+
+        color: #ffffff;
+
+        font-size: 11px;
+
+        font-weight: 800;
+
+        line-height: 1;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.13em;
+
+        text-decoration: none;
+
+        transition:
+          color 0.3s ease,
+          transform 0.3s ease;
+      }
+
+      .work-link::after {
+        content: "↗";
+
+        font-size: 17px;
+      }
+
+      .work-link:hover {
+        color: #ff6b2c;
+
+        transform: translateX(5px);
+      }
+
+      /* =========================================================
+   MORE PROJECTS FOOTER
+========================================================= */
+
+      .work-section-footer {
+        width: 100%;
+
+        margin-top: 80px;
+
+        padding-top: 45px;
+
+        border-top: 1px solid var(--line);
+
+        display: flex;
+
+        align-items: flex-end;
+
+        justify-content: space-between;
+
+        gap: 40px;
+      }
+
+      .work-section-footer__content {
+        max-width: 650px;
+      }
+
+      .work-section-footer__content .company-kicker {
+        margin-bottom: 15px;
+      }
+
+      .work-section-footer h3 {
+        margin: 0;
+
+        font-size: clamp(2.8rem, 5vw, 5.5rem);
+
+        line-height: 0.95;
+
+        letter-spacing: -0.055em;
+      }
+
+      .work-section-footer h3 span {
+        color: #ff6b2c;
+      }
+
+      .work-section-footer__button {
+        flex-shrink: 0;
+
+        white-space: nowrap;
+      }
+
+      .work-section-footer__button span {
+        margin-left: 8px;
+
+        font-size: 18px;
+      }
+
+      /* =========================================================
+   TABLET
+========================================================= */
+
+      @media (max-width: 900px) {
+        .work-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .work-card {
+          min-height: 520px;
+        }
+      }
+
+      /* =========================================================
+   MOBILE
+========================================================= */
+
+      @media (max-width: 560px) {
+        .work-grid {
+          margin-top: 50px;
+
+          gap: 22px;
+        }
+
+        .work-card {
+          min-height: 480px;
+
+          border-radius: 20px;
+        }
+
+        .work-card-content {
+          left: 24px;
+          right: 24px;
+          bottom: 24px;
+        }
+
+        .work-title {
+          font-size: 3rem;
+        }
+
+        .work-desc {
+          font-size: 14px;
+        }
+
+        .work-section-footer {
+          margin-top: 55px;
+
+          padding-top: 35px;
+
+          flex-direction: column;
+
+          align-items: flex-start;
+        }
+
+        .work-section-footer h3 {
+          font-size: 3rem;
+        }
+
+        .work-section-footer__button {
+          width: 100%;
+
+          justify-content: center;
+        }
+      }
+
+      .work-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .work-actions .work-link {
+        margin-top: 0;
+      }
+
+      .work-link--live {
+        color: var(--color-1);
+      }
+
+      .work-link--live:hover {
+        color: var(--color-1);
+      }
+
+      @media screen and (max-width: 600px) {
+        .work-actions {
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="top">
+    <div id="preloader">
+      <div id="loader" class="dots-fade">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </div>
 
-  <!-- page wrap ================================================ -->
-  <div id="page" class="s-pagewrap ss-home">
-    <!-- # site header  =============================================== -->
-    <header class="s-header">
-      <div class="row s-header__inner width-sixteen-col">
-        <div class="s-header__block">
-          <div class="s-header__logo">
-            <a class="logo" href="/index.html">
-              <img src="/images/resized-logo.png" width="96" height="54" alt="Homepage" />
-            </a>
+    <div id="page" class="s-pagewrap ss-home">
+      <!-- HEADER -->
+      <header class="s-header">
+        <div class="row s-header__inner width-sixteen-col">
+          <div class="s-header__block">
+            <div class="s-header__logo">
+              <a
+                class="logo company-logo"
+                href="/index.html"
+                aria-label="VTECHNO Home"
+              >
+                VTECH<span>NO</span>
+                <small>DIGITAL SOLUTIONS</small>
+              </a>
+            </div>
+            <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
           </div>
-          <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+
+          <nav class="s-header__nav">
+            <ul class="s-header__menu-links">
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/services.html">Services</a></li>
+              <li><a href="/blog.html">Journal</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+            <div class="s-header__contact">
+              <a
+                href="/contact.html"
+                class="btn btn--primary s-header__contact-btn"
+                >Start a Project</a
+              >
+            </div>
+          </nav>
         </div>
+      </header>
 
-        <nav class="s-header__nav">
-          <ul class="s-header__menu-links">
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/blog.html">Journal</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-          </ul>
-          <div class="s-header__contact">
-            <a href="/contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end s-header -->
-
-    <main id="main-content">
-
-      <!-- # site main content =============================================== -->
-      <section id="content" class="s-content">
-        <!-- intro ----------------------------------------------- -->
-        <section id="intro" class="s-intro">
-          <div class="row s-intro__content width-sixteen-col">
-            <div class="column lg-12 s-intro__content-inner grid-block">
-              <div class="s-intro__content-text">
-                <div class="s-intro__content-pretitle text-pretitle">
-                  Hello, I'm Vivek
+      <main>
+        <!-- HERO -->
+        <section class="company-hero">
+          <div class="row width-sixteen-col">
+            <div class="hero-grid">
+              <div>
+                <div class="hero-eyebrow">
+                  DIGITAL PRODUCTS & SOFTWARE SOLUTIONS
                 </div>
-                <h1 class="s-intro__content-title">
-                  I build modern <br />
-                  web applications <br />
-                  and solutions <br />
-                  that scale.
+
+                <h1 class="hero-title">
+                  We build digital products that <em>move businesses.</em>
                 </h1>
+
+                <p class="hero-copy">
+                  From high-converting business websites to web platforms,
+                  mobile applications, AI-powered experiences and custom
+                  business software — we turn ideas into usable digital
+                  products.
+                </p>
+
+                <div class="hero-actions">
+                  <a href="/contact.html" class="btn btn--primary"
+                    >Start a Project ↗</a
+                  >
+                  <a href="#work" class="btn btn--stroke">Explore Our Work ↓</a>
+                </div>
               </div>
-              <!-- s-intro__content-text -->
 
-              <div class="s-intro__content-media">
-                <div class="s-intro__content-media-inner">
-                  <!-- <img src="images/resized-vivek-bg.webp"
-                    srcset="images/resized-vivek-bg.webp 1x, images/resized-vivek-bg.webp 2x" alt=""
-                    fetchpriority="high"> -->
-
-                  <div class="lines">
-                    <span></span>
+              <div class="hero-visual" aria-hidden="true">
+                <div class="visual-panel">
+                  <div class="visual-ui">
+                    <div class="visual-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="visual-label">VTECHNO / DIGITAL SYSTEMS</div>
+                    <div class="visual-big">
+                      BUILD.<br /><span>SHIP.</span><br />GROW.
+                    </div>
+                    <div class="visual-lines"><i></i><i></i><i></i></div>
                   </div>
                 </div>
               </div>
-              <!-- s-intro__content-media -->
-
-              <div class="s-intro__scroll-down">
-                <a href="#about" class="smoothscroll">
-                  <div class="scroll-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
-                      stroke="#97b34a" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                      &lt;!--! Atomicons Free 1.00 by @atisalab License -
-                      https://atomicons.com/license/ (Icons: CC BY 4.0)
-                      Copyright 2021 Atomicons --&gt;
-                      <polyline points="7 13 12 18 17 13"></polyline>
-                      <line x1="12" y1="18" x2="12" y2="6"></line>
-                    </svg>
-                  </div>
-                  <span>Scroll for more</span>
-                </a>
-              </div>
-              <!-- s-intro__scroll-down -->
             </div>
-            <!-- s-intro__content-inner -->
-          </div>
-          <!-- s-intro__content -->
-        </section>
-        <!-- end s-intro -->
-
-        <!-- about ----------------------------------------------- -->
-        <section id="about" class="s-about target-section">
-          <div class="row s-about__content width-sixteen-col">
-            <div class="column grid-block grid-section-split">
-              <img src="images/geometric_shape.svg" alt="Geometric shape background" class="s-about__content-imgbg"
-                width="1000" height="1000" />
-
-              <div class="section-header grid-section-split__header">
-                <div class="text-pretitle">About</div>
-                <h2 class="text-display-title">
-                  Building modern web experiences with clean code.
-                </h2>
-              </div>
-              <!-- end section-header -->
-
-              <div class="s-about__content-main grid-section-split__primary">
-                <p class="attention-getter">
-                  Hi, I’m a passionate <strong class="text-pretitle">Web Developer</strong> who loves
-                  crafting responsive, user-friendly, and scalable web
-                  applications. My goal is to turn ideas into high-performing
-                  digital products that deliver real value.
-                </p>
-
-                <p class="attention-getter">
-                  With expertise in
-                  <strong class="text-pretitle">JavaScript, TypeScript, React, Next.js, and Node.js</strong>, I build
-                  full-stack solutions that are optimized for
-                  performance and usability. I also have experience with
-                  <strong class="text-pretitle">databases, APIs, and cloud deployment</strong>.
-                </p>
-
-                <p class="attention-getter">
-                  Whether it’s developing a polished frontend, a powerful
-                  backend, or integrating the latest technologies, I’m always
-                  eager to learn and deliver projects that make an impact.
-                </p>
-              </div>
-              <!-- end s-about__content-main -->
-
-              <div class="s-about__content-btn grid-section-split__bottom">
-                <a href="/about.html" class="btn btn--stroke u-fullwidth">
-                  More About Me
-                </a>
-
-                <ul class="s-about__social social-list">
-                  <li>
-                    <a href="https://github.com/yourusername" target="_blank">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                          d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.96.58.1.8-.25.8-.57v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.52-1.32-1.27-1.68-1.27-1.68-1.04-.7.08-.69.08-.69 1.15.08 1.76 1.19 1.76 1.19 1.02 1.76 2.67 1.25 3.32.95.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.44-2.26 1.17-3.06-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.73.8 1.17 1.81 1.17 3.06 0 4.39-2.68 5.35-5.24 5.64.41.35.78 1.04.78 2.1v3.11c0 .32.21.67.81.56A10.99 10.99 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
-                      </svg>
-                      <span class="u-screen-reader-text">GitHub</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.041-1.852-3.041-1.853 0-2.136 1.445-2.136 2.939v5.671H9.351V9h3.413v1.561h.049c.476-.9 1.637-1.852 3.372-1.852 3.602 0 4.268 2.371 4.268 5.456v6.287zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM6.994 20.452H3.68V9h3.314v11.452z" />
-                      </svg>
-                      <span class="u-screen-reader-text">LinkedIn</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://twitter.com/yourusername" target="_blank">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                          d="M23 3a10.9 10.9 0 0 1-3.14 1.54 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-                      </svg>
-                      <span class="u-screen-reader-text">Twitter</span>
-                    </a>
-                  </li>
-                </ul>
-                <!-- end s-footer__social -->
-              </div>
-              <!-- end s-about__content-btn -->
-            </div>
-            <!-- content-inner -->
           </div>
         </section>
 
-        <!-- end s-about -->
-
-        <!-- expertise ----------------------------------------------- -->
-        <section id="expertise" class="s-expertise">
-          <div class="row s-expertise__content width-sixteen-col">
-            <div class="column xl-12 grid-block grid-section-split">
-              <div class="section-header grid-section-split__header">
-                <div class="text-pretitle">Expertise</div>
-                <h2 class="text-display-title">
-                  What I do as a Web Developer.
-                </h2>
-
-                <p class="lead">
-                  I specialize in building modern, responsive, and scalable web
-                  applications. From crafting seamless user interfaces to
-                  developing robust backends, my expertise covers the full web
-                  development cycle with a focus on performance, accessibility,
-                  and clean code.
-                </p>
+        <!-- STRIP -->
+        <section class="company-strip">
+          <div class="row width-sixteen-col">
+            <div class="strip-inner">
+              <div class="strip-item"><strong>WEB</strong> / Platforms</div>
+              <div class="strip-item">
+                <strong>MOBILE</strong> / Applications
               </div>
-              <!-- end section-header -->
-
-              <div class="s-expertise__content-main grid-section-split__primary">
-                <div class="grid-list-items list-items show-ctr">
-                  <!-- Frontend Development -->
-                  <div class="grid-list-items__item list-items__item">
-                    <div class="grid-list-items__title list-items__item-header">
-                      <h3 class="list-items__item-title">
-                        Frontend Development
-                      </h3>
-                    </div>
-                    <div class="grid-list-items__text list-items__item-text">
-                      <p>
-                        Expertise in
-                        <strong>HTML, CSS, JavaScript, TypeScript, React, and
-                          Next.js</strong>. I create responsive, accessible, and user-friendly
-                        interfaces with attention to detail and modern UI/UX
-                        practices.
-                      </p>
-                    </div>
-                  </div>
-                  <!-- list-item -->
-
-                  <!-- Backend Development -->
-                  <div class="grid-list-items__item list-items__item">
-                    <div class="grid-list-items__title list-items__item-header">
-                      <h3 class="list-items__item-title">
-                        Backend Development
-                      </h3>
-                    </div>
-                    <div class="grid-list-items__text list-items__item-text">
-                      <p>
-                        Skilled in
-                        <strong class="text-pretitle">Node.js, Express.js, and MongoDB</strong> with
-                        experience in building REST APIs, authentication
-                        systems, and scalable server-side logic for dynamic
-                        applications.
-                      </p>
-                    </div>
-                  </div>
-                  <!-- list-item -->
-
-                  <!-- Database & APIs -->
-                  <div class="grid-list-items__item list-items__item">
-                    <div class="grid-list-items__title list-items__item-header">
-                      <h3 class="list-items__item-title">
-                        Database & API Integration
-                      </h3>
-                    </div>
-                    <div class="grid-list-items__text list-items__item-text">
-                      <p>
-                        Experienced with
-                        <strong class="text-pretitle">MongoDB, MySQL, and PostgreSQL</strong>. I
-                        design efficient database schemas, optimize queries, and
-                        integrate third-party APIs to extend application
-                        functionality.
-                      </p>
-                    </div>
-                  </div>
-                  <!-- list-item -->
-
-                  <!-- Deployment & DevOps -->
-                  <div class="grid-list-items__item list-items__item">
-                    <div class="grid-list-items__title list-items__item-header">
-                      <h3 class="list-items__item-title">
-                        Deployment & DevOps
-                      </h3>
-                    </div>
-                    <div class="grid-list-items__text list-items__item-text">
-                      <p>
-                        Proficient in deploying applications using
-                        <strong class="text-pretitle">AWS, Vercel, and Docker</strong>. I ensure
-                        smooth CI/CD pipelines, scalable architecture, and
-                        optimized cloud performance.
-                      </p>
-                    </div>
-                  </div>
-                  <!-- list-item -->
-                </div>
-                <!-- grid-list-items -->
-              </div>
-              <!-- end s-expertise__content-main -->
-
-              <div class="s-expertise__content-btn grid-section-split__bottom">
-                <a href="/services.html" class="btn btn--stroke u-fullwidth">
-                  View My Work
-                </a>
-              </div>
-              <!-- end s-about__content-btn -->
+              <div class="strip-item"><strong>AI</strong> / Automation</div>
+              <div class="strip-item"><strong>CLOUD</strong> / Deployment</div>
+              <div class="strip-item"><strong>SOFTWARE</strong> / Systems</div>
             </div>
-            <!-- end grid-block-->
           </div>
-          <!-- end s-expertise__content -->
         </section>
 
-        <!-- end s-expertise -->
+        <!-- INTRO -->
+        <section class="company-section">
+          <div class="row width-sixteen-col">
+            <div class="company-kicker">01 — What We Do</div>
+            <h2 class="company-heading">
+              Technology should solve a <span>business problem.</span>
+            </h2>
+            <p class="company-lead">
+              We focus on practical digital products: clear interfaces, reliable
+              backends, useful automation and systems that are designed around
+              the way a business actually operates.
+            </p>
+          </div>
+        </section>
 
-        <!-- clients ----------------------------------------------- -->
-        <section id="clients" class="s-clients">
-          <div class="row s-clients__content-block width-sixteen-col">
-            <div class="column xl-12 grid-block grid-section-split">
-              <div class="section-header grid-section-split__header">
-                <div class="text-pretitle">Clients & Projects</div>
-                <h2 class="text-display-title">
-                  I’ve collaborated with startups, businesses, and teams to
-                  build scalable web solutions.
-                </h2>
-              </div>
-              <!-- end section-header -->
+        <!-- SERVICES -->
+        <section id="services" class="company-section alt">
+          <div class="row width-sixteen-col">
+            <div class="company-kicker">02 — Services</div>
+            <h2 class="company-heading">
+              From idea to <span>production.</span>
+            </h2>
 
-              <div class="grid-section-split__primary">
-                <p class="lead">
-                  Over the years, I’ve worked with diverse clients from
-                  early-stage startups to established businesses helping them
-                  design, develop, and launch modern websites and applications.
-                </p>
-
+            <div class="service-grid">
+              <article class="service-card">
+                <div class="service-number">01 / WEB</div>
+                <h3>Web Platforms</h3>
                 <p>
-                  My focus is always on creating clean, responsive, and scalable
-                  applications using modern technologies like React, Next.js,
-                  Node.js, and MongoDB. I also ensure seamless user experiences,
-                  performance optimization, and reliable integrations that help
-                  businesses thrive in the digital space.
+                  Business websites, marketplaces, dashboards, portals and
+                  custom web applications built around real workflows.
                 </p>
-              </div>
-              <!-- end grid-section-split__primary -->
+                <div class="service-arrow">↗</div>
+              </article>
+
+              <article class="service-card">
+                <div class="service-number">02 / MOBILE</div>
+                <h3>Mobile Apps</h3>
+                <p>
+                  Mobile-first experiences for customers, teams and internal
+                  operations using modern cross-platform development.
+                </p>
+                <div class="service-arrow">↗</div>
+              </article>
+
+              <article class="service-card">
+                <div class="service-number">03 / AI</div>
+                <h3>AI & Automation</h3>
+                <p>
+                  AI assistants, intelligent search, conversational interfaces,
+                  automation and integrations that make products more useful.
+                </p>
+                <div class="service-arrow">↗</div>
+              </article>
+
+              <article class="service-card">
+                <div class="service-number">04 / SOFTWARE</div>
+                <h3>Business Software</h3>
+                <p>
+                  Custom systems for inventory, ordering, property management,
+                  CRM-style workflows, analytics and operational processes.
+                </p>
+                <div class="service-arrow">↗</div>
+              </article>
             </div>
-            <!-- end column -->
           </div>
-          <!-- end row -->
-
-          <div class="row s-clients__content-block width-sixteen-col">
-            <div class="column xl-12">
-              <div class="clients-list">
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"
-                      width="80" />
-                    <span class="tooltip">React</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                      alt="Node.js" width="80" />
-                    <span class="tooltip">Node.js</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-                      alt="MongoDB" width="80" />
-                    <span class="tooltip">MongoDB</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-                      alt="Next.js" width="80" />
-                    <span class="tooltip">Next.js</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                      alt="JavaScript" width="80" />
-                    <span class="tooltip">JavaScript</span>
-                  </a>
-                </div>
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
-                      alt="Express.js" width="80" />
-                    <span class="tooltip">Express.js</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg"
-                      alt="NestJS" width="80" />
-                    <span class="tooltip">NestJS</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-                      alt="PostgreSQL" width="80" />
-                    <span class="tooltip">PostgreSQL</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                      alt="TypeScript" width="80" />
-                    <span class="tooltip">TypeScript</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"
-                      width="80" />
-                    <span class="tooltip">CSS3</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="SCSS"
-                      width="80" />
-                    <span class="tooltip">SCSS</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item" style="display: flex; align-items: center; justify-content: center;">
-                  <a style="width: 100%; height: 100%; justify-content: center; align-items: center; display: flex;"
-                    href="#0">
-                    <img src="../images/techIcons/OpenAI_logo_2025.svg" alt="OpenAI" width="80" height="80" />
-                    <span class="tooltip">ChatGPT / OpenAI</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microgenetics.svg"
-                      alt="Microservices" width="80" />
-                    <span class="tooltip">Microservices</span>
-                  </a>
-                </div>
-
-                <div class="clients-list__item">
-                  <a href="#0">
-                    <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="Firebase" width="80" />
-                    <span class="tooltip">Firebase</span>
-                  </a>
-                </div>
-              </div>
-              <!-- end clients-list -->
-            </div>
-
-            <!-- end column -->
-          </div>
-          <!-- end row -->
-
-          <!-- for  later part testimonials -->
-          <div class="row s-clients__content-block width-sixteen-col">
-            <div class="column xl-12 testimonials">
-              <div class="swiper-container testimonials__slider home-slider">
-                <div class="swiper-wrapper">
-                  <div class="testimonials__slide swiper-slide">
-                    <p>
-                      “Working with this developer was a game-changer. Our web
-                      app is fast, scalable, and beautifully designed. The
-                      attention to detail and clean code made future
-                      improvements seamless.”
-                    </p>
-                    <div class="testimonials__author">
-                      <img src="images/avatars/user-01.jpg" alt="Client image" class="testimonials__avatar" />
-                      <cite class="testimonials__cite">
-                        <strong class="text-pretitle">Amit Sharma</strong>
-                        <span>Founder, Tech Startup</span>
-                      </cite>
-                    </div>
-                  </div>
-                  <div class="testimonials__slide swiper-slide">
-                    <p>
-                      “Delivered our e-commerce site ahead of schedule with
-                      smooth functionality and a user-friendly interface. The
-                      project management and communication were excellent.”
-                    </p>
-                    <div class="testimonials__author">
-                      <img src="images/avatars/user-02.jpg" alt="Client image" class="testimonials__avatar" />
-                      <cite class="testimonials__cite">
-                        <strong class="text-pretitle">Sophia Patel</strong>
-                        <span>E-Commerce Business Owner</span>
-                      </cite>
-                    </div>
-                  </div>
-                  <div class="testimonials__slide swiper-slide">
-                    <p>
-                      “From UI/UX design to backend integrations, the work
-                      exceeded our expectations. Highly recommended for anyone
-                      looking for a reliable full-stack developer.”
-                    </p>
-                    <div class="testimonials__author">
-                      <img src="images/avatars/user-03.jpg" alt="Client image" class="testimonials__avatar" />
-                      <cite class="testimonials__cite">
-                        <strong class="text-pretitle">David Lee</strong>
-                        <span>Product Manager, SaaS Company</span>
-                      </cite>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="swiper-pagination"></div>
-              </div>
-              <!--end testimonials__slider -->
-            </div>
-            <!-- end column -->
-          </div>
-          <!-- end row -->
         </section>
 
-        <!-- s-content-->
+        <!-- WORK -->
+        <!-- =========================================================
+     SELECTED WORK / PORTFOLIO
+========================================================= -->
+        <section id="work" class="company-section">
+          <div class="row width-sixteen-col">
+            <!-- Section Header -->
+            <div class="company-kicker">03 — Selected Work</div>
 
-        <!-- # cta =============================================== -->
-        <section id="cta" class="s-cta">
-          <div class="row row-x-center text-center">
-            <div class="column xl-8 lg-12">
-              <div class="s-cta__content">
-                <h2 class="text-display-title">
-                  Let’s build something amazing together.
-                </h2>
-                <p class="lead">
-                  Need a modern, fast, and scalable website or web application?
-                  I specialize in building responsive UIs, robust backends, and seamless integrations
-                  using technologies like React, Next.js, Node.js, and MongoDB.
-                  Let’s turn your idea into reality.
+            <h2 class="company-heading">
+              Products built for <span>real use.</span>
+            </h2>
+
+            <p class="company-lead">
+              A selection of digital products, business platforms and
+              customer-facing websites designed and developed by VTECHNO. We
+              focus on solving real business problems through thoughtful design,
+              reliable technology and scalable digital experiences.
+            </p>
+
+            <!-- =====================================================
+         PROJECT GRID
+    ====================================================== -->
+            <div class="work-grid">
+              <!-- =================================================
+           PROJECT 01 — RISHI INFRA
+      ================================================== -->
+              <article class="work-card work-card--rishi">
+                <div
+                  class="work-card-media"
+                  role="img"
+                  aria-label="Rishi Infra Developers property marketplace"
+                ></div>
+
+                <div class="work-card-content">
+                  <div class="work-meta">
+                    <span>Real Estate / Web Platform</span>
+                    <span>01</span>
+                  </div>
+
+                  <h3 class="work-title">Rishi Infra Developers</h3>
+
+                  <p class="work-desc">
+                    A complete property marketplace experience connecting
+                    buyers, sellers and property listings through a modern
+                    digital platform. The system includes property management,
+                    authentication, enquiries and dedicated dashboards.
+                  </p>
+
+                  <div class="work-tags">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>MongoDB</span>
+                    <span>JWT</span>
+                  </div>
+
+                  <div class="work-actions">
+                    <a
+                      class="work-link"
+                      href="/portfolio/project-rishi-infra-developers.html"
+                    >
+                      View Case Study
+                    </a>
+
+                    <a
+                      class="work-link work-link--live"
+                      href="https://rishi-infra.netlify.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Visit Project
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- =================================================
+           PROJECT 02 — AROHAN ENERGIES
+      ================================================== -->
+              <article class="work-card work-card--arohan">
+                <div
+                  class="work-card-media"
+                  role="img"
+                  aria-label="Arohan Energies solar website"
+                ></div>
+
+                <div class="work-card-content">
+                  <div class="work-meta">
+                    <span>Energy / Business Website</span>
+                    <span>02</span>
+                  </div>
+
+                  <h3 class="work-title">Arohan Energies</h3>
+
+                  <p class="work-desc">
+                    A modern solar-energy website designed to communicate
+                    products, services and benefits clearly while helping
+                    customers understand their potential savings through an
+                    interactive solar calculator.
+                  </p>
+
+                  <div class="work-tags">
+                    <span>Vite</span>
+                    <span>JavaScript</span>
+                    <span>UI/UX</span>
+                    <span>Responsive</span>
+                    <span>Calculator</span>
+                  </div>
+
+                  <div class="work-actions">
+                    <a
+                      class="work-link"
+                      href="/portfolio/project-arohan-energies.html"
+                    >
+                      View Case Study
+                    </a>
+
+                    <a
+                      class="work-link work-link--live"
+                      href="https://arohan-energies.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Visit Project
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- =================================================
+           PROJECT 03 — AI DINING
+      ================================================== -->
+              <article class="work-card work-card--dining">
+                <div
+                  class="work-card-media"
+                  role="img"
+                  aria-label="AI Dining restaurant ordering platform"
+                ></div>
+
+                <div class="work-card-content">
+                  <div class="work-meta">
+                    <span>Restaurant / AI Platform</span>
+                    <span>03</span>
+                  </div>
+
+                  <h3 class="work-title">AI Dining</h3>
+
+                  <p class="work-desc">
+                    A smart restaurant ordering platform combining QR-based
+                    ordering, conversational AI, menu management, kitchen
+                    workflows and customer interaction into one connected
+                    digital experience.
+                  </p>
+
+                  <div class="work-tags">
+                    <span>MERN</span>
+                    <span>AI</span>
+                    <span>QR Ordering</span>
+                    <span>Voice</span>
+                    <span>KDS</span>
+                  </div>
+
+                  <div class="work-actions">
+                    <a
+                      class="work-link"
+                      href="/portfolio/project-ai-restaurant.html"
+                    >
+                      View Case Study
+                    </a>
+
+                    <a
+                      class="work-link work-link--live"
+                      href="https://ai-dining.netlify.app/landing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Visit Project
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- =================================================
+           PROJECT 04 — LAUNDRY DELIVERY
+      ================================================== -->
+              <article class="work-card work-card--laundry">
+                <div
+                  class="work-card-media"
+                  role="img"
+                  aria-label="Laundry delivery platform"
+                ></div>
+
+                <div class="work-card-content">
+                  <div class="work-meta">
+                    <span>Consumer / Delivery Platform</span>
+                    <span>04</span>
+                  </div>
+
+                  <h3 class="work-title">Laundry Delivery</h3>
+
+                  <p class="work-desc">
+                    A mobile-first laundry booking and delivery experience
+                    allowing customers to schedule services, manage orders and
+                    track their laundry journey through a simple digital
+                    workflow.
+                  </p>
+
+                  <div class="work-tags">
+                    <span>Next.js</span>
+                    <span>Express</span>
+                    <span>MongoDB</span>
+                    <span>Mobile First</span>
+                    <span>Tracking</span>
+                  </div>
+
+                  <div class="work-actions">
+                    <a
+                      class="work-link"
+                      href="/portfolio/project-laundry-app.html"
+                    >
+                      View Case Study
+                    </a>
+
+                    <a
+                      class="work-link work-link--live"
+                      href="/portfolio.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Visit Project
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!-- END PROJECT GRID -->
+
+            <!-- =====================================================
+         PORTFOLIO FOOTER / CTA
+    ====================================================== -->
+            <div class="work-section-footer">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: row;
+                  gap: 10px;
+                  @media (min-width: 560px) {
+                    flex-direction: column;
+                  }
+                "
+              >
+                <span class="company-kicker"> More Projects </span>
+
+                <h3>
+                  Explore the
+                  <span>portfolio.</span>
+                </h3>
+              </div>
+
+              <a
+                href="/portfolio.html"
+                class="btn btn--stroke work-section-footer__button"
+              >
+                View Projects
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section id="process" class="company-section alt">
+          <div class="row width-sixteen-col">
+            <div class="company-kicker">04 — Process</div>
+            <h2 class="company-heading">
+              Simple process. <span>Serious execution.</span>
+            </h2>
+
+            <div class="process-grid">
+              <article class="process-item">
+                <b>01 / DISCOVER</b>
+                <h3>Understand</h3>
+                <p>
+                  We define the business goal, users, workflows and product
+                  scope before development starts.
                 </p>
+              </article>
+
+              <article class="process-item">
+                <b>02 / DESIGN</b>
+                <h3>Shape</h3>
+                <p>
+                  We turn requirements into a clean user experience, information
+                  structure and visual direction.
+                </p>
+              </article>
+
+              <article class="process-item">
+                <b>03 / BUILD</b>
+                <h3>Develop</h3>
+                <p>
+                  Frontend, backend, database, integrations and deployment are
+                  developed as one connected product.
+                </p>
+              </article>
+
+              <article class="process-item">
+                <b>04 / LAUNCH</b>
+                <h3>Improve</h3>
+                <p>
+                  After launch, the product can evolve with new features,
+                  analytics, integrations and improvements.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- TECHNOLOGY -->
+        <section id="technology" class="company-section">
+          <div class="row width-sixteen-col">
+            <div class="company-kicker">05 — Technology</div>
+            <h2 class="company-heading">
+              Modern stack. <span>Practical choices.</span>
+            </h2>
+            <p class="company-lead">
+              We choose technologies according to the product requirements,
+              scalability needs and long-term maintainability.
+            </p>
+
+            <div class="tech-marquee">
+              <div class="tech-track">
+                <div class="tech-list">
+                  <span class="tech-pill">HTML</span>
+                  <span class="tech-pill">CSS</span>
+                  <span class="tech-pill">React</span>
+                  <span class="tech-pill">Next.js</span>
+                  <span class="tech-pill">Node.js</span>
+                  <span class="tech-pill">Express.js</span>
+                  <span class="tech-pill">NestJS</span>
+                  <span class="tech-pill">TypeScript</span>
+                  <span class="tech-pill">JavaScript</span>
+                  <span class="tech-pill">MongoDB</span>
+                  <span class="tech-pill">PostgreSQL</span>
+                  <span class="tech-pill">Prisma</span>
+                  <span class="tech-pill">Docker</span>
+                  <span class="tech-pill">AWS</span>
+                  <span class="tech-pill">Firebase</span>
+                  <span class="tech-pill">OpenAI</span>
+                  <span class="tech-pill">REST APIs</span>
+                  <span class="tech-pill">Microservices</span>
+                </div>
+
+                <div class="tech-list">
+                  <span class="tech-pill">HTML</span>
+                  <span class="tech-pill">CSS</span>
+                  <span class="tech-pill">React</span>
+                  <span class="tech-pill">Next.js</span>
+                  <span class="tech-pill">Node.js</span>
+                  <span class="tech-pill">Express.js</span>
+                  <span class="tech-pill">NestJS</span>
+                  <span class="tech-pill">TypeScript</span>
+                  <span class="tech-pill">JavaScript</span>
+                  <span class="tech-pill">MongoDB</span>
+                  <span class="tech-pill">PostgreSQL</span>
+                  <span class="tech-pill">Prisma</span>
+                  <span class="tech-pill">Docker</span>
+                  <span class="tech-pill">AWS</span>
+                  <span class="tech-pill">Firebase</span>
+                  <span class="tech-pill">OpenAI</span>
+                  <span class="tech-pill">REST APIs</span>
+                  <span class="tech-pill">Microservices</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CLIENT FEEDBACK -->
+        <section class="company-section alt">
+          <div class="row width-sixteen-col">
+            <div class="company-kicker">06 — Client Feedback</div>
+
+            <h2 class="company-heading">
+              Built to be useful. <span>Made to last.</span>
+            </h2>
+
+            <div class="reviews-marquee">
+              <div class="reviews-track">
+                <!-- SET 1 -->
+                <div class="reviews-group">
+                  <article class="quote-card">
+                    <blockquote>
+                      “Our real estate website looks professional and makes it
+                      much easier for customers to explore properties and send
+                      enquiries.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img
+                        src="/images/avatars/user-01.jpg"
+                        alt="Rishi Infra Developers"
+                      />
+                      <div>
+                        <strong>Rishi Infra Developers</strong>
+                        <span>Real Estate</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="quote-card">
+                    <blockquote>
+                      “The solar savings calculator is a great addition, helping
+                      customers understand the benefits before contacting us.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img
+                        src="/images/avatars/user-02.jpg"
+                        alt="Arohan Energies"
+                      />
+                      <div>
+                        <strong>Arohan Energies</strong>
+                        <span>Solar Energy</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="quote-card">
+                    <blockquote>
+                      “The final design is clean, attractive and easy for
+                      customers to navigate. Every detail was handled
+                      carefully.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img
+                        src="/images/avatars/user-03.jpg"
+                        alt="Shree Balaji"
+                      />
+                      <div>
+                        <strong>Shree Balaji</strong>
+                        <span>Business Website</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="quote-card">
+                    <blockquote>
+                      “The website gave our business a much more professional
+                      online presence. It is fast, modern and easy to use.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img
+                        src="/images/avatars/user-04.jpg"
+                        alt="Digital Business"
+                      />
+                      <div>
+                        <strong>Digital Business</strong>
+                        <span>Business Solutions</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="quote-card">
+                    <blockquote>
+                      “Communication was smooth throughout the project and the
+                      final result was exactly what we needed for our
+                      customers.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img
+                        src="/images/avatars/user-05.jpg"
+                        alt="Local Business"
+                      />
+                      <div>
+                        <strong>Local Business</strong>
+                        <span>Business Owner</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="quote-card">
+                    <blockquote>
+                      “A clean design, responsive experience and excellent
+                      attention to detail. The website feels premium on every
+                      device.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img
+                        src="/images/avatars/user-06.jpg"
+                        alt="Startup Client"
+                      />
+                      <div>
+                        <strong>Startup Client</strong>
+                        <span>Technology</span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- DUPLICATE SET FOR SEAMLESS MARQUEE -->
+                <div class="reviews-group" aria-hidden="true">
+                  <article class="quote-card">
+                    <blockquote>
+                      “Our real estate website looks professional and makes it
+                      much easier for customers to explore properties and send
+                      enquiries.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img src="/images/avatars/user-01.jpg" alt="" />
+                      <div>
+                        <strong>Rishi Infra Developers</strong>
+                        <span>Real Estate</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="quote-card">
+                    <blockquote>
+                      “The solar savings calculator is a great addition, helping
+                      customers understand the benefits before contacting us.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img src="/images/avatars/user-02.jpg" alt="" />
+                      <div>
+                        <strong>Arohan Energies</strong>
+                        <span>Solar Energy</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="quote-card">
+                    <blockquote>
+                      “The final design is clean, attractive and easy for
+                      customers to navigate. Every detail was handled
+                      carefully.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img src="/images/avatars/user-03.jpg" alt="" />
+                      <div>
+                        <strong>Shree Balaji</strong>
+                        <span>Business Website</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="quote-card">
+                    <blockquote>
+                      “The website gave our business a much more professional
+                      online presence. It is fast, modern and easy to use.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img src="/images/avatars/user-04.jpg" alt="" />
+                      <div>
+                        <strong>Digital Business</strong>
+                        <span>Business Solutions</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="quote-card">
+                    <blockquote>
+                      “Communication was smooth throughout the project and the
+                      final result was exactly what we needed for our
+                      customers.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img src="/images/avatars/user-05.jpg" alt="" />
+                      <div>
+                        <strong>Local Business</strong>
+                        <span>Business Owner</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="quote-card">
+                    <blockquote>
+                      “A clean design, responsive experience and excellent
+                      attention to detail. The website feels premium on every
+                      device.”
+                    </blockquote>
+
+                    <div class="quote-author">
+                      <img src="/images/avatars/user-06.jpg" alt="" />
+                      <div>
+                        <strong>Startup Client</strong>
+                        <span>Technology</span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="contact" class="company-cta">
+          <div class="row width-sixteen-col cta-layout">
+            <div class="company-kicker">07 — Start a Project</div>
+
+            <div class="cta-content">
+              <h2 class="cta-title">
+                Have an idea?<br />
+                <span>Let's build it.</span>
+              </h2>
+
+              <p class="cta-copy">
+                Tell us what you are trying to build, what problem you want to
+                solve and where you want to take it. We can turn the idea into a
+                clear development plan.
+              </p>
+              <div class="cta-action">
                 <a href="/contact.html" class="btn btn--primary">
-                  Start Your Project
+                  Start Your Project ↗
                 </a>
               </div>
             </div>
           </div>
         </section>
+      </main>
 
-        <!-- end s-cta -->
+      <!-- FOOTER -->
+      <footer class="company-footer">
+        <div class="row width-sixteen-col">
+          <div class="footer-grid">
+            <div>
+              <div class="footer-brand">VTECH<span>NO</span></div>
+              <p class="footer-copy">
+                Digital products and software solutions for businesses that want
+                to build, improve or automate their digital operations.
+              </p>
+            </div>
 
-        <!-- # journal =============================================== -->
-        <section id="journal" class="s-journal">
-          <div class="row s-journal__content width-sixteen-col">
-            <div class="column xl-12 grid-block">
-              <div class="grid-full section-header text-center">
-                <div class="text-pretitle">Recent Articles</div>
-                <h2 class="text-display-title">Latest insights from my dev blog.</h2>
-              </div>
+            <div class="footer-col">
+              <h4>Navigate</h4>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="/services.html">Services</a></li>
+              <li><a href="/blog.html">Blog</a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+            </div>
 
-
-              <div class="grid-full s-journal__content-main grid-list-items">
-
-                <div class="grid-list-items__item blog-card">
-                  <div class="blog-card__header">
-                    <div class="blog-card__cat-links">
-                      <a href="blog-nestjs.html">Backend</a>
-                    </div>
-                    <h3 class="blog-card__title">
-                      <a href="blog-nestjs.html">Building Scalable APIs with NestJS</a>
-                    </h3>
-                  </div>
-                  <div class="blog-card__text">
-                    <p>
-                      Learn how NestJS leverages TypeScript and modular architecture to
-                      create maintainable and scalable backend applications. A practical
-                      guide to controllers, services, and dependency injection.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="grid-list-items__item blog-card">
-                  <div class="blog-card__header">
-                    <div class="blog-card__cat-links">
-                      <a href="blog-postgres.html">Database</a>
-                    </div>
-                    <h3 class="blog-card__title">
-                      <a href="blog-postgres.html">Mastering PostgreSQL for Modern Apps</a>
-                    </h3>
-                  </div>
-                  <div class="blog-card__text">
-                    <p>
-                      PostgreSQL is one of the most powerful relational databases. This
-                      article explores schema design, indexing strategies, and query
-                      optimization to boost performance in production.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="grid-list-items__item blog-card">
-                  <div class="blog-card__header">
-                    <div class="blog-card__cat-links">
-                      <a href="blog-firebase.html">Cloud</a>
-                    </div>
-                    <h3 class="blog-card__title">
-                      <a href="blog-firebase.html">Firebase for Full-Stack Developers</a>
-                    </h3>
-                  </div>
-                  <div class="blog-card__text">
-                    <p>
-                      From authentication to real-time databases and hosting,
-                      Firebase offers everything you need to speed up development. Learn
-                      how to integrate it with TypeScript and React apps.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="grid-list-items__item blog-card">
-                  <div class="blog-card__header">
-                    <div class="blog-card__cat-links">
-                      <a href="blog-ai.html">AI</a>
-                    </div>
-                    <h3 class="blog-card__title">
-                      <a href="blog-ai.html">Integrating ChatGPT into Web Apps</a>
-                    </h3>
-                  </div>
-                  <div class="blog-card__text">
-                    <p>
-                      Explore how to integrate OpenAI’s ChatGPT API into your apps for
-                      conversational experiences. Covers prompts, context management,
-                      and secure backend setup with Node.js.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="grid-list-items__item blog-card">
-                  <div class="blog-card__header">
-                    <div class="blog-card__cat-links">
-                      <a href="blog-microservices.html">Architecture</a>
-                    </div>
-                    <h3 class="blog-card__title">
-                      <a href="blog-microservices.html">Microservices Best Practices</a>
-                    </h3>
-                  </div>
-                  <div class="blog-card__text">
-                    <p>
-                      A practical guide to designing microservices with NestJS, Docker,
-                      and RabbitMQ/Kafka. Learn about inter-service communication,
-                      scaling, and fault tolerance.
-                    </p>
-                  </div>
-                </div>
-                <div class="grid-list-items__item blog-card">
-                  <div class="blog-card__header">
-                    <div class="blog-card__cat-links">
-                      <a href="blog-css.html">Frontend</a>
-                    </div>
-                    <h3 class="blog-card__title">
-                      <a href="blog-css.html">Modern Styling with CSS3 & SCSS</a>
-                    </h3>
-                  </div>
-                  <div class="blog-card__text">
-                    <p>
-                      Take your UI to the next level with advanced CSS3 features and
-                      SCSS. Learn variables, mixins, nesting, and how to structure
-                      scalable stylesheets for large projects.
-                    </p>
-                  </div>
-                </div>
-                <div class="grid-list-items__item blog-card">
-                  <div class="blog-card__header">
-                    <div class="blog-card__cat-links">
-                      <a href="blog-ts.html">Programming</a>
-                    </div>
-                    <h3 class="blog-card__title">
-                      <a href="blog-ts.html">Why TypeScript is a Game Changer</a>
-                    </h3>
-                  </div>
-                  <div class="blog-card__text">
-                    <p>
-                      From type safety to better tooling, TypeScript enhances the
-                      development workflow. This post dives into advanced typing,
-                      generics, and integrating TypeScript with React and Node.js.
-                    </p>
-                  </div>
-                </div>
-
-              </div>
+            <div class="footer-col">
+              <h4>Start Here</h4>
+              <a href="/contact.html">Contact Us</a>
+              <a href="/portfolio.html">Portfolio</a>
+              <a href="mailto:hello@vtechno.in">Email</a>
             </div>
           </div>
-        </section>
 
-        <section id="journal" style="color: black;" class="s-journal preview-section">
-          <div class="row s-journal__content width-sixteen-col">
-            <div class="column xl-12 grid-block">
-              <div class="grid-full section-header text-center">
-                <div class="text-pretitle">Recent Articles</div>
-                <h2 class="text-display-title">Latest insights from my dev blog.</h2>
-              </div>
-
-              <div class="grid-full s-journal__content-main grid-list-items">
-
-                <!-- Article 1 -->
-                <div class="grid-list-items__item blog-card">
-                  <div class="blog-card__header">
-                    <div class="blog-card__cat-links">
-                      <a href="blog-nestjs.html">Backend</a>
-                    </div>
-                    <h3 class="blog-card__title">
-                      <a href="blog-nestjs.html">Building Scalable APIs with NestJS</a>
-                    </h3>
-                  </div>
-                  <div class="blog-card__text">
-                    <p>
-                      Learn how NestJS leverages TypeScript and modular architecture to create
-                      maintainable and scalable backend applications.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Article 2 -->
-                <div class="grid-list-items__item blog-card">
-                  <div class="blog-card__header">
-                    <div class="blog-card__cat-links">
-                      <a href="blog-postgres.html">Database</a>
-                    </div>
-                    <h3 class="blog-card__title">
-                      <a href="blog-postgres.html">Mastering PostgreSQL for Modern Apps</a>
-                    </h3>
-                  </div>
-                  <div class="blog-card__text">
-                    <p>
-                      PostgreSQL is one of the most powerful relational databases. Learn schema design, indexing
-                      strategies,
-                      and query optimization.
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Hover button -->
-              <div class="view-all-btn">
-                <a href="blog.html" class="btn btn--primary btn--small">View All Blogs</a>
-              </div>
-
-            </div>
-          </div>
-        </section>
-      </section>
-    </main>
-    <!-- end s-journal -->
-
-    <!-- # footer  =============================================== -->
-    <footer class="s-footer">
-      <div class="row s-footer__content">
-
-        <!-- About -->
-        <div class="column xl-6 lg-6 md-12 s-footer__block s-footer__about">
-          <h3>About Me</h3>
-          <p>
-            I am a passionate full-stack web developer specializing in modern technologies like NestJS, PostgreSQL,
-            Firebase, TypeScript, CSS3/SCSS, and microservices architecture. I build scalable, maintainable, and
-            performant web applications. My passion is turning ideas into modern, responsive digital experiences that
-            deliver real value to clients.
-          </p>
-        </div>
-
-        <!-- Site Links -->
-        <div class="column xl-3 lg-6 md-12 s-footer__block s-footer__site-links">
-          <h3>Site Links</h3>
-          <ul class="link-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-          </ul>
-        </div>
-
-        <!-- Newsletter -->
-        <div class="column xl-3 lg-6 md-12 tab-12 s-footer__block s-footer__newsletter">
-          <h3>Newsletter</h3>
-          <p>Subscribe to get the latest web development tips, tutorials, and updates straight to your inbox.</p>
-          <div class="subscribe-form">
-            <form id="mc-form" class="mc-form">
-              <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
-                placeholder="Your Email Address" required />
-              <input type="submit" name="subscribe" value="Subscribe" class="btn btn--primary btn--small u-fullwidth" />
-              <div class="mc-status"></div>
-            </form>
+          <div class="footer-bottom">
+            <span>© 2026 VTECHNO. All rights reserved.</span>
+            <span>Digital Products & Software Solutions</span>
           </div>
         </div>
+      </footer>
+    </div>
 
-      </div>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
 
-      <!-- Social & Copyright -->
-      <div class="row s-footer__bottom">
-        <div class="column xl-6 lg-12">
-          <ul class="s-footer__social social-list">
-            <li><a href="https://github.com/viveklodhi2121/" target="_blank">GitHub</a></li>
-            <li><a href="https://linkedin.com/in/vivek-lodhi-201273168/" target="_blank">LinkedIn</a></li>
-          </ul>
-          <!-- <div class="column xl-6 lg-12"> -->
-          <p class="ss-copyright">
-            <span>© Copyright 2025 vtechno</span>
-          </p>
-          <!-- </div> -->
-        </div>
+    <script>
+      // Small 3D interaction for portfolio cards.
+      // It is intentionally subtle so the cards remain professional.
+      document.querySelectorAll(".work-card").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          if (window.innerWidth < 900) return;
 
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width;
+          const y = (e.clientY - rect.top) / rect.height;
 
-        <!-- Back to top -->
-        <div class="ss-go-top">
-          <a class="smoothscroll" title="Back to Top" href="#top">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none"
-              stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="17 11 12 6 7 11"></polyline>
-              <line x1="12" y1="18" x2="12" y2="6"></line>
-            </svg>
-          </a>
-        </div>
+          const rotateY = (x - 0.5) * 5;
+          const rotateX = (0.5 - y) * 4;
 
-      </div>
-    </footer>
+          card.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
 
-    <!-- end s-footer -->
-  </div>
-  <!-- end page-wrap -->
-
-  <!-- Java Script ================================================ -->
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-</body>
-
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "";
+        });
+      });
+    </script>
+  </body>
 </html>

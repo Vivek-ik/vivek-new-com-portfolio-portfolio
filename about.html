@@ -25,7 +25,59 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="manifest" href="site.webmanifest" />
 </head>
+<style>
+    :root {
+        --brand: #97b34a;
+        --brand-dark: #718a31;
+        --ink: #111;
+        --muted: #686868;
+        --surface: #f4f3ef;
+        --card: #fff;
+        --line: rgba(17, 17, 17, 0.12);
+      }
+     /* header brand without changing your existing header CSS */
+      .company-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 900;
+        letter-spacing: -0.05em;
+        font-size: 2.1rem;
+        color: #111;
+        transition: color 0.3s ease;
+      }
 
+      .company-logo span {
+        color: var(--brand);
+        transition: color 0.3s ease;
+      }
+
+      .company-logo small {
+        display: block;
+        font-size: 8px;
+        letter-spacing: 0.2em;
+        font-weight: 700;
+        color: #777;
+        margin-top: 2px;
+        transition: color 0.3s ease;
+      }
+
+      /* =========================================
+   MOBILE MENU OPEN STATE
+========================================= */
+
+      .menu-is-open .company-logo {
+        color: var(--brand);
+      }
+
+      .menu-is-open .company-logo span {
+        color: var(--brand);
+      }
+
+      .menu-is-open .company-logo small {
+        color: var(--brand);
+      }
+</style>
 <body id="top">
   <!-- preloader
     ================================================== -->
@@ -45,11 +97,16 @@
     <header class="s-header">
       <div class="row s-header__inner width-sixteen-col">
         <div class="s-header__block">
-          <div class="s-header__logo">
-            <a class="logo" href="/index.html">
-              <img src="/images/logo.jpg" alt="Homepage" />
-            </a>
-          </div>
+         <div class="s-header__logo">
+              <a
+                class="logo company-logo"
+                href="/index.html"
+                aria-label="VTECHNO Home"
+              >
+                VTECH<span>NO</span>
+                <small>DIGITAL SOLUTIONS</small>
+              </a>
+            </div>
           <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
         </div>
 

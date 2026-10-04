@@ -118,32 +118,32 @@
    * color-2(#343D35)
    * color-3(#FEF5E4)
    */
-  --color-1: hsla(35, 87%, 49%, 1);
-  --color-text-accent: hsl(35, 80%, 30%);
-  --color-2: hsla(127, 8%, 22%, 1);
-  --color-3: hsla(39, 93%, 95%, 1);
+  --color-1: #ff6b2c;
+  --color-text-accent: #b83f12;
+  --color-2: #171717;
+  --color-3: #f7f3ee;
 
-  --color-text-primary: #333;
-  --color-text-secondary: #555;
+  --color-text-primary: #171717;
+  --color-text-secondary: #5d5d5d;
 
   /* theme color variations
    */
-  --color-1-lightest: hsla(35, 87%, 96%, 1);
-  --color-1-lighter: hsla(35, 87%, 69%, 1);
-  --color-1-light: hsla(35, 87%, 59%, 1);
-  --color-1-dark: hsla(35, 87%, 39%, 1);
-  --color-1-darker: hsla(35, 87%, 29%, 1);
-  --color-1-darkest: hsla(35, 87%, 10%, 1);
+  --color-1-lightest: #fff1ea;
+  --color-1-lighter: #ffb08d;
+  --color-1-light: #ff8e5e;
+  --color-1-dark: #d94f18;
+  --color-1-darker: #b83f12;
+  --color-1-darkest: #321207;
 
-  --color-2-lightest: hsla(127, 8%, 55%, 1);
-  --color-2-lighter: hsla(127, 8%, 42%, 1);
-  --color-2-light: hsla(127, 8%, 32%, 1);
-  --color-2-dark: hsla(127, 8%, 14%, 1);
-  --color-2-darker: hsla(127, 8%, 2%, 1);
+  --color-2-lightest: #777777;
+  --color-2-lighter: #555555;
+  --color-2-light: #363636;
+  --color-2-dark: #101010;
+  --color-2-darker: #050505;
 
-  --color-3-light: hsla(39, 93%, 100%, 1);
-  --color-3-dark: hsla(39, 93%, 85%, 1);
-  --color-3-darker: hsla(39, 93%, 75%, 1);
+  --color-3-light: #ffffff;
+  --color-3-dark: #eee5dc;
+  --color-3-darker: #ded0c2;
 
   /* feedback colors
    * color-error(#ffd1d2), color-success(#c8e675), 
@@ -161,7 +161,7 @@
   /* shades 
    * generated using 
    * Tint & Shade Generator 
-   * (https                     ://maketintsandshades.com/)
+   * (https://maketintsandshades.com/)
    */
   --color-black: #000000;
   --color-gray-19: #121212;
@@ -194,9 +194,9 @@
 
   /* link
    */
-  --color-link: var(--color-1);
-  --color-link-hover: var(--color-2-lighter);
-  --color-link-active: var(--color-2-lighter);
+  --color-link: #ff6b2c;
+  --color-link-hover: #d94f18;
+  --color-link-active: #d94f18;
 
   /* buttons
    */
@@ -204,10 +204,10 @@
   --color-btn-text: var(--color-text);
   --color-btn-hover: var(--color-gray-5);
   --color-btn-hover-text: var(--color-text);
-  --color-btn-primary: var(--color-1);
-  --color-btn-primary-text: var(--color-2-dark);
-  --color-btn-primary-hover: var(--color-1-light);
-  --color-btn-primary-hover-text: var(--color-2-dark);
+  --color-btn-primary: #ff6b2c;
+  --color-btn-primary-text: #101010;
+  --color-btn-primary-hover: #ff8e5e;
+  --color-btn-primary-hover-text: #101010;
   --color-btn-stroke: var(--color-text-dark);
   --color-btn-stroke-text: var(--color-text-dark);
   --color-btn-stroke-hover: var(--color-text-dark);
@@ -215,13 +215,13 @@
 
   /* preloader
    */
-  --color-preloader-bg: var(--color-2-dark);
+  --color-preloader-bg: #101010;
   --color-loader: var(--color-white);
   --color-loader-light: var(--color-2-light);
 
   /* others
    */
-  --color-body: white;
+  --color-body: #f8f7f4;
   --color-border: rgba(0, 0, 0, 0.1);
   --border-radius: 5px;
 }
@@ -3124,6 +3124,7 @@ td:last-child {
   flex-direction: column;
   justify-content: space-around;
   margin-bottom: var(--vspace-0_5);
+  padding: 8px;
 }
 
 /* ------------------------------------------------------------------- 
@@ -3288,7 +3289,8 @@ td:last-child {
 }
 
 .s-header__menu-links .current a {
-  color: var(--color-3);
+  color: var(--color-1);
+  border-bottom: 2px solid var(--color-1);
 }
 
 /* header contact button
@@ -3301,6 +3303,7 @@ td:last-child {
  * ## mobile menu toggle
  * -------------------------------------------------------------------- */
 .s-header__menu-toggle {
+  background: #ff6b2c;
   --toggle-block-width: 44px;
   --toggle-line-width: 28px;
   --toggle-line-height: 1px;
@@ -3399,6 +3402,77 @@ td:last-child {
     left: calc(var(--gutter) * 2 + 1.5%);
     top: 50%;
     transform: translate(0, -50%);
+  }
+
+  /* =========================================================
+   VTECHNO HEADER LOGO
+========================================================= */
+
+  .company-logo {
+    display: block !important;
+    position: relative;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    width: max-content;
+
+    font-family: var(--font-1);
+    font-size: 2.1rem;
+    font-weight: 900;
+    line-height: 0.9;
+
+    letter-spacing: -0.05em;
+
+    color: #111 !important;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+  }
+
+  /* VTECHNO orange "NO" */
+  .company-logo span {
+    color: var(--color-1) !important;
+    transition: color 0.3s ease;
+  }
+
+  /* DIGITAL SOLUTIONS */
+  .company-logo small {
+    display: block;
+
+    margin-top: 6px !important;
+
+    font-family: var(--font-1);
+
+    font-size: 7px !important;
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: 0.22em;
+
+    color: #777 !important;
+
+    white-space: nowrap;
+
+    transition: color 0.3s ease;
+  }
+
+  /* =========================================================
+   MOBILE MENU OPEN
+========================================================= */
+
+  .menu-is-open .company-logo {
+    color: var(--color-1) !important;
+  }
+
+  .menu-is-open .company-logo span {
+    color: var(--color-1) !important;
+  }
+
+  .menu-is-open .company-logo small {
+    color: var(--color-1) !important;
   }
 
   .s-header__nav {
@@ -3513,7 +3587,7 @@ td:last-child {
 .s-pageheader {
   padding-top: var(--vspace-6);
   padding-bottom: var(--vspace-3);
-  background-color: var(--color-2-dark);
+  /* background-color: var(--color-2-dark); */
   text-align: center;
 }
 
@@ -3521,7 +3595,7 @@ td:last-child {
   margin-top: 0;
   font-size: clamp(5.2rem, 10vw, var(--text-huge-1));
   line-height: 1.0465;
-  color: var(--color-3);
+  /* color: var(--color-3); */
 }
 
 .s-pageheader .page-title__small-type {
@@ -4196,10 +4270,10 @@ td:last-child {
  *
  * ------------------------------------------------------------------- */
 .s-journal {
-  padding-top: var(--vspace-6);
+  /* padding-top: var(--vspace-6); */
   padding-bottom: var(--vspace-3);
   background-color: #181818;
-  color: rgba(255, 255, 255, 0.6);
+  /* color: rgba(255, 255, 255, 0.6); */
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -4231,7 +4305,7 @@ td:last-child {
 
 .s-journal .text-display-title,
 .s-journal h3 {
-  color: var(--color-3);
+  /* color: var(--color-3); */
 }
 
 .s-journal .text-pretitle,
@@ -4743,4 +4817,193 @@ td:last-child {
 
 .contact-list li {
   padding-left: 0;
+}
+
+/* ================================================================
+   VTECHNO COMPANY THEME
+   Premium charcoal + warm orange
+   ================================================================ */
+:root {
+  --vtechno-orange: #ff6b2c;
+  --vtechno-orange-light: #ff8e5e;
+  --vtechno-orange-dark: #c74716;
+  --vtechno-black: #0d0d0d;
+  --vtechno-cream: #f8f7f4;
+  --vtechno-line: rgba(13, 13, 13, 0.12);
+}
+body {
+  background: var(--vtechno-cream);
+  color: #262626;
+}
+.s-pagewrap {
+  background: var(--vtechno-cream);
+}
+.s-header {
+  background: rgba(248, 247, 244, 0.92);
+  border-bottom: 1px solid rgba(13, 13, 13, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.s-header__menu-links a {
+  color: #171717;
+  font-weight: 600;
+}
+.s-header__menu-links a:hover {
+  color: var(--vtechno-orange);
+}
+.s-header__contact-btn,
+.btn--primary {
+  background: var(--vtechno-orange);
+  color: #111 !important;
+  border-color: var(--vtechno-orange);
+  font-weight: 700;
+}
+.s-header__contact-btn:hover,
+.btn--primary:hover {
+  background: var(--vtechno-orange-light);
+  border-color: var(--vtechno-orange-light);
+  color: #111 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 107, 44, 0.22);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-display-title {
+  color: #111;
+}
+.text-pretitle {
+  color: var(--vtechno-orange-dark);
+  font-weight: 700;
+}
+a {
+  color: var(--vtechno-orange-dark);
+}
+a:hover,
+a:focus {
+  color: var(--vtechno-orange);
+}
+.s-about,
+.s-expertise,
+.s-clients,
+.s-journal {
+  background: var(--vtechno-cream);
+}
+.s-cta {
+  background:
+    radial-gradient(
+      circle at 82% 15%,
+      rgba(255, 107, 44, 0.18),
+      transparent 28%
+    ),
+    #111;
+  color: #fff;
+}
+.s-cta .text-display-title,
+.s-cta h2 {
+  color: #fff;
+}
+.s-cta .lead {
+  color: rgba(255, 255, 255, 0.68);
+}
+.blog-card,
+.list-items__item,
+.testimonials__slide {
+  border-color: var(--vtechno-line);
+}
+.blog-card:hover,
+.testimonials__slide:hover {
+  border-color: rgba(255, 107, 44, 0.38);
+  border-radius: 14px;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.1);
+}
+.btn--stroke {
+  border-color: #171717;
+  color: #171717;
+}
+.btn--stroke:hover {
+  background: #171717;
+  color: #fff;
+  border-color: #171717;
+}
+.clients-list__item {
+  border-radius: 14px;
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.clients-list__item:hover {
+  background: #fff;
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.09);
+}
+.testimonials__slide {
+  border-left: 3px solid transparent;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+    padding: 8px;
+}
+
+.testimonials__slide:hover {
+  border-left-color: var(--vtechno-orange);
+  transform: translateY(-5px);
+}
+.s-footer {
+  background: #101010;
+  color: rgba(255, 255, 255, 0.68);
+}
+.s-footer h3,
+.s-footer__about h3 {
+  color: #fff;
+}
+.s-footer a {
+  color: rgba(255, 255, 255, 0.65);
+}
+.s-footer a:hover {
+  color: var(--vtechno-orange);
+}
+.s-footer__bottom {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+.s-footer .ss-copyright {
+  color: rgba(255, 255, 255, 0.45);
+}
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  background: #fff;
+  border: 1px solid rgba(13, 13, 13, 0.1);
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--vtechno-orange) !important;
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.12) !important;
+}
+::selection {
+  background: var(--vtechno-orange);
+  color: #111;
+}
+@media screen and (max-width: 800px) {
+  .s-header__nav {
+    background: #111;
+  }
+  .s-header__menu-links a {
+    color: #fff;
+  }
+  .s-header__menu-links a:hover {
+    color: var(--vtechno-orange);
+  }
 }
